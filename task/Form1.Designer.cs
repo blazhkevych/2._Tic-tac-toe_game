@@ -41,6 +41,7 @@
             // 
             // button1
             // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Location = new System.Drawing.Point(12, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 100);
@@ -50,6 +51,7 @@
             // 
             // button2
             // 
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.Location = new System.Drawing.Point(111, 12);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 100);
@@ -59,6 +61,7 @@
             // 
             // button3
             // 
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3.Location = new System.Drawing.Point(210, 12);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(100, 100);
@@ -68,6 +71,7 @@
             // 
             // button4
             // 
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button4.Location = new System.Drawing.Point(210, 111);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(100, 100);
@@ -77,6 +81,7 @@
             // 
             // button5
             // 
+            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button5.Location = new System.Drawing.Point(111, 111);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(100, 100);
@@ -86,6 +91,7 @@
             // 
             // button6
             // 
+            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button6.Location = new System.Drawing.Point(12, 111);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(100, 100);
@@ -95,6 +101,7 @@
             // 
             // button7
             // 
+            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button7.Location = new System.Drawing.Point(210, 210);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(100, 100);
@@ -104,6 +111,7 @@
             // 
             // button8
             // 
+            this.button8.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button8.Location = new System.Drawing.Point(111, 210);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(100, 100);
@@ -113,6 +121,7 @@
             // 
             // button9
             // 
+            this.button9.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button9.Location = new System.Drawing.Point(12, 210);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(100, 100);
