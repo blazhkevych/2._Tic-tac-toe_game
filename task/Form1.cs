@@ -2,6 +2,17 @@ using System.Diagnostics;
 
 namespace task
 {
+    public class Tic_tac_toe_game
+    {
+        char [,] arr  = new char [,]
+        {
+            { ' ', ' ', ' '}, 
+            { ' ', ' ', ' '}, 
+            { ' ', ' ', ' '}
+        };
+        
+    }
+
     public partial class Form1 : Form
     {
         /// <summary>
@@ -21,14 +32,26 @@ namespace task
             InitializeComponent();
         }
 
+
         private void buttons_Click(object sender, EventArgs e)
         {
-            if (button1.Image == null)
+            //2,07,20.
+            if (button1.Image != null && button2.Image != null && button3.Image != null &&
+                button4.Image != null && button5.Image != null && button6.Image != null &&
+                button7.Image != null && button8.Image != null && button9.Image != null)
+            {
+               return;
+            }
+            else 
             {
                 button1.Image = Properties.Resources.cross;
+
             }
+            
+          
         }
 
+        // Обработчик события нажатия на ссылку "Правила игры в «Крестики-нолики»."
         private void RulesOfTheGame_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             // Запуск браузера с заданным адресом.
@@ -38,6 +61,7 @@ namespace task
             Process.Start(procInfo);
         }
 
+        // Обработчик события нажатия на кнопку "Начать новую игру".
         private void StartNewGame_button10_Click(object sender, EventArgs e)
         {
             DialogResult playMore;
