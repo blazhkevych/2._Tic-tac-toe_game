@@ -134,6 +134,7 @@
             // 
             this.RulesOfTheGame.AutoSize = true;
             this.RulesOfTheGame.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RulesOfTheGame.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.RulesOfTheGame.Location = new System.Drawing.Point(49, 383);
             this.RulesOfTheGame.Name = "RulesOfTheGame";
             this.RulesOfTheGame.Size = new System.Drawing.Size(210, 15);
