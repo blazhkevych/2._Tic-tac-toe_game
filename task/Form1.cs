@@ -18,5 +18,10 @@ namespace task
         {
             InitializeComponent();
         }
+
+        private void buttons_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
