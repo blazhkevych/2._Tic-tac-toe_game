@@ -151,6 +151,7 @@
             this.RulesOfTheGame.TabStop = true;
             this.RulesOfTheGame.Text = "Правила игры в «Крестики-нолики».";
             this.RulesOfTheGame.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.RulesOfTheGame.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.RulesOfTheGame_LinkClicked);
             // 
             // Form1
             // 
