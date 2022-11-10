@@ -25,8 +25,7 @@ namespace task
         {
             if (button1.Image == null)
             {
-                button1.Image = Image.FromFile("C:\\Users\\blazh\\source\\repos\\2._Tic-tac-toe_game\\task\\Resources\\cross.bmp");
-
+                button1.Image = Properties.Resources.cross;
             }
         }
 
