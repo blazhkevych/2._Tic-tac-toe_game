@@ -38,6 +38,7 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.RulesOfTheGame = new System.Windows.Forms.LinkLabel();
+            this.StartNewGame_button10 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -153,11 +154,22 @@
             this.RulesOfTheGame.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.RulesOfTheGame.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.RulesOfTheGame_LinkClicked);
             // 
+            // StartNewGame_button10
+            // 
+            this.StartNewGame_button10.Location = new System.Drawing.Point(90, 399);
+            this.StartNewGame_button10.Name = "StartNewGame_button10";
+            this.StartNewGame_button10.Size = new System.Drawing.Size(141, 39);
+            this.StartNewGame_button10.TabIndex = 10;
+            this.StartNewGame_button10.Text = "Начать новую игру";
+            this.StartNewGame_button10.UseVisualStyleBackColor = true;
+            this.StartNewGame_button10.Click += new System.EventHandler(this.StartNewGame_button10_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(323, 450);
+            this.Controls.Add(this.StartNewGame_button10);
             this.Controls.Add(this.RulesOfTheGame);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button8);
@@ -189,5 +201,6 @@
         private Button button8;
         private Button button7;
         private LinkLabel RulesOfTheGame;
+        private Button StartNewGame_button10;
     }
 }
