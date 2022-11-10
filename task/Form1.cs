@@ -23,17 +23,11 @@ namespace task
 
         private void buttons_Click(object sender, EventArgs e)
         {
-            DialogResult playMore;
-            do
+            if (button1.Image == null)
             {
+                button1.Image = Image.FromFile("C:\\Users\\blazh\\source\\repos\\2._Tic-tac-toe_game\\task\\Resources\\cross.bmp");
 
-
-                playMore = MessageBox.Show(
-                    "’отите сыграть еще ?",
-                    "»гра \"”гадай число.\"",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            } while (playMore == DialogResult.Yes);
+            }
         }
 
         private void RulesOfTheGame_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -47,7 +41,17 @@ namespace task
 
         private void StartNewGame_button10_Click(object sender, EventArgs e)
         {
+            DialogResult playMore;
+            do
+            {
 
+
+                playMore = MessageBox.Show(
+                    "’отите сыграть еще ?",
+                    "»гра \"”гадай число.\"",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            } while (playMore == DialogResult.Yes);
         }
     }
 }
