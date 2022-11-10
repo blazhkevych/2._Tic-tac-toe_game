@@ -21,7 +21,17 @@ namespace task
 
         private void buttons_Click(object sender, EventArgs e)
         {
+            DialogResult playMore;
+            do
+            {
 
+
+                playMore = MessageBox.Show(
+                    "’отите сыграть еще ?",
+                    "»гра \"”гадай число.\"",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            } while (playMore == DialogResult.Yes);
         }
     }
 }
