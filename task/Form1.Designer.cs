@@ -39,6 +39,10 @@
             this.button7 = new System.Windows.Forms.Button();
             this.RulesOfTheGame = new System.Windows.Forms.LinkLabel();
             this.StartNewGame_button10 = new System.Windows.Forms.Button();
+            this.WhoWillGoFirst = new System.Windows.Forms.GroupBox();
+            this.FirstMoveUser = new System.Windows.Forms.RadioButton();
+            this.FirstMoveComputer = new System.Windows.Forms.RadioButton();
+            this.WhoWillGoFirst.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -145,7 +149,7 @@
             this.RulesOfTheGame.AutoSize = true;
             this.RulesOfTheGame.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RulesOfTheGame.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.RulesOfTheGame.Location = new System.Drawing.Point(58, 337);
+            this.RulesOfTheGame.Location = new System.Drawing.Point(56, 640);
             this.RulesOfTheGame.Name = "RulesOfTheGame";
             this.RulesOfTheGame.Size = new System.Drawing.Size(210, 15);
             this.RulesOfTheGame.TabIndex = 9;
@@ -156,7 +160,7 @@
             // 
             // StartNewGame_button10
             // 
-            this.StartNewGame_button10.Location = new System.Drawing.Point(90, 399);
+            this.StartNewGame_button10.Location = new System.Drawing.Point(84, 598);
             this.StartNewGame_button10.Name = "StartNewGame_button10";
             this.StartNewGame_button10.Size = new System.Drawing.Size(141, 39);
             this.StartNewGame_button10.TabIndex = 10;
@@ -164,11 +168,45 @@
             this.StartNewGame_button10.UseVisualStyleBackColor = true;
             this.StartNewGame_button10.Click += new System.EventHandler(this.StartNewGame_button10_Click);
             // 
+            // WhoWillGoFirst
+            // 
+            this.WhoWillGoFirst.Controls.Add(this.FirstMoveUser);
+            this.WhoWillGoFirst.Controls.Add(this.FirstMoveComputer);
+            this.WhoWillGoFirst.Location = new System.Drawing.Point(12, 326);
+            this.WhoWillGoFirst.Name = "WhoWillGoFirst";
+            this.WhoWillGoFirst.Size = new System.Drawing.Size(298, 100);
+            this.WhoWillGoFirst.TabIndex = 13;
+            this.WhoWillGoFirst.TabStop = false;
+            this.WhoWillGoFirst.Text = "Кто будет ходить первым ?";
+            // 
+            // FirstMoveUser
+            // 
+            this.FirstMoveUser.AutoSize = true;
+            this.FirstMoveUser.Location = new System.Drawing.Point(6, 47);
+            this.FirstMoveUser.Name = "FirstMoveUser";
+            this.FirstMoveUser.Size = new System.Drawing.Size(172, 19);
+            this.FirstMoveUser.TabIndex = 1;
+            this.FirstMoveUser.TabStop = true;
+            this.FirstMoveUser.Text = "Первый ход пользователя.";
+            this.FirstMoveUser.UseVisualStyleBackColor = true;
+            // 
+            // FirstMoveComputer
+            // 
+            this.FirstMoveComputer.AutoSize = true;
+            this.FirstMoveComputer.Location = new System.Drawing.Point(6, 22);
+            this.FirstMoveComputer.Name = "FirstMoveComputer";
+            this.FirstMoveComputer.Size = new System.Drawing.Size(166, 19);
+            this.FirstMoveComputer.TabIndex = 0;
+            this.FirstMoveComputer.TabStop = true;
+            this.FirstMoveComputer.Text = "Первый ход компьютера.";
+            this.FirstMoveComputer.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(323, 450);
+            this.ClientSize = new System.Drawing.Size(323, 664);
+            this.Controls.Add(this.WhoWillGoFirst);
             this.Controls.Add(this.StartNewGame_button10);
             this.Controls.Add(this.RulesOfTheGame);
             this.Controls.Add(this.button9);
@@ -184,6 +222,8 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Игра «Крестики-нолики».";
+            this.WhoWillGoFirst.ResumeLayout(false);
+            this.WhoWillGoFirst.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -202,5 +242,8 @@
         private Button button7;
         private LinkLabel RulesOfTheGame;
         private Button StartNewGame_button10;
+        private GroupBox WhoWillGoFirst;
+        private RadioButton FirstMoveUser;
+        private RadioButton FirstMoveComputer;
     }
 }

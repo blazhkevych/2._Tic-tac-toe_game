@@ -2,17 +2,6 @@ using System.Diagnostics;
 
 namespace task
 {
-    public class Tic_tac_toe_game
-    {
-        char [,] arr  = new char [,]
-        {
-            { ' ', ' ', ' '}, 
-            { ' ', ' ', ' '}, 
-            { ' ', ' ', ' '}
-        };
-        
-    }
-
     public partial class Form1 : Form
     {
         /// <summary>
@@ -76,5 +65,20 @@ namespace task
 
             } while (playMore == DialogResult.Yes);
         }
+    }
+    
+    // Класс реализующий логику игры с компьютером.
+    
+    public class Tic_tac_toe_game
+    {
+        char[,] arr = new char[,]
+        {
+            { ' ', ' ', ' '},
+            { ' ', ' ', ' '},
+            { ' ', ' ', ' '}
+        };
+
+        
+
     }
 }
