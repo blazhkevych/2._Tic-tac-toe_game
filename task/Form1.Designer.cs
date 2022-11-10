@@ -37,6 +37,7 @@
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
+            this.RulesOfTheGame = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // button1
@@ -129,11 +130,22 @@
             this.button9.Text = "button9";
             this.button9.UseVisualStyleBackColor = true;
             // 
+            // RulesOfTheGame
+            // 
+            this.RulesOfTheGame.AutoSize = true;
+            this.RulesOfTheGame.Location = new System.Drawing.Point(49, 383);
+            this.RulesOfTheGame.Name = "RulesOfTheGame";
+            this.RulesOfTheGame.Size = new System.Drawing.Size(60, 15);
+            this.RulesOfTheGame.TabIndex = 9;
+            this.RulesOfTheGame.TabStop = true;
+            this.RulesOfTheGame.Text = "linkLabel1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(323, 450);
+            this.Controls.Add(this.RulesOfTheGame);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button9);
@@ -146,6 +158,7 @@
             this.Name = "Form1";
             this.Text = "Игра «Крестики-нолики».";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -160,5 +173,6 @@
         private Button button7;
         private Button button8;
         private Button button9;
+        private LinkLabel RulesOfTheGame;
     }
 }
