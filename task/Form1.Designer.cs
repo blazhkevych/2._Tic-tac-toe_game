@@ -133,12 +133,14 @@
             // RulesOfTheGame
             // 
             this.RulesOfTheGame.AutoSize = true;
+            this.RulesOfTheGame.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RulesOfTheGame.Location = new System.Drawing.Point(49, 383);
             this.RulesOfTheGame.Name = "RulesOfTheGame";
-            this.RulesOfTheGame.Size = new System.Drawing.Size(60, 15);
+            this.RulesOfTheGame.Size = new System.Drawing.Size(210, 15);
             this.RulesOfTheGame.TabIndex = 9;
             this.RulesOfTheGame.TabStop = true;
-            this.RulesOfTheGame.Text = "linkLabel1";
+            this.RulesOfTheGame.Text = "Правила игры в «Крестики-нолики».";
+            this.RulesOfTheGame.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
