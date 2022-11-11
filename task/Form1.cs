@@ -38,19 +38,23 @@ namespace task
         // Обработчик нажатий кнопок на игровом поле.
         private void buttons_Click(object sender, EventArgs e)
         {
-            // Если кнопка занята.
-            if (button1.Image != null && button2.Image != null && button3.Image != null &&
-                button4.Image != null && button5.Image != null && button6.Image != null &&
-                button7.Image != null && button8.Image != null && button9.Image != null &&
+            // 
+
+            // Если кнопка занята, тоесть туда уже походили.
+            if (game.arr[,]
                )
-            {
                 return;
+            // Проверка на то, чем пользователь играет.
+            if (game._crossOrZero == "cross")
+            {
+                // Если играет крестиками, то ставим крестик.
+                ((Button)sender).Image = Properties.Resources.cross;
             }
-            else if (FirstMoveComputer.Checked == false |)
             else
-                    {
-                        ((Button)sender).Image = Properties.Resources.cross;
-                    }
+            {
+                // Если играет ноликами, то ставим нолик.
+                ((Button)sender).Image = Properties.Resources._null;
+            }
         }
 
         // Обработчик нажатия на ссылку "Правила игры в «Крестики-нолики»."
@@ -95,18 +99,18 @@ namespace task
             button8.Enabled = true;
             button9.Enabled = true;
 
-            
-            DialogResult playMore;
-            do
-            {
+
+            //DialogResult playMore;
+            //do
+            //{
 
 
-                playMore = MessageBox.Show(
-                    "Хотите сыграть еще ?",
-                    "Игра \"Угадай число.\"",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            //    playMore = MessageBox.Show(
+            //        "Хотите сыграть еще ?",
+            //        "Игра \"Угадай число.\"",
+            //        MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            } while (playMore == DialogResult.Yes);
+            //} while (playMore == DialogResult.Yes);
         }
 
         private void FirstMove_Click(object sender, EventArgs e)
@@ -142,10 +146,5 @@ namespace task
 
         // Выбранный уровень сложности.
         public string _difficultyLevel = "";
-
-
-
-
-
     }
 }

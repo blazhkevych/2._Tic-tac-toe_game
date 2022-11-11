@@ -10,10 +10,12 @@
 
   <ItemGroup>
     <None Remove="Resources\cross.bmp" />
+    <None Remove="Resources\null.bmp" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\cross.bmp" />
+    <EmbeddedResource Include="Resources\null.bmp" />
   </ItemGroup>
 
   <ItemGroup>
