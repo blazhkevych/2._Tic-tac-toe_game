@@ -42,7 +42,16 @@
             this.WhoWillGoFirst = new System.Windows.Forms.GroupBox();
             this.FirstMovePlayer = new System.Windows.Forms.RadioButton();
             this.FirstMoveComputer = new System.Windows.Forms.RadioButton();
+            this.CrossesOrZeroes = new System.Windows.Forms.GroupBox();
+            this.PlayCrosses = new System.Windows.Forms.RadioButton();
+            this.PlayZeroes = new System.Windows.Forms.RadioButton();
+            this.DifficultyLevel = new System.Windows.Forms.GroupBox();
+            this.DifficultyLevelIsLow = new System.Windows.Forms.RadioButton();
+            this.DifficultyLevelIsMedium = new System.Windows.Forms.RadioButton();
+            this.DifficultyLevelIsHigh = new System.Windows.Forms.RadioButton();
             this.WhoWillGoFirst.SuspendLayout();
+            this.CrossesOrZeroes.SuspendLayout();
+            this.DifficultyLevel.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -174,7 +183,7 @@
             this.WhoWillGoFirst.Controls.Add(this.FirstMoveComputer);
             this.WhoWillGoFirst.Location = new System.Drawing.Point(12, 326);
             this.WhoWillGoFirst.Name = "WhoWillGoFirst";
-            this.WhoWillGoFirst.Size = new System.Drawing.Size(298, 100);
+            this.WhoWillGoFirst.Size = new System.Drawing.Size(298, 70);
             this.WhoWillGoFirst.TabIndex = 13;
             this.WhoWillGoFirst.TabStop = false;
             this.WhoWillGoFirst.Text = "Кто будет ходить первым ?";
@@ -203,11 +212,91 @@
             this.FirstMoveComputer.UseVisualStyleBackColor = true;
             this.FirstMoveComputer.Click += new System.EventHandler(this.FirstMove_Click);
             // 
+            // CrossesOrZeroes
+            // 
+            this.CrossesOrZeroes.Controls.Add(this.PlayZeroes);
+            this.CrossesOrZeroes.Controls.Add(this.PlayCrosses);
+            this.CrossesOrZeroes.Location = new System.Drawing.Point(12, 402);
+            this.CrossesOrZeroes.Name = "CrossesOrZeroes";
+            this.CrossesOrZeroes.Size = new System.Drawing.Size(298, 73);
+            this.CrossesOrZeroes.TabIndex = 14;
+            this.CrossesOrZeroes.TabStop = false;
+            this.CrossesOrZeroes.Text = "Играть крестиками или ноликами ?";
+            // 
+            // PlayCrosses
+            // 
+            this.PlayCrosses.AutoSize = true;
+            this.PlayCrosses.Location = new System.Drawing.Point(6, 22);
+            this.PlayCrosses.Name = "PlayCrosses";
+            this.PlayCrosses.Size = new System.Drawing.Size(134, 19);
+            this.PlayCrosses.TabIndex = 0;
+            this.PlayCrosses.TabStop = true;
+            this.PlayCrosses.Text = "Играть крестиками.";
+            this.PlayCrosses.UseVisualStyleBackColor = true;
+            // 
+            // PlayZeroes
+            // 
+            this.PlayZeroes.AutoSize = true;
+            this.PlayZeroes.Location = new System.Drawing.Point(6, 47);
+            this.PlayZeroes.Name = "PlayZeroes";
+            this.PlayZeroes.Size = new System.Drawing.Size(125, 19);
+            this.PlayZeroes.TabIndex = 1;
+            this.PlayZeroes.TabStop = true;
+            this.PlayZeroes.Text = "Играть ноликами.";
+            this.PlayZeroes.UseVisualStyleBackColor = true;
+            // 
+            // DifficultyLevel
+            // 
+            this.DifficultyLevel.Controls.Add(this.DifficultyLevelIsHigh);
+            this.DifficultyLevel.Controls.Add(this.DifficultyLevelIsMedium);
+            this.DifficultyLevel.Controls.Add(this.DifficultyLevelIsLow);
+            this.DifficultyLevel.Location = new System.Drawing.Point(12, 481);
+            this.DifficultyLevel.Name = "DifficultyLevel";
+            this.DifficultyLevel.Size = new System.Drawing.Size(298, 100);
+            this.DifficultyLevel.TabIndex = 15;
+            this.DifficultyLevel.TabStop = false;
+            this.DifficultyLevel.Text = "Выберите уровень сложности.";
+            // 
+            // DifficultyLevelIsLow
+            // 
+            this.DifficultyLevelIsLow.AutoSize = true;
+            this.DifficultyLevelIsLow.Location = new System.Drawing.Point(6, 22);
+            this.DifficultyLevelIsLow.Name = "DifficultyLevelIsLow";
+            this.DifficultyLevelIsLow.Size = new System.Drawing.Size(180, 19);
+            this.DifficultyLevelIsLow.TabIndex = 0;
+            this.DifficultyLevelIsLow.TabStop = true;
+            this.DifficultyLevelIsLow.Text = "Уровень сложности низкий.";
+            this.DifficultyLevelIsLow.UseVisualStyleBackColor = true;
+            // 
+            // DifficultyLevelIsMedium
+            // 
+            this.DifficultyLevelIsMedium.AutoSize = true;
+            this.DifficultyLevelIsMedium.Location = new System.Drawing.Point(6, 47);
+            this.DifficultyLevelIsMedium.Name = "DifficultyLevelIsMedium";
+            this.DifficultyLevelIsMedium.Size = new System.Drawing.Size(187, 19);
+            this.DifficultyLevelIsMedium.TabIndex = 1;
+            this.DifficultyLevelIsMedium.TabStop = true;
+            this.DifficultyLevelIsMedium.Text = "Уровень сложности средний.";
+            this.DifficultyLevelIsMedium.UseVisualStyleBackColor = true;
+            // 
+            // DifficultyLevelIsHigh
+            // 
+            this.DifficultyLevelIsHigh.AutoSize = true;
+            this.DifficultyLevelIsHigh.Location = new System.Drawing.Point(6, 72);
+            this.DifficultyLevelIsHigh.Name = "DifficultyLevelIsHigh";
+            this.DifficultyLevelIsHigh.Size = new System.Drawing.Size(189, 19);
+            this.DifficultyLevelIsHigh.TabIndex = 2;
+            this.DifficultyLevelIsHigh.TabStop = true;
+            this.DifficultyLevelIsHigh.Text = "Уровень сложности высокий.";
+            this.DifficultyLevelIsHigh.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(323, 664);
+            this.Controls.Add(this.DifficultyLevel);
+            this.Controls.Add(this.CrossesOrZeroes);
             this.Controls.Add(this.WhoWillGoFirst);
             this.Controls.Add(this.StartNewGame_button10);
             this.Controls.Add(this.RulesOfTheGame);
@@ -226,6 +315,10 @@
             this.Text = "Игра «Крестики-нолики».";
             this.WhoWillGoFirst.ResumeLayout(false);
             this.WhoWillGoFirst.PerformLayout();
+            this.CrossesOrZeroes.ResumeLayout(false);
+            this.CrossesOrZeroes.PerformLayout();
+            this.DifficultyLevel.ResumeLayout(false);
+            this.DifficultyLevel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,5 +340,12 @@
         private GroupBox WhoWillGoFirst;
         private RadioButton FirstMovePlayer;
         private RadioButton FirstMoveComputer;
+        private GroupBox CrossesOrZeroes;
+        private RadioButton PlayZeroes;
+        private RadioButton PlayCrosses;
+        private GroupBox DifficultyLevel;
+        private RadioButton DifficultyLevelIsHigh;
+        private RadioButton DifficultyLevelIsMedium;
+        private RadioButton DifficultyLevelIsLow;
     }
 }
