@@ -95,6 +95,11 @@ namespace task
         // Кто ходит ?
         public string _move = "";
 
+        // Выбранный уровень сложности.
+        public string _difficultyLevel = "";
+
+        
+
 
 
     }
