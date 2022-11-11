@@ -1,4 +1,6 @@
 using System.Diagnostics;
+using task;
+
 
 namespace task
 {
@@ -21,7 +23,6 @@ namespace task
             InitializeComponent();
         }
 
-
         private void buttons_Click(object sender, EventArgs e)
         {
             //2,07,20.
@@ -29,15 +30,15 @@ namespace task
                 button4.Image != null && button5.Image != null && button6.Image != null &&
                 button7.Image != null && button8.Image != null && button9.Image != null)
             {
-               return;
+                return;
             }
-            else 
+            else
             {
                 button1.Image = Properties.Resources.cross;
 
             }
-            
-          
+
+
         }
 
         // Обработчик события нажатия на ссылку "Правила игры в «Крестики-нолики»."
@@ -65,20 +66,34 @@ namespace task
 
             } while (playMore == DialogResult.Yes);
         }
+
+        private void FirstMove_Click(object sender, EventArgs e)
+        {
+            RadioButton r = (RadioButton)sender;
+            if (r.Name == "FirstMoveComputer")
+                game._firstMove = "player";
+            else
+                game._firstMove = "computer";
+        }
+
+        Tic_tac_toe_game game = new Tic_tac_toe_game();
     }
-    
+
     // Класс реализующий логику игры с компьютером.
-    
     public class Tic_tac_toe_game
     {
-        char[,] arr = new char[,]
+        // Массив игрового поля.
+        public char[,] arr = new char[,]
         {
             { ' ', ' ', ' '},
             { ' ', ' ', ' '},
             { ' ', ' ', ' '}
         };
 
-        
+        // Кто первый ходит ?
+        public string _firstMove = "";
+
+
 
     }
 }

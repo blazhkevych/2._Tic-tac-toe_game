@@ -40,7 +40,7 @@
             this.RulesOfTheGame = new System.Windows.Forms.LinkLabel();
             this.StartNewGame_button10 = new System.Windows.Forms.Button();
             this.WhoWillGoFirst = new System.Windows.Forms.GroupBox();
-            this.FirstMoveUser = new System.Windows.Forms.RadioButton();
+            this.FirstMovePlayer = new System.Windows.Forms.RadioButton();
             this.FirstMoveComputer = new System.Windows.Forms.RadioButton();
             this.WhoWillGoFirst.SuspendLayout();
             this.SuspendLayout();
@@ -170,7 +170,7 @@
             // 
             // WhoWillGoFirst
             // 
-            this.WhoWillGoFirst.Controls.Add(this.FirstMoveUser);
+            this.WhoWillGoFirst.Controls.Add(this.FirstMovePlayer);
             this.WhoWillGoFirst.Controls.Add(this.FirstMoveComputer);
             this.WhoWillGoFirst.Location = new System.Drawing.Point(12, 326);
             this.WhoWillGoFirst.Name = "WhoWillGoFirst";
@@ -179,16 +179,17 @@
             this.WhoWillGoFirst.TabStop = false;
             this.WhoWillGoFirst.Text = "Кто будет ходить первым ?";
             // 
-            // FirstMoveUser
+            // FirstMovePlayer
             // 
-            this.FirstMoveUser.AutoSize = true;
-            this.FirstMoveUser.Location = new System.Drawing.Point(6, 47);
-            this.FirstMoveUser.Name = "FirstMoveUser";
-            this.FirstMoveUser.Size = new System.Drawing.Size(172, 19);
-            this.FirstMoveUser.TabIndex = 1;
-            this.FirstMoveUser.TabStop = true;
-            this.FirstMoveUser.Text = "Первый ход пользователя.";
-            this.FirstMoveUser.UseVisualStyleBackColor = true;
+            this.FirstMovePlayer.AutoSize = true;
+            this.FirstMovePlayer.Location = new System.Drawing.Point(6, 47);
+            this.FirstMovePlayer.Name = "FirstMovePlayer";
+            this.FirstMovePlayer.Size = new System.Drawing.Size(172, 19);
+            this.FirstMovePlayer.TabIndex = 1;
+            this.FirstMovePlayer.TabStop = true;
+            this.FirstMovePlayer.Text = "Первый ход пользователя.";
+            this.FirstMovePlayer.UseVisualStyleBackColor = true;
+            this.FirstMovePlayer.Click += new System.EventHandler(this.FirstMove_Click);
             // 
             // FirstMoveComputer
             // 
@@ -200,6 +201,7 @@
             this.FirstMoveComputer.TabStop = true;
             this.FirstMoveComputer.Text = "Первый ход компьютера.";
             this.FirstMoveComputer.UseVisualStyleBackColor = true;
+            this.FirstMoveComputer.Click += new System.EventHandler(this.FirstMove_Click);
             // 
             // Form1
             // 
@@ -243,7 +245,7 @@
         private LinkLabel RulesOfTheGame;
         private Button StartNewGame_button10;
         private GroupBox WhoWillGoFirst;
-        private RadioButton FirstMoveUser;
+        private RadioButton FirstMovePlayer;
         private RadioButton FirstMoveComputer;
     }
 }
