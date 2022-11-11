@@ -34,11 +34,8 @@ namespace task
             }
             else
             {
-                button1.Image = Properties.Resources.cross;
-
+                ((Button)sender).Image = Properties.Resources.cross;
             }
-
-
         }
 
         // Обработчик события нажатия на ссылку "Правила игры в «Крестики-нолики»."
@@ -69,11 +66,10 @@ namespace task
 
         private void FirstMove_Click(object sender, EventArgs e)
         {
-            RadioButton r = (RadioButton)sender;
-            if (r.Name == "FirstMoveComputer")
-                game._firstMove = "player";
-            else
+            if (((RadioButton)sender).Name == "FirstMoveComputer")
                 game._firstMove = "computer";
+            else
+                game._firstMove = "player";
         }
 
         Tic_tac_toe_game game = new Tic_tac_toe_game();
@@ -92,6 +88,12 @@ namespace task
 
         // Кто первый ходит ?
         public string _firstMove = "";
+
+        // Играть крестиками или лноликами ?
+        public string _crossOrZero = "";
+
+        // Кто ходит ?
+        public string _move = "";
 
 
 
