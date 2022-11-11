@@ -36,9 +36,18 @@ namespace task
         }
 
         // Обработчик нажатий кнопок на игровом поле.
-        private void buttons_Click(object sender, EventArgs e)
+        private void gameFieldsButtons_Click(object sender, EventArgs e)
         {
-            // 
+            // Получаем имя кнопки на которую нажали.
+            string buttonName = ((Button)sender).Name;
+
+            // Сопоставляем имя кнопки с двумерным массивом.
+            if (buttonName == "button1")
+            {
+                // Если ходит игрок.
+                game.arr[0, 0] = ;
+            }
+
 
             // Если кнопка занята, тоесть туда уже походили.
             if (game.arr[,]
@@ -139,10 +148,10 @@ namespace task
         public string _firstMove = "";
 
         // Играть крестиками или лноликами ?
-        public string _crossOrZero = "";
+        public string _crossOrZero = ""; // "x" - крестиками, "0" - ноликами.
 
         // Кто ходит ?
-        public string _move = "";
+        public string _move = ""; // "computer" или "player".
 
         // Выбранный уровень сложности.
         public string _difficultyLevel = "";
