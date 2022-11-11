@@ -108,6 +108,12 @@ namespace task
             button8.Enabled = true;
             button9.Enabled = true;
 
+            // Выставляем значение поля "Кто ходит ?" в зависимости от выбора пользователя.
+            if (FirstMoveComputer.Checked == true)
+                game._whoMove = "computer";
+            else
+                game._whoMove = "player";
+
 
             //DialogResult playMore;
             //do
@@ -145,13 +151,13 @@ namespace task
         };
 
         // Кто первый ходит ?
-        public string _firstMove = "";
+        //public string _firstMove = ""; // 
 
         // Играть крестиками или лноликами ?
         public string _crossOrZero = ""; // "x" - крестиками, "0" - ноликами.
 
         // Кто ходит ?
-        public string _move = ""; // "computer" или "player".
+        public string _whoMove = ""; // "computer" или "player".
 
         // Выбранный уровень сложности.
         public string _difficultyLevel = "";
