@@ -45,14 +45,14 @@ namespace task
             if (buttonName == "button1")
             {
                 // Если ходит игрок.
-                game.arr[0, 0] = ;
+                //game.arr[0, 0] = ;
             }
 
 
             // Если кнопка занята, тоесть туда уже походили.
-            if (game.arr[,]
-               )
-                return;
+            //if (game.arr[,]
+            //   )
+            //    return;
             // Проверка на то, чем пользователь играет.
             if (game._crossOrZero == "cross")
             {
@@ -97,7 +97,7 @@ namespace task
                 return;
             }
 
-            // Если все поля заполнены, то включаем поле с кнопками.
+            // Если все поля заполнены, то включаем поле с игровыми кнопками.
             button1.Enabled = true;
             button2.Enabled = true;
             button3.Enabled = true;
@@ -128,13 +128,7 @@ namespace task
             //} while (playMore == DialogResult.Yes);
         }
 
-        private void FirstMove_Click(object sender, EventArgs e)
-        {
-            if (((RadioButton)sender).Name == "FirstMoveComputer")
-                game._firstMove = "computer";
-            else
-                game._firstMove = "player";
-        }
+        // 
 
         Tic_tac_toe_game game = new Tic_tac_toe_game();
     }

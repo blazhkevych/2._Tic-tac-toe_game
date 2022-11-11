@@ -198,7 +198,6 @@
             this.FirstMovePlayer.TabStop = true;
             this.FirstMovePlayer.Text = "Первый ход пользователя.";
             this.FirstMovePlayer.UseVisualStyleBackColor = true;
-            this.FirstMovePlayer.Click += new System.EventHandler(this.FirstMove_Click);
             // 
             // FirstMoveComputer
             // 
@@ -210,7 +209,6 @@
             this.FirstMoveComputer.TabStop = true;
             this.FirstMoveComputer.Text = "Первый ход компьютера.";
             this.FirstMoveComputer.UseVisualStyleBackColor = true;
-            this.FirstMoveComputer.Click += new System.EventHandler(this.FirstMove_Click);
             // 
             // CrossesOrZeroes
             // 
