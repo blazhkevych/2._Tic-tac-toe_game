@@ -46,9 +46,9 @@
             this.PlayZeroes = new System.Windows.Forms.RadioButton();
             this.PlayCrosses = new System.Windows.Forms.RadioButton();
             this.DifficultyLevel = new System.Windows.Forms.GroupBox();
-            this.DifficultyLevelIsHigh = new System.Windows.Forms.RadioButton();
-            this.DifficultyLevelIsMedium = new System.Windows.Forms.RadioButton();
-            this.DifficultyLevelIsLow = new System.Windows.Forms.RadioButton();
+            this.LevelOfDifficultyHard = new System.Windows.Forms.RadioButton();
+            this.LevelOfDifficultyMedium = new System.Windows.Forms.RadioButton();
+            this.LevelOfDifficultyEasy = new System.Windows.Forms.RadioButton();
             this.WhoWillGoFirst.SuspendLayout();
             this.CrossesOrZeroes.SuspendLayout();
             this.DifficultyLevel.SuspendLayout();
@@ -247,9 +247,9 @@
             // 
             // DifficultyLevel
             // 
-            this.DifficultyLevel.Controls.Add(this.DifficultyLevelIsHigh);
-            this.DifficultyLevel.Controls.Add(this.DifficultyLevelIsMedium);
-            this.DifficultyLevel.Controls.Add(this.DifficultyLevelIsLow);
+            this.DifficultyLevel.Controls.Add(this.LevelOfDifficultyHard);
+            this.DifficultyLevel.Controls.Add(this.LevelOfDifficultyMedium);
+            this.DifficultyLevel.Controls.Add(this.LevelOfDifficultyEasy);
             this.DifficultyLevel.Location = new System.Drawing.Point(12, 481);
             this.DifficultyLevel.Name = "DifficultyLevel";
             this.DifficultyLevel.Size = new System.Drawing.Size(298, 100);
@@ -257,38 +257,38 @@
             this.DifficultyLevel.TabStop = false;
             this.DifficultyLevel.Text = "Выберите уровень сложности.";
             // 
-            // DifficultyLevelIsHigh
+            // LevelOfDifficultyHard
             // 
-            this.DifficultyLevelIsHigh.AutoSize = true;
-            this.DifficultyLevelIsHigh.Location = new System.Drawing.Point(6, 72);
-            this.DifficultyLevelIsHigh.Name = "DifficultyLevelIsHigh";
-            this.DifficultyLevelIsHigh.Size = new System.Drawing.Size(189, 19);
-            this.DifficultyLevelIsHigh.TabIndex = 2;
-            this.DifficultyLevelIsHigh.TabStop = true;
-            this.DifficultyLevelIsHigh.Text = "Уровень сложности высокий.";
-            this.DifficultyLevelIsHigh.UseVisualStyleBackColor = true;
+            this.LevelOfDifficultyHard.AutoSize = true;
+            this.LevelOfDifficultyHard.Location = new System.Drawing.Point(6, 72);
+            this.LevelOfDifficultyHard.Name = "LevelOfDifficultyHard";
+            this.LevelOfDifficultyHard.Size = new System.Drawing.Size(189, 19);
+            this.LevelOfDifficultyHard.TabIndex = 2;
+            this.LevelOfDifficultyHard.TabStop = true;
+            this.LevelOfDifficultyHard.Text = "Уровень сложности высокий.";
+            this.LevelOfDifficultyHard.UseVisualStyleBackColor = true;
             // 
-            // DifficultyLevelIsMedium
+            // LevelOfDifficultyMedium
             // 
-            this.DifficultyLevelIsMedium.AutoSize = true;
-            this.DifficultyLevelIsMedium.Location = new System.Drawing.Point(6, 47);
-            this.DifficultyLevelIsMedium.Name = "DifficultyLevelIsMedium";
-            this.DifficultyLevelIsMedium.Size = new System.Drawing.Size(187, 19);
-            this.DifficultyLevelIsMedium.TabIndex = 1;
-            this.DifficultyLevelIsMedium.TabStop = true;
-            this.DifficultyLevelIsMedium.Text = "Уровень сложности средний.";
-            this.DifficultyLevelIsMedium.UseVisualStyleBackColor = true;
+            this.LevelOfDifficultyMedium.AutoSize = true;
+            this.LevelOfDifficultyMedium.Location = new System.Drawing.Point(6, 47);
+            this.LevelOfDifficultyMedium.Name = "LevelOfDifficultyMedium";
+            this.LevelOfDifficultyMedium.Size = new System.Drawing.Size(187, 19);
+            this.LevelOfDifficultyMedium.TabIndex = 1;
+            this.LevelOfDifficultyMedium.TabStop = true;
+            this.LevelOfDifficultyMedium.Text = "Уровень сложности средний.";
+            this.LevelOfDifficultyMedium.UseVisualStyleBackColor = true;
             // 
-            // DifficultyLevelIsLow
+            // LevelOfDifficultyEasy
             // 
-            this.DifficultyLevelIsLow.AutoSize = true;
-            this.DifficultyLevelIsLow.Location = new System.Drawing.Point(6, 22);
-            this.DifficultyLevelIsLow.Name = "DifficultyLevelIsLow";
-            this.DifficultyLevelIsLow.Size = new System.Drawing.Size(180, 19);
-            this.DifficultyLevelIsLow.TabIndex = 0;
-            this.DifficultyLevelIsLow.TabStop = true;
-            this.DifficultyLevelIsLow.Text = "Уровень сложности низкий.";
-            this.DifficultyLevelIsLow.UseVisualStyleBackColor = true;
+            this.LevelOfDifficultyEasy.AutoSize = true;
+            this.LevelOfDifficultyEasy.Location = new System.Drawing.Point(6, 22);
+            this.LevelOfDifficultyEasy.Name = "LevelOfDifficultyEasy";
+            this.LevelOfDifficultyEasy.Size = new System.Drawing.Size(180, 19);
+            this.LevelOfDifficultyEasy.TabIndex = 0;
+            this.LevelOfDifficultyEasy.TabStop = true;
+            this.LevelOfDifficultyEasy.Text = "Уровень сложности низкий.";
+            this.LevelOfDifficultyEasy.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -344,8 +344,8 @@
         private RadioButton PlayZeroes;
         private RadioButton PlayCrosses;
         private GroupBox DifficultyLevel;
-        private RadioButton DifficultyLevelIsHigh;
-        private RadioButton DifficultyLevelIsMedium;
-        private RadioButton DifficultyLevelIsLow;
+        private RadioButton LevelOfDifficultyHard;
+        private RadioButton LevelOfDifficultyMedium;
+        private RadioButton LevelOfDifficultyEasy;
     }
 }

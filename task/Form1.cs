@@ -21,17 +21,32 @@ namespace task
         public Form1()
         {
             InitializeComponent();
+
+            // Перед игрой отключаем поле с кнопками.
+            // Будет включено только после нажатия кнопки "Начать игру".
+            button1.Enabled = false;
+            button2.Enabled = false;
+            button3.Enabled = false;
+            button4.Enabled = false;
+            button5.Enabled = false;
+            button6.Enabled = false;
+            button7.Enabled = false;
+            button8.Enabled = false;
+            button9.Enabled = false;
+
         }
 
         private void buttons_Click(object sender, EventArgs e)
         {
-            //2,07,20.
+            // Если кнопка занята.
             if (button1.Image != null && button2.Image != null && button3.Image != null &&
                 button4.Image != null && button5.Image != null && button6.Image != null &&
-                button7.Image != null && button8.Image != null && button9.Image != null)
+                button7.Image != null && button8.Image != null && button9.Image != null &&
+               )
             {
                 return;
             }
+            else if(FirstMoveComputer.Checked == false |)
             else
             {
                 ((Button)sender).Image = Properties.Resources.cross;
@@ -51,6 +66,84 @@ namespace task
         // Обработчик события нажатия на кнопку "Начать новую игру".
         private void StartNewGame_button10_Click(object sender, EventArgs e)
         {
+            // Проверяем заполнены ли все поля для игры.
+            // Проверка "Кто будет ходить первым ?".
+            if (FirstMoveComputer.Checked == false && FirstMovePlayer.Checked == false)
+            {
+                MessageBox.Show("Выберите кто будет ходить первым !", "Ошибка !", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            } // Проверка "Играть крестиками или ноликами ?".
+            else if (PlayCrosses.Checked == false && PlayZeroes.Checked == false)
+            {
+                MessageBox.Show("Выберите чем будете играть !", "Ошибка !", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            } // Проверка "Выберите уровень сложности.".
+            else if (LevelOfDifficultyEasy.Checked == false && LevelOfDifficultyMedium.Checked == false && LevelOfDifficultyHard.Checked == false)
+            {
+                MessageBox.Show("Выберите уровень сложности !", "Ошибка !", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                // Если все поля заполнены, то включаем поле с кнопками.
+                button1.Enabled = true;
+                button2.Enabled = true;
+                button3.Enabled = true;
+                button4.Enabled = true;
+                button5.Enabled = true;
+                button6.Enabled = true;
+                button7.Enabled = true;
+                button8.Enabled = true;
+                button9.Enabled = true;
+
+                // Очищаем поле с кнопками.
+                button1.Image = null;
+                button2.Image = null;
+                button3.Image = null;
+                button4.Image = null;
+                button5.Image = null;
+                button6.Image = null;
+                button7.Image = null;
+                button8.Image = null;
+                button9.Image = null;
+
+                // Очищаем поле с результатом игры.
+                ResultOfTheGame.Text = "";
+            }
+
+
+
+
+
+
+
+
+            else if (FirstMoveComputer.Checked == false && FirstMovePlayer.Checked == false)
+            {
+                MessageBox.Show("Выберите, кто будет ходить первым!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (LevelOfDifficultyEasy.Checked == false && LevelOfDifficultyMedium.Checked == false && LevelOfDifficultyHard.Checked == false)
+            {
+                MessageBox.Show("Выберите уровень сложности!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                // Включаем поле с кнопками.
+                button1.Enabled = true;
+                button2.Enabled = true;
+                button3.Enabled = true;
+                button4.Enabled = true;
+                button5.Enabled = true;
+                button6.Enabled = true;
+                button7.Enabled = true;
+                button8.Enabled = true;
+                button9.Enabled = true;
+
+            }
+
+
             DialogResult playMore;
             do
             {
