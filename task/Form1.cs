@@ -157,11 +157,10 @@ namespace task
         //{
         //    arr[x, y] = 'x';
         //}
-        
+
         /// <summary>
         /// Интеграция проекта с с++.
         /// </summary>
-        string answer = "-1";
 
         // Функция заполнения матрицы пробелами. Игра "Крестики-нолики".
         void FillArrWithSpaces()
@@ -175,9 +174,43 @@ namespace task
             }
         }
 
-        
+        // Уровень сложности.
+        int gameDifficulty = 0;
+
+        // Выбор игроком крестиков или ноликов.
+        int userChoice = -1;
+
+        // Символ для игры игрока.
+        char userLetter = '3';
+
+        // Символ для игры компьютера.
+        char pcLetter { 3 };
 
 
 
+        // Общее количество ходов в игре.
+        int totalMovesInGame = 9;
+
+        // Проверка на победимтеля.
+        int winCheck = -1;
+
+
+
+
+
+        // Игровоц процесс.
+        public void GameProcess()
+        {
+            string answer = "-1";
+
+            do
+            {
+                if (firstMove == 1) // Пользователь.
+                {
+
+
+                } while (totalMovesInGame > 0 || winCheck != 2) ;
+
+            }
     }
-}
+    }
