@@ -218,7 +218,8 @@ namespace task
         }
 
         // Кто будет ходить первым ?
-        int firstMove = 0; // 0 - компьютер, 1 - игрок.
+        int _firstMove = 0; // 0 - компьютер, 1 - игрок.
+        public int FirstMove { get; set; }
 
         // Метод преобразования нажатых кнопок в координаты массива.
         public Point ConvertButtonToCoordinates(Button button)
@@ -289,6 +290,37 @@ namespace task
             arr[point.X, point.Y] = userLetter;
         }
 
+        // Метод проверки победы.
+        int WinCheck(char userLetter, char pcLetter)
+        {
+            if (((arr[0, 0] == userLetter) && (arr[0, 1] == userLetter) && (arr[0, 2] == userLetter)) || // 1 горизонтальная
+                ((arr[1, 0] == userLetter) && (arr[1, 1] == userLetter) && (arr[1, 2] == userLetter)) || // 2 горизонтальная
+                ((arr[2, 0] == userLetter) && (arr[2, 1] == userLetter) && (arr[2, 2] == userLetter)) || // 3 горизонтальная
+                ((arr[0, 0] == userLetter) && (arr[1, 0] == userLetter) && (arr[2, 0] == userLetter)) || // 1 вертикальная
+                ((arr[0, 1] == userLetter) && (arr[1, 1] == userLetter) && (arr[2, 1] == userLetter)) || // 2 вертикальная 
+                ((arr[0, 2] == userLetter) && (arr[1, 2] == userLetter) && (arr[2, 2] == userLetter)) || // 3 вертикальная 
+                ((arr[0, 0] == userLetter) && (arr[1, 1] == userLetter) && (arr[2, 2] == userLetter)) || // главная диагональ
+                ((arr[2, 0] == userLetter) && (arr[1, 1] == userLetter) && (arr[0, 2] == userLetter))) // второстепенная диагональ
+            {
+                return 1; // Возвращает при победе игрока.
+            }
+            else if (((arr[0, 0] == pcLetter) && (arr[0, 1] == pcLetter) && (arr[0, 2] == pcLetter)) || // 1 горизонтальная
+                ((arr[1, 0] == pcLetter) && (arr[1, 1] == pcLetter) && (arr[1, 2] == pcLetter)) || // 2 горизонтальная
+                ((arr[2, 0] == pcLetter) && (arr[2, 1] == pcLetter) && (arr[2, 2] == pcLetter)) || // 3 горизонтальная
+                ((arr[0, 0] == pcLetter) && (arr[1, 0] == pcLetter) && (arr[2, 0] == pcLetter)) || // 1 вертикальная
+                ((arr[0, 1] == pcLetter) && (arr[1, 1] == pcLetter) && (arr[2, 1] == pcLetter)) || // 2 вертикальная 
+                ((arr[0, 2] == pcLetter) && (arr[1, 2] == pcLetter) && (arr[2, 2] == pcLetter)) || // 3 вертикальная 
+                ((arr[0, 0] == pcLetter) && (arr[1, 1] == pcLetter) && (arr[2, 2] == pcLetter)) || // главная диагональ
+                ((arr[2, 0] == pcLetter) && (arr[1, 1] == pcLetter) && (arr[0, 2] == pcLetter))) // второстепенная диагональ
+            {
+                return 0; // Возвращает при победе компьютера.
+            }
+            else
+            {
+                return 2; // Возвращает при ничьей.
+            }
+        }
+
         // Игровоц процесс.
         public void GameProcess()
         {
@@ -302,16 +334,26 @@ namespace task
 
             do
             {
-                if (firstMove == 1) // Пользователь.
+                if (_firstMove == 1) // Пользователь.
                 {
                     Point userMove = new Point();
                     do
                     {
                         moveCheckResult = UserMoveCheck(userMove);
                         if (moveCheckResult == false)
-                            MessageBox.Show("Выберите другую ячейку.", "Ячейка занята.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Выберите другую ячейку.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     } while (moveCheckResult == false);
                     UserMove(userMove, _userLetter);
+                    _firstMove -= 1;
+                    totalMovesInGame--;
+                    winCheck = WinCheck(_userLetter, _pcLetter);
+                    if (winCheck == 1)
+                    {
+                        MessageBox.Show("Игрок победил.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        break;
+                    }
+
+
 
 
 
