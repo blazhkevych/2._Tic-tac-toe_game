@@ -283,6 +283,12 @@ namespace task
                 return false;
         }
 
+        // Метод обрабатки хода игрока.
+        void UserMove(Point point, char userLetter)
+        {
+            arr[point.X, point.Y] = userLetter;
+        }
+
         // Игровоц процесс.
         public void GameProcess()
         {
@@ -296,26 +302,27 @@ namespace task
 
             do
             {
-
                 if (firstMove == 1) // Пользователь.
                 {
                     Point userMove = new Point();
-
-                    moveCheckResult = UserMoveCheck(userMove);
-
-                    if (moveCheckResult == false)
-                        MessageBox.Show("Выберите другую ячейку.");
-
-
-
-
-
+                    do
+                    {
+                        moveCheckResult = UserMoveCheck(userMove);
+                        if (moveCheckResult == false)
+                            MessageBox.Show("Выберите другую ячейку.", "Ячейка занята.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    } while (moveCheckResult == false);
+                    UserMove(userMove, _userLetter);
 
 
 
 
 
                 }
+
+
+
+
+
 
 
 
