@@ -73,7 +73,8 @@ namespace task
             // Запуск браузера с заданным адресом.
             ProcessStartInfo procInfo = new ProcessStartInfo(@"chrome.exe");
             procInfo.UseShellExecute = true;
-            procInfo.Arguments = "https://ru.wikipedia.org/wiki/%D0%9A%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%BA%D0%B8-%D0%BD%D0%BE%D0%BB%D0%B8%D0%BA%D0%B8#%D0%9F%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D0%B0_%D0%B8%D0%B3%D1%80%D1%8B";
+            procInfo.Arguments =
+                "https://ru.wikipedia.org/wiki/%D0%9A%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%BA%D0%B8-%D0%BD%D0%BE%D0%BB%D0%B8%D0%BA%D0%B8#%D0%9F%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D0%B0_%D0%B8%D0%B3%D1%80%D1%8B";
             Process.Start(procInfo);
         }
 
@@ -84,15 +85,19 @@ namespace task
             // Проверка "Кто будет ходить первым ?".
             if (FirstMoveComputer.Checked == false && FirstMovePlayer.Checked == false)
             {
-                MessageBox.Show("Выберите кто будет ходить первым !", "Ошибка !", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Выберите кто будет ходить первым !", "Ошибка !", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
                 return;
             } // Проверка "Играть крестиками или ноликами ?".
+
             if (PlayCrosses.Checked == false && PlayZeroes.Checked == false)
             {
                 MessageBox.Show("Выберите чем будете играть !", "Ошибка !", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             } // Проверка "Выберите уровень сложности.".
-            if (LevelOfDifficultyEasy.Checked == false && LevelOfDifficultyMedium.Checked == false && LevelOfDifficultyHard.Checked == false)
+
+            if (LevelOfDifficultyEasy.Checked == false && LevelOfDifficultyMedium.Checked == false &&
+                LevelOfDifficultyHard.Checked == false)
             {
                 MessageBox.Show("Выберите уровень сложности !", "Ошибка !", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -137,8 +142,15 @@ namespace task
     // Класс реализующий логику игры с компьютером.
     public class Tic_tac_toe_game
     {
+        int size = 3;
+
         // Массив игрового поля.
-        private char[,] arr = new char[,] { };
+        private char[,] arr = new char[,]
+        {
+            { ' ', ' ', ' ' },
+            { ' ', ' ', ' ' },
+            { ' ', ' ', ' ' }
+        };
 
         // Кто первый ходит ?
         //public string _firstMove = ""; // 
@@ -176,15 +188,19 @@ namespace task
 
         // Уровень сложности.
         int _gameDifficulty = 0;
+        public int GameDifficulty { get; set; }
 
         // Выбор игроком крестиков или ноликов.
         int _userChoice = -1;
+        public int UserChoice { get; set; }
 
         // Символ для игры игрока.
         char _userLetter = '3';
+        public char UserLetter { get; set; }
 
         // Символ для игры компьютера.
         char _pcLetter = '3';
+        public char PcLetter { get; set; }
 
         // Метод выставляет чем будут играть игрок и компьютер.
         void CrossOrZero(int crossOrZero) // Принимает результат выбора по radiobutton.
@@ -200,37 +216,113 @@ namespace task
                 _pcLetter = 'X';
             }
         }
-        
-        // Метод выставляет сложность игры.
-        void SetGameDifficulty(int gameDifficulty) // Принимает выбранный уровень сложности с radiobutton.
+
+        // Кто будет ходить первым ?
+        int firstMove = 0; // 0 - компьютер, 1 - игрок.
+
+        // Метод преобразования нажатых кнопок в координаты массива.
+        public Point ConvertButtonToCoordinates(Button button)
         {
-            this._gameDifficulty = gameDifficulty;
+            Point coordinates = new Point();
+
+            if (button.Name == "button1")
+            {
+                coordinates.X = 0;
+                coordinates.Y = 0;
+            }
+            else if (button.Name == "button2")
+            {
+                coordinates.X = 0;
+                coordinates.Y = 1;
+            }
+            else if (button.Name == "button3")
+            {
+                coordinates.X = 0;
+                coordinates.Y = 2;
+            }
+            else if (button.Name == "button4")
+            {
+                coordinates.X = 1;
+                coordinates.Y = 0;
+            }
+            else if (button.Name == "button5")
+            {
+                coordinates.X = 1;
+                coordinates.Y = 1;
+            }
+            else if (button.Name == "button6")
+            {
+                coordinates.X = 1;
+                coordinates.Y = 2;
+            }
+            else if (button.Name == "button7")
+            {
+                coordinates.X = 2;
+                coordinates.Y = 0;
+            }
+            else if (button.Name == "button8")
+            {
+                coordinates.X = 2;
+                coordinates.Y = 1;
+            }
+            else if (button.Name == "button9")
+            {
+                coordinates.X = 2;
+                coordinates.Y = 2;
+            }
+
+            return coordinates;
         }
 
-
-        // Общее количество ходов в игре.
-        int totalMovesInGame = 9;
-
-        // Проверка на победимтеля.
-        int winCheck = -1;
-
-
-
-
+        // Метод проверки свободной ячейки в матрице под ход игрока.
+        bool UserMoveCheck(Point point)
+        {
+            if (arr[point.X, point.Y] == ' ')
+                return true;
+            else
+                return false;
+        }
 
         // Игровоц процесс.
         public void GameProcess()
         {
-            string answer = "-1";
+            // Общее количество ходов в игре.
+            int totalMovesInGame = 9;
+
+            // Проверка на победимтеля.
+            int winCheck = -1;
+
+            bool moveCheckResult = false;
 
             do
             {
+
                 if (firstMove == 1) // Пользователь.
                 {
+                    Point userMove = new Point();
+
+                    moveCheckResult = UserMoveCheck(userMove);
+
+                    if (moveCheckResult == false)
+                        MessageBox.Show("Выберите другую ячейку.");
 
 
-                } while (totalMovesInGame > 0 || winCheck != 2) ;
 
-            }
+
+
+
+
+
+
+
+                }
+
+
+
+
+            } while (totalMovesInGame > 0 || winCheck != 2);
+
+
+        }
     }
-    }
+}
