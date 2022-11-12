@@ -175,17 +175,37 @@ namespace task
         }
 
         // Уровень сложности.
-        int gameDifficulty = 0;
+        int _gameDifficulty = 0;
 
         // Выбор игроком крестиков или ноликов.
-        int userChoice = -1;
+        int _userChoice = -1;
 
         // Символ для игры игрока.
-        char userLetter = '3';
+        char _userLetter = '3';
 
         // Символ для игры компьютера.
-        char pcLetter { 3 };
+        char _pcLetter = '3';
 
+        // Метод выставляет чем будут играть игрок и компьютер.
+        void CrossOrZero(int crossOrZero) // Принимает результат выбора по radiobutton.
+        {
+            if (_userChoice == 1)
+            {
+                _userLetter = 'X';
+                _pcLetter = 'O';
+            }
+            else if (_userChoice == 2)
+            {
+                _userLetter = 'O';
+                _pcLetter = 'X';
+            }
+        }
+        
+        // Метод выставляет сложность игры.
+        void SetGameDifficulty(int gameDifficulty) // Принимает выбранный уровень сложности с radiobutton.
+        {
+            this._gameDifficulty = gameDifficulty;
+        }
 
 
         // Общее количество ходов в игре.
