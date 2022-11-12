@@ -41,12 +41,13 @@ namespace task
             // Получаем имя кнопки на которую нажали.
             string buttonName = ((Button)sender).Name;
 
-            // Сопоставляем имя кнопки с двумерным массивом.
+            // Сопоставляем имя кнопки с двумерным массивом для передачи позиции в двумерный массив.
             if (buttonName == "button1")
             {
-                // Если ходит игрок.
-                //game.arr[0, 0] = ;
+                // Передаем позицию в двумерный массив.
+                game.arr[0, 0] = ;
             }
+
 
 
             // Если кнопка занята, тоесть туда уже походили.
@@ -137,23 +138,46 @@ namespace task
     public class Tic_tac_toe_game
     {
         // Массив игрового поля.
-        public char[,] arr = new char[,]
-        {
-            { ' ', ' ', ' '},
-            { ' ', ' ', ' '},
-            { ' ', ' ', ' '}
-        };
+        private char[,] arr = new char[,] { };
 
         // Кто первый ходит ?
         //public string _firstMove = ""; // 
 
         // Играть крестиками или лноликами ?
-        public string _crossOrZero = ""; // "x" - крестиками, "0" - ноликами.
+        // public string _crossOrZero = ""; // "x" - крестиками, "0" - ноликами.
 
         // Кто ходит ?
-        public string _whoMove = ""; // "computer" или "player".
+        // public string _whoMove = ""; // "computer" или "player".
 
         // Выбранный уровень сложности.
-        public string _difficultyLevel = "";
+        //public string _difficultyLevel = "";
+
+        // Получает с формы координаты хода пользователя.
+        //public void GetCoordinatesFromForm(int x, int y)
+        //{
+        //    arr[x, y] = 'x';
+        //}
+        
+        /// <summary>
+        /// Интеграция проекта с с++.
+        /// </summary>
+        string answer = "-1";
+
+        // Функция заполнения матрицы пробелами. Игра "Крестики-нолики".
+        void FillArrWithSpaces()
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    arr[i, j] = ' ';
+                }
+            }
+        }
+
+        
+
+
+
     }
 }
