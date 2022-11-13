@@ -193,81 +193,39 @@ namespace task
         private char[,] arr;
 
         // Уровень сложности.
-        int _gameDifficulty = 0;
+        int _gameDifficulty;
         public int GameDifficulty
         {
             get { return _gameDifficulty; }
             set { _gameDifficulty = value; }
         }
 
-        // Выбор игроком крестиков или ноликов.
-        int _userChoice = -1;
-        public int UserChoice
-        {
-            get { return _userChoice; }
-            set
-            {
-                if (_userChoice == 1)
-                {
-                    _userLetter = 'X';
-                    _pcLetter = 'O';
-                }
-                else if (_userChoice == 2)
-                {
-                    _userLetter = 'O';
-                    _pcLetter = 'X';
-                }
-            }
-        }
-
         // Символ для игры игрока.
-        char _userLetter = '3';
+        char _userLetter;
         public char UserLetter { get { return _userLetter; } set { _userLetter = value; } }
 
         // Символ для игры компьютера.
-        char _pcLetter = '3';
+        char _pcLetter;
         public char PcLetter { get { return _pcLetter; } set { _pcLetter = value; } }
+
+        // Кто будет ходить ?
+        int _whoMove; // 0 - компьютер, 1 - игрок.
+        public int WhoMove { get { return _whoMove; } set { _whoMove = value; } }
 
 
         // Конструктор.
         public Tic_tac_toe_game()
         {
             arr = new[,] { { ' ', ' ', ' ' }, { ' ', ' ', ' ' }, { ' ', ' ', ' ' } };
-
-
-
-
-
-
-
+            _gameDifficulty = 0;
+            _userLetter = '3';
+            _pcLetter = '3';
+            _whoMove = -1;
         }
 
         /// <summary>
         /// Интеграция проекта с с++.
         /// </summary>
-
-
-
-
-
-        // Метод выставляет чем будут играть игрок и компьютер.
-        //void CrossOrZero(int crossOrZero) // Принимает результат выбора по radiobutton.
-        //{
-        //    if (_userChoice == 1)
-        //    {
-        //        _userLetter = 'X';
-        //        _pcLetter = 'O';
-        //    }
-        //    else if (_userChoice == 2)
-        //    {
-        //        _userLetter = 'O';
-        //        _pcLetter = 'X';
-        //    }
-        //}
-
-        // Кто будет ходить ?
-        int _whoMove = -1; // 0 - компьютер, 1 - игрок.
-        public int WhoMove { get; set; }
 
         // Метод преобразования нажатых кнопок в координаты массива.
         public Point ConvertButtonToCoordinates(Button button)
