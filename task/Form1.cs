@@ -115,8 +115,8 @@ namespace task
                 }
             }
 
-            if (LevelOfDifficultyEasy.Checked == false && LevelOfDifficultyMedium.Checked == false &&
-                LevelOfDifficultyHard.Checked == false)
+            if (LevelOfDifficulty_1.Checked == false && LevelOfDifficulty_2.Checked == false &&
+                LevelOfDifficulty_3.Checked == false)
             {
                 MessageBox.Show("Выберите уровень сложности !", "Ошибка !", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
