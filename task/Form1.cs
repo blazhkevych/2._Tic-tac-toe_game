@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using System.Drawing;
 using task;
+using task.Properties;
 
 
 namespace task
@@ -52,12 +53,11 @@ namespace task
             {
                 // Если пользователь ходит крестиками, установить на кнопку картинку крестика.
                 if (_game.UserLetter == 'X')
-                    _game[userMoveInto.X, userMoveInto.Y] = 'X';
-
-
-
-
-
+                    // Установить на кнопку из ресурсов крестик.
+                    ((Button)sender).Image = Resources.cross;
+                else
+                    // Установить на кнопку из ресурсов нолик.
+                    ((Button)sender).Image = Resources._null;
             }
 
 
@@ -585,7 +585,7 @@ namespace task
                         UserMove(userMove, _userLetter);
                         WhoMove -= 1;
                         totalMovesInGame--;
-                        winCheck = WinCheck(); //todo: после обычного ходана в начале игры на пустое поле выдает ничью о_О
+                        winCheck = WinCheck(); //todo: после обычного хода на в начале игры на пустое поле выдает ничью о_О
                         if (winCheck == 1)
                         {
                             MessageBox.Show("Игрок победил.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
