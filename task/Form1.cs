@@ -127,7 +127,7 @@ namespace task
                 return;
             }
 
-            // Если все поля заполнены, то включаем поле с игровыми кнопками.
+            // Если все поля для начала игры заполнены, то включаем игровое поле из кнопок.
             button1.Enabled = true;
             button2.Enabled = true;
             button3.Enabled = true;
@@ -138,18 +138,32 @@ namespace task
             button8.Enabled = true;
             button9.Enabled = true;
 
-            // Кто чем будет играть ?.
-
-
-            // Выставляем значение поля "Кто ходит ?" в зависимости от выбора пользователя.
-            if (FirstMoveComputer.Checked == true)
-                _game.WhoMove = 0;
-            else
-                _game.WhoMove = 1;
-
-            _game.GameProcess();
-
             // После того как игра началась, блокируем кнопку "Начать новую игру" и прочие лишние елементы.
+            // По идее можно просто групбоксы заблокировать.
+            //StartNewGame_button10.Enabled = false;
+            //FirstMoveComputer.Enabled = false;
+            //FirstMovePlayer.Enabled = false;
+            //PlayCrosses.Enabled = false;
+            //PlayZeroes.Enabled = false;
+            //LevelOfDifficulty_1.Enabled = false;
+            //LevelOfDifficulty_2.Enabled = false;
+            //LevelOfDifficulty_3.Enabled = false;
+            //LevelOfDifficulty_4.Enabled = false;
+            //LevelOfDifficulty_5.Enabled = false;
+            //LevelOfDifficulty_6.Enabled = false;
+            //LevelOfDifficulty_7.Enabled = false;
+            //LevelOfDifficulty_8.Enabled = false;
+            //LevelOfDifficulty_9.Enabled = false;
+            //LevelOfDifficulty_10.Enabled = false;
+
+
+
+
+
+
+
+            // Начало игрового процесса.
+            _game.GameProcess();
         }
     }
 
