@@ -50,6 +50,12 @@
             this.LevelOfDifficulty_2 = new System.Windows.Forms.RadioButton();
             this.LevelOfDifficulty_1 = new System.Windows.Forms.RadioButton();
             this.LevelOfDifficulty_4 = new System.Windows.Forms.RadioButton();
+            this.LevelOfDifficulty_5 = new System.Windows.Forms.RadioButton();
+            this.LevelOfDifficulty_6 = new System.Windows.Forms.RadioButton();
+            this.LevelOfDifficulty_7 = new System.Windows.Forms.RadioButton();
+            this.LevelOfDifficulty_8 = new System.Windows.Forms.RadioButton();
+            this.LevelOfDifficulty_9 = new System.Windows.Forms.RadioButton();
+            this.LevelOfDifficulty_10 = new System.Windows.Forms.RadioButton();
             this.WhoWillGoFirst.SuspendLayout();
             this.CrossesOrZeroes.SuspendLayout();
             this.DifficultyLevel.SuspendLayout();
@@ -246,6 +252,12 @@
             // 
             // DifficultyLevel
             // 
+            this.DifficultyLevel.Controls.Add(this.LevelOfDifficulty_10);
+            this.DifficultyLevel.Controls.Add(this.LevelOfDifficulty_9);
+            this.DifficultyLevel.Controls.Add(this.LevelOfDifficulty_8);
+            this.DifficultyLevel.Controls.Add(this.LevelOfDifficulty_7);
+            this.DifficultyLevel.Controls.Add(this.LevelOfDifficulty_6);
+            this.DifficultyLevel.Controls.Add(this.LevelOfDifficulty_5);
             this.DifficultyLevel.Controls.Add(this.LevelOfDifficulty_4);
             this.DifficultyLevel.Controls.Add(this.LevelOfDifficulty_3);
             this.DifficultyLevel.Controls.Add(this.LevelOfDifficulty_2);
@@ -300,6 +312,72 @@
             this.LevelOfDifficulty_4.TabStop = true;
             this.LevelOfDifficulty_4.Text = "4";
             this.LevelOfDifficulty_4.UseVisualStyleBackColor = true;
+            // 
+            // LevelOfDifficulty_5
+            // 
+            this.LevelOfDifficulty_5.AutoSize = true;
+            this.LevelOfDifficulty_5.Location = new System.Drawing.Point(154, 22);
+            this.LevelOfDifficulty_5.Name = "LevelOfDifficulty_5";
+            this.LevelOfDifficulty_5.Size = new System.Drawing.Size(31, 19);
+            this.LevelOfDifficulty_5.TabIndex = 4;
+            this.LevelOfDifficulty_5.TabStop = true;
+            this.LevelOfDifficulty_5.Text = "5";
+            this.LevelOfDifficulty_5.UseVisualStyleBackColor = true;
+            // 
+            // LevelOfDifficulty_6
+            // 
+            this.LevelOfDifficulty_6.AutoSize = true;
+            this.LevelOfDifficulty_6.Location = new System.Drawing.Point(6, 47);
+            this.LevelOfDifficulty_6.Name = "LevelOfDifficulty_6";
+            this.LevelOfDifficulty_6.Size = new System.Drawing.Size(31, 19);
+            this.LevelOfDifficulty_6.TabIndex = 5;
+            this.LevelOfDifficulty_6.TabStop = true;
+            this.LevelOfDifficulty_6.Text = "6";
+            this.LevelOfDifficulty_6.UseVisualStyleBackColor = true;
+            // 
+            // LevelOfDifficulty_7
+            // 
+            this.LevelOfDifficulty_7.AutoSize = true;
+            this.LevelOfDifficulty_7.Location = new System.Drawing.Point(43, 47);
+            this.LevelOfDifficulty_7.Name = "LevelOfDifficulty_7";
+            this.LevelOfDifficulty_7.Size = new System.Drawing.Size(31, 19);
+            this.LevelOfDifficulty_7.TabIndex = 6;
+            this.LevelOfDifficulty_7.TabStop = true;
+            this.LevelOfDifficulty_7.Text = "7";
+            this.LevelOfDifficulty_7.UseVisualStyleBackColor = true;
+            // 
+            // LevelOfDifficulty_8
+            // 
+            this.LevelOfDifficulty_8.AutoSize = true;
+            this.LevelOfDifficulty_8.Location = new System.Drawing.Point(80, 47);
+            this.LevelOfDifficulty_8.Name = "LevelOfDifficulty_8";
+            this.LevelOfDifficulty_8.Size = new System.Drawing.Size(31, 19);
+            this.LevelOfDifficulty_8.TabIndex = 7;
+            this.LevelOfDifficulty_8.TabStop = true;
+            this.LevelOfDifficulty_8.Text = "8";
+            this.LevelOfDifficulty_8.UseVisualStyleBackColor = true;
+            // 
+            // LevelOfDifficulty_9
+            // 
+            this.LevelOfDifficulty_9.AutoSize = true;
+            this.LevelOfDifficulty_9.Location = new System.Drawing.Point(117, 47);
+            this.LevelOfDifficulty_9.Name = "LevelOfDifficulty_9";
+            this.LevelOfDifficulty_9.Size = new System.Drawing.Size(31, 19);
+            this.LevelOfDifficulty_9.TabIndex = 8;
+            this.LevelOfDifficulty_9.TabStop = true;
+            this.LevelOfDifficulty_9.Text = "9";
+            this.LevelOfDifficulty_9.UseVisualStyleBackColor = true;
+            // 
+            // LevelOfDifficulty_10
+            // 
+            this.LevelOfDifficulty_10.AutoSize = true;
+            this.LevelOfDifficulty_10.Location = new System.Drawing.Point(154, 47);
+            this.LevelOfDifficulty_10.Name = "LevelOfDifficulty_10";
+            this.LevelOfDifficulty_10.Size = new System.Drawing.Size(37, 19);
+            this.LevelOfDifficulty_10.TabIndex = 9;
+            this.LevelOfDifficulty_10.TabStop = true;
+            this.LevelOfDifficulty_10.Text = "10";
+            this.LevelOfDifficulty_10.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -359,5 +437,11 @@
         private RadioButton LevelOfDifficulty_2;
         private RadioButton LevelOfDifficulty_1;
         private RadioButton LevelOfDifficulty_4;
+        private RadioButton LevelOfDifficulty_10;
+        private RadioButton LevelOfDifficulty_9;
+        private RadioButton LevelOfDifficulty_8;
+        private RadioButton LevelOfDifficulty_7;
+        private RadioButton LevelOfDifficulty_6;
+        private RadioButton LevelOfDifficulty_5;
     }
 }
