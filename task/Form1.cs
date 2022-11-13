@@ -101,6 +101,19 @@ namespace task
                 MessageBox.Show("Выберите чем будете играть !", "Ошибка !", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             } // Проверка "Выберите уровень сложности.".
+            else
+            {
+                if (PlayCrosses.Checked == true)
+                {
+                    _game.UserLetter = 'X'; // Игрок использует крестики.
+                    _game.PcLetter = '0'; // Компьютер использует нолики.
+                }
+                else
+                {
+                    _game.UserLetter = '0'; // Игрок использует крестики.
+                    _game.PcLetter = 'X'; // Компьютер использует нолики.
+                }
+            }
 
             if (LevelOfDifficultyEasy.Checked == false && LevelOfDifficultyMedium.Checked == false &&
                 LevelOfDifficultyHard.Checked == false)
