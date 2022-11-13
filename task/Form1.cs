@@ -566,7 +566,7 @@ namespace task
                         UserMove(userMove, _userLetter);
                         WhoMove -= 1;
                         totalMovesInGame--;
-                        winCheck = WinCheck(); // после обычного ходана в начале игры на пустое поле выдает ничью о_О
+                        winCheck = WinCheck(); //todo: после обычного ходана в начале игры на пустое поле выдает ничью о_О
                         if (winCheck == 1)
                         {
                             MessageBox.Show("Игрок победил.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
