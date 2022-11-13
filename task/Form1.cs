@@ -43,16 +43,19 @@ namespace task
         // Обработчик нажатий кнопок на игровом поле.
         private void gameFieldsButtons_Click(object sender, EventArgs e)
         {
+
+            // когда выставлять метку игрока в ячейку ?
             // Отправляем кнопку на конвертацию в координаты массива.
             Point userMoveInto = _game.ConvertButtonToCoordinates((Button)sender);
 
+            if (_game.UserMoveCheck(userMoveInto))
 
 
 
 
 
-            // Начало игрового процесса.
-            _game.GameProcess(userMoveInto);
+                // Начало игрового процесса.
+                _game.GameProcess(userMoveInto);
         }
 
         // Обработчик нажатия на ссылку "Правила игры в «Крестики-нолики»."
@@ -267,12 +270,12 @@ namespace task
         }
 
         // Метод проверки свободной ячейки в матрице под ход игрока.
-        bool UserMoveCheck(Point point)
+        public bool UserMoveCheck(Point point)
         {
             if (arr[point.X, point.Y] == ' ')
-                return true;
+                return true; // Ход возможен.
             else
-                return false;
+                return false; // Ячейка занята, ходить сюда нельзя.
         }
 
         // Метод обрабатки хода игрока.
