@@ -49,13 +49,23 @@ namespace task
             Point userMoveInto = _game.ConvertButtonToCoordinates((Button)sender);
 
             if (_game.UserMoveCheck(userMoveInto))
+            {
+                // Если пользователь ходит крестиками, установить на кнопку картинку крестика.
+                if (_game.UserLetter == 'X')
+                    _game[userMoveInto.X, userMoveInto.Y] = 'X';
 
 
 
 
 
-                // Начало игрового процесса.
-                _game.GameProcess(userMoveInto);
+            }
+
+
+
+
+
+            // Начало игрового процесса.
+            _game.GameProcess(userMoveInto);
         }
 
         // Обработчик нажатия на ссылку "Правила игры в «Крестики-нолики»."
@@ -180,6 +190,12 @@ namespace task
     {
         // Массив игрового поля.
         private char[,] arr;
+
+        public char this[int i, int j]
+        {
+            get { return arr[i, j]; }
+            set { arr[i, j] = value; }
+        }
 
         // Уровень сложности.
         int _gameDifficulty;
