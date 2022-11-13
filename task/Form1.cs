@@ -48,12 +48,12 @@ namespace task
             if (buttonName == "button1")
             {
                 // Передаем позицию в двумерный массив.
-               // game.arr[0, 0] = ;
+                // game.arr[0, 0] = ;
             }
 
 
 
-           
+
             //// Проверка на то, чем пользователь играет.
             //if (game._crossOrZero == "cross")
             //{
@@ -89,6 +89,12 @@ namespace task
                     MessageBoxIcon.Error);
                 return;
             } // Проверка "Играть крестиками или ноликами ?".
+            else
+            {
+                if (FirstMoveComputer.Checked == true)
+                    _game.WhoMove = 0; // Компьютер ходит первым.
+                _game.WhoMove = 1; // Игрок ходит первым.
+            }
 
             if (PlayCrosses.Checked == false && PlayZeroes.Checked == false)
             {
@@ -102,7 +108,7 @@ namespace task
                 MessageBox.Show("Выберите уровень сложности !", "Ошибка !", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            
+
             // Если все поля заполнены, то включаем поле с игровыми кнопками.
             button1.Enabled = true;
             button2.Enabled = true;
@@ -115,7 +121,7 @@ namespace task
             button9.Enabled = true;
 
             // Кто чем будет играть ?.
-            
+
 
             // Выставляем значение поля "Кто ходит ?" в зависимости от выбора пользователя.
             if (FirstMoveComputer.Checked == true)
