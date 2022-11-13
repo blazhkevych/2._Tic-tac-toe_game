@@ -111,8 +111,8 @@ namespace task
                 }
                 else
                 {
-                    _game.UserLetter = '0'; // Игрок использует крестики.
-                    _game.PcLetter = 'X'; // Компьютер использует нолики.
+                    _game.UserLetter = '0'; // Игрок использует нолики.
+                    _game.PcLetter = 'X'; // Компьютер использует крестики.
                 }
             }
 
