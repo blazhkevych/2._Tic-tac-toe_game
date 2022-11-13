@@ -351,10 +351,10 @@ namespace task
             {
                 return 0; // Возвращает при победе компьютера.
             }
-            else
-            {
+            else if (TotalMovesInGame == 0)
                 return 2; // Возвращает при ничьей.
-            }
+            else
+                return 3; // Если есть куда ходить и можно продолжать игру.
         }
 
         // Функция делает рандомный ход компьютера в свободную ячейку. Игра "Крестики-нолики".
@@ -586,74 +586,73 @@ namespace task
             if (WhoMove == 1) // Пользователь.
             {
                 if (UserMoveCheck())
+                {
                     UserMove();
+                    TotalMovesInGame--;
+                    if (WinCheckMethod() == 1)
+                        MessageBox.Show("Игрок победил.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
                 else
                     MessageBox.Show("Выберите другую ячейку.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                UserMove();
-                WhoMove -= 1;
-                TotalMovesInGame--;
+                WhoMove -= 1; // Передача хода компьютеру.
                 WinCheck = WinCheckMethod(); //todo: после обычного хода в начале игры на пустое поле выдает ничью о_О
-                if (WinCheck == 1)
-                {
-                    MessageBox.Show("Игрок победил.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    break;
-                }
+
             }
         }
 
-        // Игровоц процесс.
-        //public void GameProcess(Point point)
-        //{
+        //Игровоц процесс.
+        public void GameProcess(Point point)
+        {
 
 
 
 
-        //    // Сыграем еще ?.
-        //    string playMore = "-1";
-        //    do
-        //    {
-        //        do
-        //        {
-        //            if (WhoMove == 1) // Пользователь.
-        //            {
-        //                Point playerPointToMove = point;
-        //                do
-        //                {
-        //                    UserMoveCheckResult = UserMoveCheck(playerPointToMove);
-        //                    if (UserMoveCheckResult == false)
-        //                        MessageBox.Show("Выберите другую ячейку.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //                } while (UserMoveCheckResult == false);
-        //                UserMove(playerPointToMove, UserLetter);
-        //                WhoMove -= 1;
-        //                TotalMovesInGame--;
-        //                WinCheck = WinCheckMethod(); //todo: после обычного хода в начале игры на пустое поле выдает ничью о_О
-        //                if (WinCheck == 1)
-        //                {
-        //                    MessageBox.Show("Игрок победил.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //                    break;
-        //                }
-        //            }
-        //            else if (WhoMove == 0) // Компьютер.
-        //            {
-        //                PcMove();
-        //                WhoMove += 1;
-        //                TotalMovesInGame--;
-        //                WinCheck = WinCheckMethod();
-        //                if (WinCheck == 0)
-        //                {
-        //                    MessageBox.Show("Компьютер победил.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //                    break;
-        //                }
-        //            }
-        //        } while (TotalMovesInGame > 0 || WinCheck != 2);
+            // Сыграем еще ?.
+            string playMore = "-1";
+            do
+            {
+                do
+                {
+                    if (WhoMove == 1) // Пользователь.
+                    {
+                        Point playerPointToMove = point;
+                        do
+                        {
+                            UserMoveCheckResult = UserMoveCheck(playerPointToMove);
+                            if (UserMoveCheckResult == false)
+                                MessageBox.Show("Выберите другую ячейку.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        } while (UserMoveCheckResult == false);
+                        UserMove(playerPointToMove, UserLetter);
+                        WhoMove -= 1;
+                        TotalMovesInGame--;
+                        WinCheck = WinCheckMethod(); //todo: после обычного хода в начале игры на пустое поле выдает ничью о_О
+                        if (WinCheck == 1)
+                        {
+                            MessageBox.Show("Игрок победил.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            break;
+                        }
+                    }
+                    else if (WhoMove == 0) // Компьютер.
+                    {
+                        PcMove();
+                        WhoMove += 1;
+                        TotalMovesInGame--;
+                        WinCheck = WinCheckMethod();
+                        if (WinCheck == 0)
+                        {
+                            MessageBox.Show("Компьютер победил.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            break;
+                        }
+                    }
+                } while (TotalMovesInGame > 0 || WinCheck != 2);
 
-        //        if (WinCheck == 2)
-        //            MessageBox.Show("Ничья.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (WinCheck == 2)
+                    MessageBox.Show("Ничья.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
-        //        MessageBox.Show("Сыграем еще ?", "Игра «Крестики-нолики».", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-        //    } while (playMore == "y");
-        //}
+                MessageBox.Show("Сыграем еще ?", "Игра «Крестики-нолики».", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            } while (playMore == "y");
+        }
     }
 }
