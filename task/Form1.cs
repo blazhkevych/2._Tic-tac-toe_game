@@ -47,9 +47,9 @@ namespace task
 
             // когда выставлять метку игрока в ячейку ?
             // Отправляем кнопку на конвертацию в координаты массива.
-            Point userMoveInto = _game.ConvertButtonToCoordinates((Button)sender);
+            _game.PlayerPointToMove = _game.ConvertButtonToCoordinates((Button)sender);
 
-            if (_game.UserMoveCheck(userMoveInto))
+            if (_game.UserMoveCheck() == true)
             {
                 // Если пользователь ходит крестиками, установить на кнопку картинку крестика.
                 if (_game.UserLetter == 'X')
@@ -65,7 +65,7 @@ namespace task
             // todo: GameProcess переписать, вынести из него поля в класс тикТакТое и реализовать так чтобы он тут при нажатии походил пользователь и после него сразу компьютер.
 
             // Начало игрового процесса.
-            _game.GameProcess(userMoveInto);
+            //_game.GameProcess(userMoveInto);
         }
 
         // Обработчик нажатия на ссылку "Правила игры в «Крестики-нолики»."
@@ -191,11 +191,11 @@ namespace task
         // Массив игрового поля.
         private char[,] arr;
 
-        public char this[int i, int j]
-        {
-            get { return arr[i, j]; }
-            set { arr[i, j] = value; }
-        }
+        //public char this[int i, int j]
+        //{
+        //    get { return arr[i, j]; }
+        //    set { arr[i, j] = value; }
+        //}
 
         // Уровень сложности.
         int _gameDifficulty;
@@ -229,16 +229,13 @@ namespace task
             set { _winCheck = value; }
         }
 
-        // Может ли пользователь ходить.
-        bool _userMoveCheckResult;
-        public bool UserMoveCheckResult
-        {
-            get { return _userMoveCheckResult; }
-            set { _userMoveCheckResult = value; }
-        }
+        // Может ли пользователь ходить ?.
+        //bool _userMoveCheckResult;
+        //public bool UserMoveCheckResult { get { return _userMoveCheckResult; } set { _userMoveCheckResult = value; } }
 
         // Координаты хода пользователя на массиве.
-        private Point playerPointToMove;
+        private Point _playerPointToMove;
+        public Point PlayerPointToMove { get { return _playerPointToMove; } set { _playerPointToMove = value; } }
 
         // Конструктор.
         public Tic_tac_toe_game()
@@ -250,7 +247,8 @@ namespace task
             _whoMove = -1;
             _totalMovesInGame = 9;
             _winCheck = -1;
-            _userMoveCheckResult = false;
+            //_userMoveCheckResult = false;
+            _playerPointToMove = new Point(-1, -1);
         }
 
         /// <summary>
@@ -312,18 +310,18 @@ namespace task
         }
 
         // Метод проверки свободной ячейки в матрице под ход игрока.
-        public bool UserMoveCheck(Point point)
+        public bool UserMoveCheck()
         {
-            if (arr[point.X, point.Y] == ' ')
+            if (arr[PlayerPointToMove.X, PlayerPointToMove.Y] == ' ')
                 return true; // Ход возможен.
             else
                 return false; // Ячейка занята, ходить сюда нельзя.
         }
 
         // Метод обрабатки хода игрока.
-        void UserMove(Point point, char userLetter)
+        void UserMove()
         {
-            arr[point.X, point.Y] = userLetter;
+            arr[PlayerPointToMove.X, PlayerPointToMove.Y] = UserLetter;
         }
 
         // Метод проверки победы.
@@ -581,63 +579,86 @@ namespace task
             }
         }
 
-        public void Step()
+        public void OneStep()
         {
+            if (WhoMove == 1) // Пользователь.
+            {
+                if (UserMoveCheck())
+                {
+                    UserMove();
+                }
+                else
+                {
+                    do
+                    {
+                        MessageBox.Show("Выберите другую ячейку.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    } while (UserMoveCheck() == false);
+                }
 
+                //UserMove();
+                //WhoMove -= 1;
+                //TotalMovesInGame--;
+                //WinCheck = WinCheckMethod(); //todo: после обычного хода в начале игры на пустое поле выдает ничью о_О
+                //if (WinCheck == 1)
+                //{
+                //    MessageBox.Show("Игрок победил.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //    break;
+                //}
+            }
         }
 
         // Игровоц процесс.
-        public void GameProcess(Point point)
-        {
+        //public void GameProcess(Point point)
+        //{
 
 
 
 
-            // Сыграем еще ?.
-            string playMore = "-1";
-            do
-            {
-                do
-                {
-                    if (WhoMove == 1) // Пользователь.
-                    {
-                        Point playerPointToMove = point;
-                        do
-                        {
-                            UserMoveCheckResult = UserMoveCheck(playerPointToMove);
-                            if (UserMoveCheckResult == false)
-                                MessageBox.Show("Выберите другую ячейку.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        } while (UserMoveCheckResult == false);
-                        UserMove(playerPointToMove, UserLetter);
-                        WhoMove -= 1;
-                        TotalMovesInGame--;
-                        WinCheck = WinCheckMethod(); //todo: после обычного хода в начале игры на пустое поле выдает ничью о_О
-                        if (WinCheck == 1)
-                        {
-                            MessageBox.Show("Игрок победил.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            break;
-                        }
-                    }
-                    else if (WhoMove == 0) // Компьютер.
-                    {
-                        PcMove();
-                        WhoMove += 1;
-                        TotalMovesInGame--;
-                        WinCheck = WinCheckMethod();
-                        if (WinCheck == 0)
-                        {
-                            MessageBox.Show("Компьютер победил.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            break;
-                        }
-                    }
-                } while (TotalMovesInGame > 0 || WinCheck != 2);
+        //    // Сыграем еще ?.
+        //    string playMore = "-1";
+        //    do
+        //    {
+        //        do
+        //        {
+        //            if (WhoMove == 1) // Пользователь.
+        //            {
+        //                Point playerPointToMove = point;
+        //                do
+        //                {
+        //                    UserMoveCheckResult = UserMoveCheck(playerPointToMove);
+        //                    if (UserMoveCheckResult == false)
+        //                        MessageBox.Show("Выберите другую ячейку.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //                } while (UserMoveCheckResult == false);
+        //                UserMove(playerPointToMove, UserLetter);
+        //                WhoMove -= 1;
+        //                TotalMovesInGame--;
+        //                WinCheck = WinCheckMethod(); //todo: после обычного хода в начале игры на пустое поле выдает ничью о_О
+        //                if (WinCheck == 1)
+        //                {
+        //                    MessageBox.Show("Игрок победил.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //                    break;
+        //                }
+        //            }
+        //            else if (WhoMove == 0) // Компьютер.
+        //            {
+        //                PcMove();
+        //                WhoMove += 1;
+        //                TotalMovesInGame--;
+        //                WinCheck = WinCheckMethod();
+        //                if (WinCheck == 0)
+        //                {
+        //                    MessageBox.Show("Компьютер победил.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //                    break;
+        //                }
+        //            }
+        //        } while (TotalMovesInGame > 0 || WinCheck != 2);
 
-                if (WinCheck == 2)
-                    MessageBox.Show("Ничья.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //        if (WinCheck == 2)
+        //            MessageBox.Show("Ничья.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
-                MessageBox.Show("Сыграем еще ?", "Игра «Крестики-нолики».", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            } while (playMore == "y");
-        }
+        //        MessageBox.Show("Сыграем еще ?", "Игра «Крестики-нолики».", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+        //    } while (playMore == "y");
+        //}
     }
 }
