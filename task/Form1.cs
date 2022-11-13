@@ -92,15 +92,22 @@ namespace task
             else
             {
                 if (FirstMoveComputer.Checked == true)
+                {
                     _game.WhoMove = 0; // Компьютер ходит первым.
-                _game.WhoMove = 1; // Игрок ходит первым.
+                    _game.WhoMove = 1; // Игрок ходит первым.
+                }
+                else
+                {
+                    _game.WhoMove = 1; // Компьютер ходит первым.
+                    _game.WhoMove = 0; // Игрок ходит первым.
+                }
             }
 
             if (PlayCrosses.Checked == false && PlayZeroes.Checked == false)
             {
                 MessageBox.Show("Выберите чем будете играть !", "Ошибка !", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
-            } // Проверка "Выберите уровень сложности.".
+            } // Выставление символов игры для игрока и компьютера.
             else
             {
                 if (PlayCrosses.Checked == true)
@@ -115,6 +122,7 @@ namespace task
                 }
             }
 
+            // 
             if (LevelOfDifficulty_1.Checked == false && LevelOfDifficulty_2.Checked == false &&
                 LevelOfDifficulty_3.Checked == false)
             {
