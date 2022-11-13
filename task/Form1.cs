@@ -217,6 +217,29 @@ namespace task
         int _whoMove; // 0 - компьютер, 1 - игрок.
         public int WhoMove { get { return _whoMove; } set { _whoMove = value; } }
 
+        // Общее количество ходов в игре.
+        int _totalMovesInGame;
+        public int TotalMovesInGame { get { return _totalMovesInGame; } set { _totalMovesInGame = value; } }
+
+        // Проверка на победимтеля.
+        int _winCheck;
+        public int WinCheck
+        {
+            get { return _winCheck; }
+            set { _winCheck = value; }
+        }
+
+        // Может ли пользователь ходить.
+        bool _userMoveCheckResult;
+        public bool UserMoveCheckResult
+        {
+            get { return _userMoveCheckResult; }
+            set { _userMoveCheckResult = value; }
+        }
+
+        // Координаты хода пользователя на массиве.
+        private Point playerPointToMove;
+
         // Конструктор.
         public Tic_tac_toe_game()
         {
@@ -225,6 +248,9 @@ namespace task
             _userLetter = '3';
             _pcLetter = '3';
             _whoMove = -1;
+            _totalMovesInGame = 9;
+            _winCheck = -1;
+            _userMoveCheckResult = false;
         }
 
         /// <summary>
@@ -301,7 +327,7 @@ namespace task
         }
 
         // Метод проверки победы.
-        int WinCheck()
+        int WinCheckMethod()
         {
             if (((arr[0, 0] == _userLetter) && (arr[0, 1] == _userLetter) && (arr[0, 2] == _userLetter)) || // 1 горизонтальная
                 ((arr[1, 0] == _userLetter) && (arr[1, 1] == _userLetter) && (arr[1, 2] == _userLetter)) || // 2 горизонтальная
@@ -555,17 +581,17 @@ namespace task
             }
         }
 
+        public void Step()
+        {
+
+        }
+
         // Игровоц процесс.
         public void GameProcess(Point point)
         {
-            // Общее количество ходов в игре.
-            int totalMovesInGame = 9;
 
-            // Проверка на победимтеля.
-            int winCheck = -1;
 
-            // Может ли пользователь ходить.
-            bool moveCheckResult = false;
+
 
             // Сыграем еще ?.
             string playMore = "-1";
@@ -575,18 +601,18 @@ namespace task
                 {
                     if (WhoMove == 1) // Пользователь.
                     {
-                        Point userMove = point;
+                        Point playerPointToMove = point;
                         do
                         {
-                            moveCheckResult = UserMoveCheck(userMove);
-                            if (moveCheckResult == false)
+                            UserMoveCheckResult = UserMoveCheck(playerPointToMove);
+                            if (UserMoveCheckResult == false)
                                 MessageBox.Show("Выберите другую ячейку.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        } while (moveCheckResult == false);
-                        UserMove(userMove, _userLetter);
+                        } while (UserMoveCheckResult == false);
+                        UserMove(playerPointToMove, UserLetter);
                         WhoMove -= 1;
-                        totalMovesInGame--;
-                        winCheck = WinCheck(); //todo: после обычного хода на в начале игры на пустое поле выдает ничью о_О
-                        if (winCheck == 1)
+                        TotalMovesInGame--;
+                        WinCheck = WinCheckMethod(); //todo: после обычного хода в начале игры на пустое поле выдает ничью о_О
+                        if (WinCheck == 1)
                         {
                             MessageBox.Show("Игрок победил.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             break;
@@ -596,17 +622,17 @@ namespace task
                     {
                         PcMove();
                         WhoMove += 1;
-                        totalMovesInGame--;
-                        winCheck = WinCheck();
-                        if (winCheck == 0)
+                        TotalMovesInGame--;
+                        WinCheck = WinCheckMethod();
+                        if (WinCheck == 0)
                         {
                             MessageBox.Show("Компьютер победил.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             break;
                         }
                     }
-                } while (totalMovesInGame > 0 || winCheck != 2);
+                } while (TotalMovesInGame > 0 || WinCheck != 2);
 
-                if (winCheck == 2)
+                if (WinCheck == 2)
                     MessageBox.Show("Ничья.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
