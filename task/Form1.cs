@@ -212,7 +212,6 @@ namespace task
         int _whoMove; // 0 - компьютер, 1 - игрок.
         public int WhoMove { get { return _whoMove; } set { _whoMove = value; } }
 
-
         // Конструктор.
         public Tic_tac_toe_game()
         {
