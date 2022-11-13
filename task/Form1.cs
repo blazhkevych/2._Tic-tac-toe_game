@@ -19,8 +19,8 @@ namespace task
         /// * предусмотреть кнопку «Начать новую игру».
         /// </summary>
 
+        private Tic_tac_toe_game _game = null;
 
-        Tic_tac_toe_game _game = new Tic_tac_toe_game();
         public Form1()
         {
             InitializeComponent();
@@ -36,6 +36,7 @@ namespace task
             button7.Enabled = false;
             button8.Enabled = false;
             button9.Enabled = false;
+            _game = new Tic_tac_toe_game();
         }
 
         // Обработчик нажатий кнопок на игровом поле.
@@ -89,7 +90,7 @@ namespace task
                     MessageBoxIcon.Error);
                 return;
             }
-            else
+            else // 
             {
                 if (FirstMoveComputer.Checked == true)
                     _game.WhoMove = 0; // Компьютер ходит первым.
@@ -97,6 +98,7 @@ namespace task
                     _game.WhoMove = 1; // Игрок ходит первым.
             }
 
+            // Выберите чем будете играть !.
             if (PlayCrosses.Checked == false && PlayZeroes.Checked == false)
             {
                 MessageBox.Show("Выберите чем будете играть !", "Ошибка !", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -116,7 +118,7 @@ namespace task
                 }
             }
 
-            // 
+            // Выберите уровень сложности !.
             if (LevelOfDifficulty_1.Checked == false && LevelOfDifficulty_2.Checked == false &&
                 LevelOfDifficulty_3.Checked == false && LevelOfDifficulty_4.Checked == false &&
                 LevelOfDifficulty_5.Checked == false && LevelOfDifficulty_6.Checked == false &&
@@ -125,6 +127,29 @@ namespace task
             {
                 MessageBox.Show("Выберите уровень сложности !", "Ошибка !", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
+            }
+            else // Выставление уровня сложности.
+            {
+                if (LevelOfDifficulty_1.Checked == true)
+                    _game.GameDifficulty = 1;
+                else if (LevelOfDifficulty_2.Checked == true)
+                    _game.GameDifficulty = 2;
+                else if (LevelOfDifficulty_3.Checked == true)
+                    _game.GameDifficulty = 3;
+                else if (LevelOfDifficulty_4.Checked == true)
+                    _game.GameDifficulty = 4;
+                else if (LevelOfDifficulty_5.Checked == true)
+                    _game.GameDifficulty = 5;
+                else if (LevelOfDifficulty_6.Checked == true)
+                    _game.GameDifficulty = 6;
+                else if (LevelOfDifficulty_7.Checked == true)
+                    _game.GameDifficulty = 7;
+                else if (LevelOfDifficulty_8.Checked == true)
+                    _game.GameDifficulty = 8;
+                else if (LevelOfDifficulty_9.Checked == true)
+                    _game.GameDifficulty = 9;
+                else if (LevelOfDifficulty_10.Checked == true)
+                    _game.GameDifficulty = 10;
             }
 
             // Если все поля для начала игры заполнены, то включаем игровое поле из кнопок.
@@ -585,7 +610,7 @@ namespace task
             {
                 do
                 {
-                    if (_whoMove == 1) // Пользователь.
+                    if (WhoMove == 1) // Пользователь.
                     {
                         Point userMove = new Point();
                         do
@@ -595,7 +620,7 @@ namespace task
                                 MessageBox.Show("Выберите другую ячейку.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         } while (moveCheckResult == false);
                         UserMove(userMove, _userLetter);
-                        _whoMove -= 1;
+                        WhoMove -= 1;
                         totalMovesInGame--;
                         winCheck = WinCheck();
                         if (winCheck == 1)
@@ -604,10 +629,10 @@ namespace task
                             break;
                         }
                     }
-                    else if (_whoMove == 0) // Компьютер.
+                    else if (WhoMove == 0) // Компьютер.
                     {
                         PcMove();
-                        _whoMove += 1;
+                        WhoMove += 1;
                         totalMovesInGame--;
                         winCheck = WinCheck();
                         if (winCheck == 0)
