@@ -102,7 +102,6 @@ namespace task
                 MessageBox.Show("Выберите уровень сложности !", "Ошибка !", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
             // Если все поля заполнены, то включаем поле с игровыми кнопками.
             button1.Enabled = true;
             button2.Enabled = true;
@@ -121,17 +120,7 @@ namespace task
                 game._whoMove = "player";
 
 
-            //DialogResult playMore;
-            //do
-            //{
 
-
-            //    playMore = MessageBox.Show(
-            //        "Хотите сыграть еще ?",
-            //        "Игра \"Угадай число.\"",
-            //        MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            //} while (playMore == DialogResult.Yes);
         }
 
         // 
@@ -291,27 +280,27 @@ namespace task
         }
 
         // Метод проверки победы.
-        int WinCheck(char userLetter, char pcLetter)
+        int WinCheck()
         {
-            if (((arr[0, 0] == userLetter) && (arr[0, 1] == userLetter) && (arr[0, 2] == userLetter)) || // 1 горизонтальная
-                ((arr[1, 0] == userLetter) && (arr[1, 1] == userLetter) && (arr[1, 2] == userLetter)) || // 2 горизонтальная
-                ((arr[2, 0] == userLetter) && (arr[2, 1] == userLetter) && (arr[2, 2] == userLetter)) || // 3 горизонтальная
-                ((arr[0, 0] == userLetter) && (arr[1, 0] == userLetter) && (arr[2, 0] == userLetter)) || // 1 вертикальная
-                ((arr[0, 1] == userLetter) && (arr[1, 1] == userLetter) && (arr[2, 1] == userLetter)) || // 2 вертикальная 
-                ((arr[0, 2] == userLetter) && (arr[1, 2] == userLetter) && (arr[2, 2] == userLetter)) || // 3 вертикальная 
-                ((arr[0, 0] == userLetter) && (arr[1, 1] == userLetter) && (arr[2, 2] == userLetter)) || // главная диагональ
-                ((arr[2, 0] == userLetter) && (arr[1, 1] == userLetter) && (arr[0, 2] == userLetter))) // второстепенная диагональ
+            if (((arr[0, 0] == _userLetter) && (arr[0, 1] == _userLetter) && (arr[0, 2] == _userLetter)) || // 1 горизонтальная
+                ((arr[1, 0] == _userLetter) && (arr[1, 1] == _userLetter) && (arr[1, 2] == _userLetter)) || // 2 горизонтальная
+                ((arr[2, 0] == _userLetter) && (arr[2, 1] == _userLetter) && (arr[2, 2] == _userLetter)) || // 3 горизонтальная
+                ((arr[0, 0] == _userLetter) && (arr[1, 0] == _userLetter) && (arr[2, 0] == _userLetter)) || // 1 вертикальная
+                ((arr[0, 1] == _userLetter) && (arr[1, 1] == _userLetter) && (arr[2, 1] == _userLetter)) || // 2 вертикальная 
+                ((arr[0, 2] == _userLetter) && (arr[1, 2] == _userLetter) && (arr[2, 2] == _userLetter)) || // 3 вертикальная 
+                ((arr[0, 0] == _userLetter) && (arr[1, 1] == _userLetter) && (arr[2, 2] == _userLetter)) || // главная диагональ
+                ((arr[2, 0] == _userLetter) && (arr[1, 1] == _userLetter) && (arr[0, 2] == _userLetter))) // второстепенная диагональ
             {
                 return 1; // Возвращает при победе игрока.
             }
-            else if (((arr[0, 0] == pcLetter) && (arr[0, 1] == pcLetter) && (arr[0, 2] == pcLetter)) || // 1 горизонтальная
-                ((arr[1, 0] == pcLetter) && (arr[1, 1] == pcLetter) && (arr[1, 2] == pcLetter)) || // 2 горизонтальная
-                ((arr[2, 0] == pcLetter) && (arr[2, 1] == pcLetter) && (arr[2, 2] == pcLetter)) || // 3 горизонтальная
-                ((arr[0, 0] == pcLetter) && (arr[1, 0] == pcLetter) && (arr[2, 0] == pcLetter)) || // 1 вертикальная
-                ((arr[0, 1] == pcLetter) && (arr[1, 1] == pcLetter) && (arr[2, 1] == pcLetter)) || // 2 вертикальная 
-                ((arr[0, 2] == pcLetter) && (arr[1, 2] == pcLetter) && (arr[2, 2] == pcLetter)) || // 3 вертикальная 
-                ((arr[0, 0] == pcLetter) && (arr[1, 1] == pcLetter) && (arr[2, 2] == pcLetter)) || // главная диагональ
-                ((arr[2, 0] == pcLetter) && (arr[1, 1] == pcLetter) && (arr[0, 2] == pcLetter))) // второстепенная диагональ
+            else if (((arr[0, 0] == _pcLetter) && (arr[0, 1] == _pcLetter) && (arr[0, 2] == _pcLetter)) || // 1 горизонтальная
+                ((arr[1, 0] == _pcLetter) && (arr[1, 1] == _pcLetter) && (arr[1, 2] == _pcLetter)) || // 2 горизонтальная
+                ((arr[2, 0] == _pcLetter) && (arr[2, 1] == _pcLetter) && (arr[2, 2] == _pcLetter)) || // 3 горизонтальная
+                ((arr[0, 0] == _pcLetter) && (arr[1, 0] == _pcLetter) && (arr[2, 0] == _pcLetter)) || // 1 вертикальная
+                ((arr[0, 1] == _pcLetter) && (arr[1, 1] == _pcLetter) && (arr[2, 1] == _pcLetter)) || // 2 вертикальная 
+                ((arr[0, 2] == _pcLetter) && (arr[1, 2] == _pcLetter) && (arr[2, 2] == _pcLetter)) || // 3 вертикальная 
+                ((arr[0, 0] == _pcLetter) && (arr[1, 1] == _pcLetter) && (arr[2, 2] == _pcLetter)) || // главная диагональ
+                ((arr[2, 0] == _pcLetter) && (arr[1, 1] == _pcLetter) && (arr[0, 2] == _pcLetter))) // второстепенная диагональ
             {
                 return 0; // Возвращает при победе компьютера.
             }
@@ -554,45 +543,54 @@ namespace task
             // Проверка на победимтеля.
             int winCheck = -1;
 
+            // Может ли пользователь ходить.
             bool moveCheckResult = false;
 
+            // Сыграем еще ?.
+            string playMore = "-1";
             do
             {
-                if (_firstMove == 1) // Пользователь.
+                do
                 {
-                    Point userMove = new Point();
-                    do
+                    if (_firstMove == 1) // Пользователь.
                     {
-                        moveCheckResult = UserMoveCheck(userMove);
-                        if (moveCheckResult == false)
-                            MessageBox.Show("Выберите другую ячейку.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    } while (moveCheckResult == false);
-                    UserMove(userMove, _userLetter);
-                    _firstMove -= 1;
-                    totalMovesInGame--;
-                    winCheck = WinCheck(_userLetter, _pcLetter);
-                    if (winCheck == 1)
-                    {
-                        MessageBox.Show("Игрок победил.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        break;
+                        Point userMove = new Point();
+                        do
+                        {
+                            moveCheckResult = UserMoveCheck(userMove);
+                            if (moveCheckResult == false)
+                                MessageBox.Show("Выберите другую ячейку.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        } while (moveCheckResult == false);
+                        UserMove(userMove, _userLetter);
+                        _firstMove -= 1;
+                        totalMovesInGame--;
+                        winCheck = WinCheck();
+                        if (winCheck == 1)
+                        {
+                            MessageBox.Show("Игрок победил.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            break;
+                        }
                     }
-                }
-                else if (_firstMove == 0) // Компьютер.
-                {
-                    PcMove(arr, pcLetter, userLetter, gameDifficulty);
-                    PrintPlayingField(arr, size);
-                    firstMove += 1;
-                    totalMovesInGame--;
-                    winCheck = WinCheck(arr, userLetter, pcLetter);
-                    if (winCheck == 0)
+                    else if (_firstMove == 0) // Компьютер.
                     {
-                        cout << "\nThe computer won!\n";
-                        break;
+                        PcMove();
+                        _firstMove += 1;
+                        totalMovesInGame--;
+                        winCheck = WinCheck();
+                        if (winCheck == 0)
+                        {
+                            MessageBox.Show("Компьютер победил.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            break;
+                        }
                     }
-                }
-            } while (totalMovesInGame > 0 || winCheck != 2);
+                } while (totalMovesInGame > 0 || winCheck != 2);
+
+                if (winCheck == 2)
+                    MessageBox.Show("Ничья.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
+                MessageBox.Show("Сыграем еще ?", "Игра «Крестики-нолики».", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            } while (playMore == "y");
         }
     }
 }
