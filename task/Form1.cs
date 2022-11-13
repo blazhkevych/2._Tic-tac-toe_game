@@ -156,12 +156,6 @@ namespace task
             //LevelOfDifficulty_9.Enabled = false;
             //LevelOfDifficulty_10.Enabled = false;
 
-
-
-
-
-
-
             // Начало игрового процесса.
             _game.GameProcess();
         }
