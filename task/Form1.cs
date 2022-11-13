@@ -221,6 +221,12 @@ namespace task
         /// Интеграция проекта с с++.
         /// </summary>
 
+        // Конструктор.
+        public Tic_tac_toe_game()
+        {
+
+        }
+
         // Функция заполнения матрицы пробелами. Игра "Крестики-нолики".
         void FillArrWithSpaces()
         {
@@ -239,7 +245,27 @@ namespace task
 
         // Выбор игроком крестиков или ноликов.
         int _userChoice = -1;
-        public int UserChoice { get; set; }
+
+        public int UserChoice
+        {
+            get
+            {
+                return _userChoice;
+            }
+            set
+            {
+                if (_userChoice == 1)
+                {
+                    _userLetter = 'X';
+                    _pcLetter = 'O';
+                }
+                else if (_userChoice == 2)
+                {
+                    _userLetter = 'O';
+                    _pcLetter = 'X';
+                }
+            }
+        }
 
         // Символ для игры игрока.
         char _userLetter = '3';
@@ -250,19 +276,19 @@ namespace task
         public char PcLetter { get; set; }
 
         // Метод выставляет чем будут играть игрок и компьютер.
-        void CrossOrZero(int crossOrZero) // Принимает результат выбора по radiobutton.
-        {
-            if (_userChoice == 1)
-            {
-                _userLetter = 'X';
-                _pcLetter = 'O';
-            }
-            else if (_userChoice == 2)
-            {
-                _userLetter = 'O';
-                _pcLetter = 'X';
-            }
-        }
+        //void CrossOrZero(int crossOrZero) // Принимает результат выбора по radiobutton.
+        //{
+        //    if (_userChoice == 1)
+        //    {
+        //        _userLetter = 'X';
+        //        _pcLetter = 'O';
+        //    }
+        //    else if (_userChoice == 2)
+        //    {
+        //        _userLetter = 'O';
+        //        _pcLetter = 'X';
+        //    }
+        //}
 
         // Кто будет ходить ?
         int _whoMove = -1; // 0 - компьютер, 1 - игрок.
