@@ -60,6 +60,8 @@ namespace task
                     ((Button)sender).Image = Resources._null;
             }
 
+            _game.OneStep();
+
 
 
             // todo: GameProcess переписать, вынести из него поля в класс тикТакТое и реализовать так чтобы он тут при нажатии походил пользователь и после него сразу компьютер.
@@ -584,26 +586,19 @@ namespace task
             if (WhoMove == 1) // Пользователь.
             {
                 if (UserMoveCheck())
-                {
                     UserMove();
-                }
                 else
-                {
-                    do
-                    {
-                        MessageBox.Show("Выберите другую ячейку.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    } while (UserMoveCheck() == false);
-                }
+                    MessageBox.Show("Выберите другую ячейку.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                //UserMove();
-                //WhoMove -= 1;
-                //TotalMovesInGame--;
-                //WinCheck = WinCheckMethod(); //todo: после обычного хода в начале игры на пустое поле выдает ничью о_О
-                //if (WinCheck == 1)
-                //{
-                //    MessageBox.Show("Игрок победил.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //    break;
-                //}
+                UserMove();
+                WhoMove -= 1;
+                TotalMovesInGame--;
+                WinCheck = WinCheckMethod(); //todo: после обычного хода в начале игры на пустое поле выдает ничью о_О
+                if (WinCheck == 1)
+                {
+                    MessageBox.Show("Игрок победил.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+                }
             }
         }
 
