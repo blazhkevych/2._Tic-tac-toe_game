@@ -189,69 +189,22 @@ namespace task
     // Класс реализующий логику игры с компьютером.
     public class Tic_tac_toe_game
     {
-        int size = 3;
-
         // Массив игрового поля.
-        private char[,] arr = new char[,]
-        {
-            { ' ', ' ', ' ' },
-            { ' ', ' ', ' ' },
-            { ' ', ' ', ' ' }
-        };
-
-        // Кто первый ходит ?
-        //public string _whoMove = ""; // 
-
-        // Играть крестиками или лноликами ?
-        // public string _crossOrZero = ""; // "x" - крестиками, "0" - ноликами.
-
-        // Кто ходит ?
-        // public string _whoMove = ""; // "computer" или "player".
-
-        // Выбранный уровень сложности.
-        //public string _difficultyLevel = "";
-
-        // Получает с формы координаты хода пользователя.
-        //public void GetCoordinatesFromForm(int x, int y)
-        //{
-        //    arr[x, y] = 'x';
-        //}
-
-        /// <summary>
-        /// Интеграция проекта с с++.
-        /// </summary>
-
-        // Конструктор.
-        public Tic_tac_toe_game()
-        {
-
-        }
-
-        // Функция заполнения матрицы пробелами. Игра "Крестики-нолики".
-        void FillArrWithSpaces()
-        {
-            for (int i = 0; i < 3; i++)
-            {
-                for (int j = 0; j < 3; j++)
-                {
-                    arr[i, j] = ' ';
-                }
-            }
-        }
+        private char[,] arr;
 
         // Уровень сложности.
         int _gameDifficulty = 0;
-        public int GameDifficulty { get; set; }
+        public int GameDifficulty
+        {
+            get { return _gameDifficulty; }
+            set { _gameDifficulty = value; }
+        }
 
         // Выбор игроком крестиков или ноликов.
         int _userChoice = -1;
-
         public int UserChoice
         {
-            get
-            {
-                return _userChoice;
-            }
+            get { return _userChoice; }
             set
             {
                 if (_userChoice == 1)
@@ -269,11 +222,33 @@ namespace task
 
         // Символ для игры игрока.
         char _userLetter = '3';
-        public char UserLetter { get; set; }
+        public char UserLetter { get { return _userLetter; } set { _userLetter = value; } }
 
         // Символ для игры компьютера.
         char _pcLetter = '3';
-        public char PcLetter { get; set; }
+        public char PcLetter { get { return _pcLetter; } set { _pcLetter = value; } }
+
+
+        // Конструктор.
+        public Tic_tac_toe_game()
+        {
+            arr = new[,] { { ' ', ' ', ' ' }, { ' ', ' ', ' ' }, { ' ', ' ', ' ' } };
+
+
+
+
+
+
+
+        }
+
+        /// <summary>
+        /// Интеграция проекта с с++.
+        /// </summary>
+
+
+
+
 
         // Метод выставляет чем будут играть игрок и компьютер.
         //void CrossOrZero(int crossOrZero) // Принимает результат выбора по radiobutton.
