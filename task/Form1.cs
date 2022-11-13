@@ -119,6 +119,7 @@ namespace task
             else
                 game._whoMove = "player";
 
+            game.GameProcess();
 
 
         }
@@ -207,7 +208,7 @@ namespace task
         }
 
         // Кто будет ходить первым ?
-        int _firstMove = 0; // 0 - компьютер, 1 - игрок.
+        int _whoMove = 0; // 0 - компьютер, 1 - игрок.
         public int FirstMove { get; set; }
 
         // Метод преобразования нажатых кнопок в координаты массива.
