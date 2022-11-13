@@ -82,25 +82,19 @@ namespace task
         private void StartNewGame_button10_Click(object sender, EventArgs e)
         {
             // Проверяем заполнены ли все поля для игры.
-            // Проверка "Кто будет ходить первым ?".
+            // "Кто будет ходить первым ?".
             if (FirstMoveComputer.Checked == false && FirstMovePlayer.Checked == false)
             {
                 MessageBox.Show("Выберите кто будет ходить первым !", "Ошибка !", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 return;
-            } // Проверка "Играть крестиками или ноликами ?".
+            }
             else
             {
                 if (FirstMoveComputer.Checked == true)
-                {
                     _game.WhoMove = 0; // Компьютер ходит первым.
-                    _game.WhoMove = 1; // Игрок ходит первым.
-                }
                 else
-                {
-                    _game.WhoMove = 1; // Компьютер ходит первым.
-                    _game.WhoMove = 0; // Игрок ходит первым.
-                }
+                    _game.WhoMove = 1; // Игрок ходит первым.
             }
 
             if (PlayCrosses.Checked == false && PlayZeroes.Checked == false)
@@ -152,7 +146,7 @@ namespace task
 
             _game.GameProcess();
 
-
+            // После того как игра началась, блокируем кнопку "Начать новую игру" и прочие лишние елементы.
         }
     }
 
