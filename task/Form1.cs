@@ -18,6 +18,9 @@ namespace task
         /// переключатели; 
         /// * предусмотреть кнопку «Начать новую игру».
         /// </summary>
+
+
+        Tic_tac_toe_game _game = new Tic_tac_toe_game();
         public Form1()
         {
             InitializeComponent();
@@ -45,26 +48,23 @@ namespace task
             if (buttonName == "button1")
             {
                 // Передаем позицию в двумерный массив.
-                game.arr[0, 0] = ;
+               // game.arr[0, 0] = ;
             }
 
 
 
-            // Если кнопка занята, тоесть туда уже походили.
-            //if (game.arr[,]
-            //   )
-            //    return;
-            // Проверка на то, чем пользователь играет.
-            if (game._crossOrZero == "cross")
-            {
-                // Если играет крестиками, то ставим крестик.
-                ((Button)sender).Image = Properties.Resources.cross;
-            }
-            else
-            {
-                // Если играет ноликами, то ставим нолик.
-                ((Button)sender).Image = Properties.Resources._null;
-            }
+           
+            //// Проверка на то, чем пользователь играет.
+            //if (game._crossOrZero == "cross")
+            //{
+            //    // Если играет крестиками, то ставим крестик.
+            //    ((Button)sender).Image = Properties.Resources.cross;
+            //}
+            //else
+            //{
+            //    // Если играет ноликами, то ставим нолик.
+            //    ((Button)sender).Image = Properties.Resources._null;
+            //}
         }
 
         // Обработчик нажатия на ссылку "Правила игры в «Крестики-нолики»."
@@ -102,6 +102,7 @@ namespace task
                 MessageBox.Show("Выберите уровень сложности !", "Ошибка !", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            
             // Если все поля заполнены, то включаем поле с игровыми кнопками.
             button1.Enabled = true;
             button2.Enabled = true;
@@ -113,20 +114,19 @@ namespace task
             button8.Enabled = true;
             button9.Enabled = true;
 
+            // Кто чем будет играть ?.
+            
+
             // Выставляем значение поля "Кто ходит ?" в зависимости от выбора пользователя.
             if (FirstMoveComputer.Checked == true)
-                game._whoMove = "computer";
+                _game.WhoMove = 0;
             else
-                game._whoMove = "player";
+                _game.WhoMove = 1;
 
-            game.GameProcess();
+            _game.GameProcess();
 
 
         }
-
-        // 
-
-        Tic_tac_toe_game game = new Tic_tac_toe_game();
     }
 
     // Класс реализующий логику игры с компьютером.
@@ -208,8 +208,8 @@ namespace task
         }
 
         // Кто будет ходить ?
-        int _whoMove = 0; // 0 - компьютер, 1 - игрок.
-        public int FirstMove { get; set; }
+        int _whoMove = -1; // 0 - компьютер, 1 - игрок.
+        public int WhoMove { get; set; }
 
         // Метод преобразования нажатых кнопок в координаты массива.
         public Point ConvertButtonToCoordinates(Button button)
