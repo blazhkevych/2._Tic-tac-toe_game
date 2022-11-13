@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Drawing;
 using task;
 
 
@@ -42,30 +43,16 @@ namespace task
         // Обработчик нажатий кнопок на игровом поле.
         private void gameFieldsButtons_Click(object sender, EventArgs e)
         {
-            // Получаем имя кнопки на которую нажали.
-            string buttonName = ((Button)sender).Name;
-
-            // Сопоставляем имя кнопки с двумерным массивом для передачи позиции в двумерный массив.
-            if (buttonName == "button1")
-            {
-                // Передаем позицию в двумерный массив.
-                // game.arr[0, 0] = ;
-            }
+            // Отправляем кнопку на конвертацию в координаты массива.
+            Point userMoveInto = _game.ConvertButtonToCoordinates((Button)sender);
 
 
 
 
-            //// Проверка на то, чем пользователь играет.
-            //if (game._crossOrZero == "cross")
-            //{
-            //    // Если играет крестиками, то ставим крестик.
-            //    ((Button)sender).Image = Properties.Resources.cross;
-            //}
-            //else
-            //{
-            //    // Если играет ноликами, то ставим нолик.
-            //    ((Button)sender).Image = Properties.Resources._null;
-            //}
+
+
+            // Начало игрового процесса.
+            _game.GameProcess(userMoveInto);
         }
 
         // Обработчик нажатия на ссылку "Правила игры в «Крестики-нолики»."
@@ -181,8 +168,7 @@ namespace task
             //LevelOfDifficulty_9.Enabled = false;
             //LevelOfDifficulty_10.Enabled = false;
 
-            // Начало игрового процесса.
-            _game.GameProcess();
+
         }
     }
 
@@ -551,7 +537,7 @@ namespace task
         }
 
         // Игровоц процесс.
-        public void GameProcess()
+        public void GameProcess(Point point)
         {
             // Общее количество ходов в игре.
             int totalMovesInGame = 9;
@@ -570,7 +556,7 @@ namespace task
                 {
                     if (WhoMove == 1) // Пользователь.
                     {
-                        Point userMove = new Point();
+                        Point userMove = point;
                         do
                         {
                             moveCheckResult = UserMoveCheck(userMove);
@@ -580,7 +566,7 @@ namespace task
                         UserMove(userMove, _userLetter);
                         WhoMove -= 1;
                         totalMovesInGame--;
-                        winCheck = WinCheck();
+                        winCheck = WinCheck(); // после обычного ходана в начале игры на пустое поле выдает ничью о_О
                         if (winCheck == 1)
                         {
                             MessageBox.Show("Игрок победил.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
