@@ -143,7 +143,7 @@ namespace task
         };
 
         // Кто первый ходит ?
-        //public string _firstMove = ""; // 
+        //public string _whoMove = ""; // 
 
         // Играть крестиками или лноликами ?
         // public string _crossOrZero = ""; // "x" - крестиками, "0" - ноликами.
@@ -207,7 +207,7 @@ namespace task
             }
         }
 
-        // Кто будет ходить первым ?
+        // Кто будет ходить ?
         int _whoMove = 0; // 0 - компьютер, 1 - игрок.
         public int FirstMove { get; set; }
 
@@ -553,7 +553,7 @@ namespace task
             {
                 do
                 {
-                    if (_firstMove == 1) // Пользователь.
+                    if (_whoMove == 1) // Пользователь.
                     {
                         Point userMove = new Point();
                         do
@@ -563,7 +563,7 @@ namespace task
                                 MessageBox.Show("Выберите другую ячейку.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         } while (moveCheckResult == false);
                         UserMove(userMove, _userLetter);
-                        _firstMove -= 1;
+                        _whoMove -= 1;
                         totalMovesInGame--;
                         winCheck = WinCheck();
                         if (winCheck == 1)
@@ -572,10 +572,10 @@ namespace task
                             break;
                         }
                     }
-                    else if (_firstMove == 0) // Компьютер.
+                    else if (_whoMove == 0) // Компьютер.
                     {
                         PcMove();
-                        _firstMove += 1;
+                        _whoMove += 1;
                         totalMovesInGame--;
                         winCheck = WinCheck();
                         if (winCheck == 0)
