@@ -412,8 +412,8 @@ namespace task
 
             do
             {
-                point.X = random.Next(0, 2);// для броска от 0 до 2
-                point.Y = random.Next(0, 2);// для броска от 0 до 2
+                point.X = random.Next(0, 3); // Для броска от 0 до 2.
+                point.Y = random.Next(0, 3); // Для броска от 0 до 2.
             } while (arr[point.X, point.Y] != ' ');
             arr[point.X, point.Y] = _pcLetter;
         }
@@ -682,7 +682,7 @@ namespace task
             if (WhoMove == 0) // Компьютер.
             {
                 PcMove();
-                WhoMove -= 1; // Передача хода компьютеру. 
+                WhoMove += 1; // Передача хода игроку. 
             }
         }
 
