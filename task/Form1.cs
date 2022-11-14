@@ -589,18 +589,29 @@ namespace task
                 {
                     UserMove();
                     TotalMovesInGame--;
-                    if (WinCheckMethod() == 1) // Победа.
+                    if (WinCheckMethod() == 1) // Победа игрока.
                         MessageBox.Show("Игрок победил.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else if (WinCheckMethod() == 2) // Ничья.
+                        MessageBox.Show("Ничья.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     else if (WinCheckMethod() == 3) // Продолжаем играть.
                         return;
                 }
                 else
                     MessageBox.Show("Выберите другую ячейку.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                WhoMove -= 1; // Передача хода компьютеру. // todo: продолжить писать передачу хода компьютеру и что-то типа vtnjlf OneStep сделать для компа.
-
+                WhoMove -= 1; // Передача хода компьютеру. 
             }
-
+            else if (WhoMove == 0) // Компьютер.
+            {
+                PcMove();
+                TotalMovesInGame--;
+                WhoMove += 1; // Передача хода игроку.
+                if (WinCheckMethod() == 0) // Победа компьютера.
+                    MessageBox.Show("Компьютер победил.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else if (WinCheckMethod() == 2) // Ничья.
+                    MessageBox.Show("Ничья.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else if (WinCheckMethod() == 3) // Продолжаем играть.
+                    return;
+            }
         }
 
         //Игровоц процесс.
