@@ -262,30 +262,26 @@ namespace task
         /// </summary>
 
         // Метод преобразования координат массива в имя кнопоки. Для выставления игрового знака компьютера.
-        public string ConvertArrCoordinatesToButtonName(Point point)
+        public string ConvertArrCoordinatesToButtonName(int x, int y)
         {
-            if (point.X == 0 && point.Y == 0)
+            if (x == 0 && y == 0)
                 return "button1";
-            else if (point.X == 0 && point.Y == 1)
+            else if (x == 0 && y == 1)
                 return "button2";
-            else if (point.X == 0 && point.Y == 2)
+            else if (x == 0 && y == 2)
                 return "button3";
-            else if (point.X == 1 && point.Y == 0)
+            else if (x == 1 && y == 0)
                 return "button4";
-            else if (point.X == 1 && point.Y == 1)
+            else if (x == 1 && y == 1)
                 return "button5";
-            else if (point.X == 1 && point.Y == 2)
+            else if (x == 1 && y == 2)
                 return "button6";
-            else if (point.X == 2 && point.Y == 0)
+            else if (x == 2 && y == 0)
                 return "button7";
-            else if (point.X == 2 && point.Y == 1)
+            else if (x == 2 && y == 1)
                 return "button8";
             else
                 return "button9";
-
-
-
-
         }
 
         // Метод преобразования нажатых кнопок в координаты массива.
