@@ -78,11 +78,28 @@ namespace task
                                 if (_game.ConvertArrCoordinatesToButtonName(i, j) == ((Button)c).Name && ((Button)c).Image == null)
                                 {
                                     if (_game.PcLetter == 'X')
+                                    {
                                         // Установить на кнопку из ресурсов крестик.
                                         ((Button)c).Image = Resources.cross;
+                                        if (_game.WinCheck == 0) // Победа компьютера.
+                                        {
+                                            MessageBox.Show("Компьютер победил.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                            _game.AskPlayMore();
+                                        }
+                                        else if (_game.WinCheck == 2) // Ничья.
+                                        {
+                                            _game.Draw();
+                                            _game.AskPlayMore();
+                                        }
+                                        else if (_game.WinCheck == 3) // Продолжаем играть.
+                                            return;
+                                    }
                                     else
+                                    {
                                         // Установить на кнопку из ресурсов нолик.
                                         ((Button)c).Image = Resources._null;
+
+                                    }
                                 }
                             }
                         }
@@ -633,22 +650,22 @@ namespace task
             LogicPcMove();
             TotalMovesInGame--;
             WhoMove = 1; // Передача хода игроку.
-            if (WinCheck == 0) // Победа компьютера.
-            {
-                MessageBox.Show("Компьютер победил.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                AskPlayMore();
-            }
-            else if (WinCheck == 2) // Ничья.
-            {
-                Draw();
-                AskPlayMore();
-            }
-            else if (WinCheck == 3) // Продолжаем играть.
-                return;
+            //if (WinCheck == 0) // Победа компьютера.
+            //{
+            //    MessageBox.Show("Компьютер победил.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    AskPlayMore();
+            //}
+            //else if (WinCheck == 2) // Ничья.
+            //{
+            //    Draw();
+            //    AskPlayMore();
+            //}
+            //else if (WinCheck == 3) // Продолжаем играть.
+            //    return;
         }
 
         // Сообщение об ничьей.
-        void Draw()
+        public void Draw()
         {
             MessageBox.Show("Ничья.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
