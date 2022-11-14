@@ -66,8 +66,28 @@ namespace task
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    if (_game[i, j] == _game.PcLetter && )
-                        _game[i, j]
+                    if (_game[i, j] == _game.PcLetter)
+                    {
+                        // Перебираем все кнопки на форме.
+                        foreach (Control c in Controls)
+                        {
+                            // Если нашли кнопку, то проверяем её координаты.
+                            if (c is Button)
+                            {
+                                // Если координаты кнопки совпадают с координатами массива, то устанавливаем на неё картинку.
+                                if (_game.ConvertButtonToCoordinates((Button)c) == new Point(i, j) &&
+                                    ((Button)c).Image == null)
+                                {
+                                    if (_game.PcLetter == 'X')
+                                        // Установить на кнопку из ресурсов крестик.
+                                        ((Button)c).Image = Resources.cross;
+                                    else
+                                        // Установить на кнопку из ресурсов нолик.
+                                        ((Button)c).Image = Resources._null;
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
