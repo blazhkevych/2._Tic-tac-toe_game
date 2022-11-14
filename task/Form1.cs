@@ -685,16 +685,18 @@ namespace task
         // ћетод сбрасывает все параметры на новую игру.
         private void ReselAllForNewGame() // форму обнулить нужно отдельно.
         {
-            for (int i = 0, j = 0; i < 3; i++)
-                for (int k = 0; k < 3; k++)
-                    arr[i, k] = ' ';
-            GameDifficulty = 0;
-            UserLetter = '3';
-            PcLetter = '3';
-            WhoMove = -1;
-            TotalMovesInGame = 9;
-            WinCheck = -1;
-            PlayerPointToMove = new Point(-1, -1);
+            //Form.ShowDialog();
+            //Application.Run(new Form1());
+            //for (int i = 0, j = 0; i < 3; i++)
+            //    for (int k = 0; k < 3; k++)
+            //        arr[i, k] = ' ';
+            //GameDifficulty = 0;
+            //UserLetter = '3';
+            //PcLetter = '3';
+            //WhoMove = -1;
+            //TotalMovesInGame = 9;
+            //WinCheck = -1;
+            //PlayerPointToMove = new Point(-1, -1);
         }
 
         // —ыграем еще ?.
