@@ -64,10 +64,10 @@ namespace task
 
 
 
-            // todo: GameProcess переписать, вынести из него поля в класс тикТакТое и реализовать так чтобы он тут при нажатии походил пользователь и после него сразу компьютер.
+            // todo: PlayMore переписать, вынести из него поля в класс тикТакТое и реализовать так чтобы он тут при нажатии походил пользователь и после него сразу компьютер.
 
             // Начало игрового процесса.
-            //_game.GameProcess(userMoveInto);
+            //_game.PlayMore(userMoveInto);
         }
 
         // Обработчик нажатия на ссылку "Правила игры в «Крестики-нолики»."
@@ -227,7 +227,11 @@ namespace task
         int _winCheck;
         public int WinCheck
         {
-            get { return _winCheck; }
+            get
+            {
+                _winCheck = WinCheckMethod();
+                return _winCheck;
+            }
             set { _winCheck = value; }
         }
 
@@ -589,11 +593,11 @@ namespace task
                 {
                     UserMove();
                     TotalMovesInGame--;
-                    if (WinCheckMethod() == 1) // Победа игрока.
+                    if (WinCheck == 1) // Победа игрока.
                         MessageBox.Show("Игрок победил.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    else if (WinCheckMethod() == 2) // Ничья.
+                    else if (WinCheck == 2) // Ничья.
                         MessageBox.Show("Ничья.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    else if (WinCheckMethod() == 3) // Продолжаем играть.
+                    else if (WinCheck == 3) // Продолжаем играть.
                         return;
                 }
                 else
@@ -605,21 +609,18 @@ namespace task
                 PcMove();
                 TotalMovesInGame--;
                 WhoMove += 1; // Передача хода игроку.
-                if (WinCheckMethod() == 0) // Победа компьютера.
+                if (WinCheck == 0) // Победа компьютера.
                     MessageBox.Show("Компьютер победил.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                else if (WinCheckMethod() == 2) // Ничья.
+                else if (WinCheck == 2) // Ничья.
                     MessageBox.Show("Ничья.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                else if (WinCheckMethod() == 3) // Продолжаем играть.
+                else if (WinCheck == 3) // Продолжаем играть.
                     return;
             }
         }
 
-        //Игровоц процесс.
-        public void GameProcess(Point point)
+        // Сыграем еще ?.
+        public void PlayMore()
         {
-
-
-
 
             // Сыграем еще ?.
             string playMore = "-1";
