@@ -98,6 +98,18 @@ namespace task
                                     {
                                         // Установить на кнопку из ресурсов нолик.
                                         ((Button)c).Image = Resources._null;
+                                        if (_game.WinCheck == 0) // Победа компьютера.
+                                        {
+                                            MessageBox.Show("Компьютер победил.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                            _game.AskPlayMore();
+                                        }
+                                        else if (_game.WinCheck == 2) // Ничья.
+                                        {
+                                            _game.Draw();
+                                            _game.AskPlayMore();
+                                        }
+                                        else if (_game.WinCheck == 3) // Продолжаем играть.
+                                            return;
 
                                     }
                                 }
