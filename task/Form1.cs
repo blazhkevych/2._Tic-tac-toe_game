@@ -677,10 +677,13 @@ namespace task
                 }
                 else
                     MessageBox.Show("Выберите другую ячейку.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            if (WhoMove == 0) // Компьютер.
+            {
+                PcMove();
                 WhoMove -= 1; // Передача хода компьютеру. 
             }
-            if (WhoMove == 0) // Компьютер.
-                PcMove();
         }
 
         // Метод сбрасывает все параметры на новую игру.
