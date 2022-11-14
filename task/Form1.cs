@@ -67,7 +67,7 @@ namespace task
                 for (int j = 0; j < 3; j++)
                 {
                     if (_game[i, j] == _game.PcLetter && )
-                    _game[i,j]
+                        _game[i, j]
                 }
             }
         }
@@ -261,7 +261,14 @@ namespace task
         /// Интеграция проекта с с++.
         /// </summary>
 
-        // Метод преобразования координат массива .
+        // Метод преобразования координат массива в имя кнопоки. Для выставления игрового знака компьютера.
+        public string ConvertArrCoordinatesToButtonName(Point point)
+        {
+            if (point.X == 0 && point.Y == 0)
+                return "button1";
+
+
+        }
 
         // Метод преобразования нажатых кнопок в координаты массива.
         public Point ConvertButtonToCoordinates(Button button)
