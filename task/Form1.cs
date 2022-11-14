@@ -62,12 +62,14 @@ namespace task
 
             _game.OneStep();
 
-
-
-            // todo: PlayMore переписать, вынести из него поля в класс тикТакТое и реализовать так чтобы он тут при нажатии походил пользователь и после него сразу компьютер.
-
-            // Начало игрового процесса.
-            //_game.PlayMore(userMoveInto);
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    if (_game[i, j] == _game.PcLetter && )
+                    _game[i,j]
+                }
+            }
         }
 
         // Обработчик нажатия на ссылку "Правила игры в «Крестики-нолики»."
@@ -182,8 +184,6 @@ namespace task
             //LevelOfDifficulty_8.Enabled = false;
             //LevelOfDifficulty_9.Enabled = false;
             //LevelOfDifficulty_10.Enabled = false;
-
-
         }
     }
 
@@ -193,11 +193,11 @@ namespace task
         // Массив игрового поля.
         private char[,] arr;
 
-        //public char this[int i, int j]
-        //{
-        //    get { return arr[i, j]; }
-        //    set { arr[i, j] = value; }
-        //}
+        public char this[int i, int j]
+        {
+            get { return arr[i, j]; }
+            set { arr[i, j] = value; }
+        }
 
         // Уровень сложности.
         int _gameDifficulty;
@@ -260,6 +260,8 @@ namespace task
         /// <summary>
         /// Интеграция проекта с с++.
         /// </summary>
+
+        // Метод преобразования координат массива .
 
         // Метод преобразования нажатых кнопок в координаты массива.
         public Point ConvertButtonToCoordinates(Button button)
