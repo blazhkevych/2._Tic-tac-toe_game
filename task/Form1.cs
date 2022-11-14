@@ -62,6 +62,12 @@ namespace task
 
             _game.OneStep();
 
+            ShowComputerMove();
+        }
+
+        // Отрисовать ход компьютера.
+        private void ShowComputerMove()
+        {
             for (int i = 0; i < 3; i++)
             {
                 for (int j = 0; j < 3; j++)
@@ -75,7 +81,8 @@ namespace task
                             if (c is Button)
                             {
                                 // Если координаты кнопки совпадают с координатами массива, то устанавливаем на неё картинку.
-                                if (_game.ConvertArrCoordinatesToButtonName(i, j) == ((Button)c).Name && ((Button)c).Image == null)
+                                if (_game.ConvertArrCoordinatesToButtonName(i, j) == ((Button)c).Name &&
+                                    ((Button)c).Image == null)
                                 {
                                     if (_game.PcLetter == 'X')
                                     {
@@ -83,7 +90,8 @@ namespace task
                                         ((Button)c).Image = Resources.cross;
                                         if (_game.WinCheck == 0) // Победа компьютера.
                                         {
-                                            MessageBox.Show("Компьютер победил.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                            MessageBox.Show("Компьютер победил.", "Игра «Крестики-нолики».",
+                                                MessageBoxButtons.OK, MessageBoxIcon.Information);
                                             _game.AskPlayMore();
                                         }
                                         else if (_game.WinCheck == 2) // Ничья.
@@ -100,7 +108,8 @@ namespace task
                                         ((Button)c).Image = Resources._null;
                                         if (_game.WinCheck == 0) // Победа компьютера.
                                         {
-                                            MessageBox.Show("Компьютер победил.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                            MessageBox.Show("Компьютер победил.", "Игра «Крестики-нолики».",
+                                                MessageBoxButtons.OK, MessageBoxIcon.Information);
                                             _game.AskPlayMore();
                                         }
                                         else if (_game.WinCheck == 2) // Ничья.
@@ -110,7 +119,6 @@ namespace task
                                         }
                                         else if (_game.WinCheck == 3) // Продолжаем играть.
                                             return;
-
                                     }
                                 }
                             }
@@ -232,6 +240,13 @@ namespace task
             //LevelOfDifficulty_8.Enabled = false;
             //LevelOfDifficulty_9.Enabled = false;
             //LevelOfDifficulty_10.Enabled = false;
+
+            // Если выбрано, что компьютер ходит первым, то вызываем метод хода компьютера.
+            if (FirstMoveComputer.Checked == true)
+            {
+                _game.PcMove();
+                ShowComputerMove();
+            }
         }
     }
 
@@ -657,7 +672,7 @@ namespace task
         }
 
         // Ход компьютера.
-        private void PcMove()
+        public void PcMove()
         {
             LogicPcMove();
             TotalMovesInGame--;
