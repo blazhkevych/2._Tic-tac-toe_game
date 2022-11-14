@@ -266,6 +266,24 @@ namespace task
         {
             if (point.X == 0 && point.Y == 0)
                 return "button1";
+            else if (point.X == 0 && point.Y == 1)
+                return "button2";
+            else if (point.X == 0 && point.Y == 2)
+                return "button3";
+            else if (point.X == 1 && point.Y == 0)
+                return "button4";
+            else if (point.X == 1 && point.Y == 1)
+                return "button5";
+            else if (point.X == 1 && point.Y == 2)
+                return "button6";
+            else if (point.X == 2 && point.Y == 0)
+                return "button7";
+            else if (point.X == 2 && point.Y == 1)
+                return "button8";
+            else
+                return "button9";
+
+
 
 
         }
