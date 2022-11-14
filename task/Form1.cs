@@ -750,7 +750,8 @@ namespace task
             if (result == DialogResult.No)
                 Application.Exit();
             else if (result == DialogResult.Yes)
-                ReselAllForNewGame();
+                Application.Restart();
+            //ReselAllForNewGame();
         }
     }
 }
