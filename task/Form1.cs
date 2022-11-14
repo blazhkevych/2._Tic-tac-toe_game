@@ -75,8 +75,7 @@ namespace task
                             if (c is Button)
                             {
                                 // Если координаты кнопки совпадают с координатами массива, то устанавливаем на неё картинку.
-                                if (_game.ConvertButtonToCoordinates((Button)c) == new Point(i, j) &&
-                                    ((Button)c).Image == null)
+                                if (_game.ConvertArrCoordinatesToButtonName(i, j) == ((Button)c).Name && ((Button)c).Image == null)
                                 {
                                     if (_game.PcLetter == 'X')
                                         // Установить на кнопку из ресурсов крестик.
@@ -633,7 +632,7 @@ namespace task
         {
             LogicPcMove();
             TotalMovesInGame--;
-            WhoMove += 1; // Передача хода игроку.
+            WhoMove = 1; // Передача хода игроку.
             if (WinCheck == 0) // Победа компьютера.
             {
                 MessageBox.Show("Компьютер победил.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);

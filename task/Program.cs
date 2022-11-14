@@ -11,7 +11,7 @@ namespace task
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Tic_tac_toe_game _game = new Tic_tac_toe_game();
+            //Tic_tac_toe_game _game = new Tic_tac_toe_game();
             Application.Run(new Form1());
         }
     }
