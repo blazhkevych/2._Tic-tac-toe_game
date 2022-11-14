@@ -593,7 +593,6 @@ namespace task
 
         public void OneStep()
         {
-
             if (WhoMove == 1) // Пользователь.
             {
                 if (UserMoveCheck())
@@ -601,9 +600,15 @@ namespace task
                     UserMove();
                     TotalMovesInGame--;
                     if (WinCheck == 1) // Победа игрока.
+                    {
                         MessageBox.Show("Игрок победил.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        AskPlayMore();
+                    }
                     else if (WinCheck == 2) // Ничья.
+                    {
                         Draw();
+                        AskPlayMore();
+                    }
                     else if (WinCheck == 3) // Продолжаем играть.
                         return;
                 }
@@ -617,9 +622,15 @@ namespace task
                 TotalMovesInGame--;
                 WhoMove += 1; // Передача хода игроку.
                 if (WinCheck == 0) // Победа компьютера.
+                {
                     MessageBox.Show("Компьютер победил.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    AskPlayMore();
+                }
                 else if (WinCheck == 2) // Ничья.
+                {
                     Draw();
+                    AskPlayMore();
+                }
                 else if (WinCheck == 3) // Продолжаем играть.
                     return;
             }
@@ -634,9 +645,6 @@ namespace task
         // Сыграем еще ?.
         public void AskPlayMore()
         {
-            // Сыграем еще ?.
-            string playMore = "-1";
-
             DialogResult result = MessageBox.Show("Сыграем еще ?", "Игра «Крестики-нолики».", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.No)
                 Application.Exit();
