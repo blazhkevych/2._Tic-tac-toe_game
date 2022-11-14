@@ -426,8 +426,8 @@ namespace task
             return random.Next(41, 100);
         }
 
-        // Функция обрабатывающая ход компьютера.
-        int PcMove()
+        // Логика хода компьютера.
+        int LogicPcMove()
         {
             if ((arr[0, 0] == ' ') && (arr[0, 1] == _userLetter) && (arr[0, 2] == _userLetter)) // 1 горизонтальная [_**]
             {
@@ -628,6 +628,26 @@ namespace task
             }
         }
 
+        // Ход компьютера.
+        private void PcMove()
+        {
+            LogicPcMove();
+            TotalMovesInGame--;
+            WhoMove += 1; // Передача хода игроку.
+            if (WinCheck == 0) // Победа компьютера.
+            {
+                MessageBox.Show("Компьютер победил.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                AskPlayMore();
+            }
+            else if (WinCheck == 2) // Ничья.
+            {
+                Draw();
+                AskPlayMore();
+            }
+            else if (WinCheck == 3) // Продолжаем играть.
+                return;
+        }
+
         // Сообщение об ничьей.
         void Draw()
         {
@@ -653,30 +673,14 @@ namespace task
                         AskPlayMore();
                     }
                     else if (WinCheck == 3) // Продолжаем играть.
-                        return;
+                        PcMove();
                 }
                 else
                     MessageBox.Show("Выберите другую ячейку.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 WhoMove -= 1; // Передача хода компьютеру. 
             }
-            else if (WhoMove == 0) // Компьютер.
-            {
+            if (WhoMove == 0) // Компьютер.
                 PcMove();
-                TotalMovesInGame--;
-                WhoMove += 1; // Передача хода игроку.
-                if (WinCheck == 0) // Победа компьютера.
-                {
-                    MessageBox.Show("Компьютер победил.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    AskPlayMore();
-                }
-                else if (WinCheck == 2) // Ничья.
-                {
-                    Draw();
-                    AskPlayMore();
-                }
-                else if (WinCheck == 3) // Продолжаем играть.
-                    return;
-            }
         }
 
         // Метод сбрасывает все параметры на новую игру.
