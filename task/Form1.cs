@@ -225,11 +225,13 @@ namespace task
 
             // После того как игра началась, блокируем кнопку "Начать новую игру" и прочие лишние елементы.
             // По идее можно просто групбоксы заблокировать.
-            //StartNewGame_button10.Enabled = false;
-            //FirstMoveComputer.Enabled = false;
-            //FirstMovePlayer.Enabled = false;
-            //PlayCrosses.Enabled = false;
-            //PlayZeroes.Enabled = false;
+
+
+            StartNewGame_button10.Enabled = false;
+            FirstMoveComputer.Enabled = false;
+            FirstMovePlayer.Enabled = false;
+            PlayCrosses.Enabled = false;
+            PlayZeroes.Enabled = false;
             //LevelOfDifficulty_1.Enabled = false;
             //LevelOfDifficulty_2.Enabled = false;
             //LevelOfDifficulty_3.Enabled = false;
@@ -240,6 +242,11 @@ namespace task
             //LevelOfDifficulty_8.Enabled = false;
             //LevelOfDifficulty_9.Enabled = false;
             //LevelOfDifficulty_10.Enabled = false;
+
+            // todo:сделать 2 уровня сложности
+            // заменить радиобаттоны на чекбоксы
+            // заблокировать лишнее
+            // почистить проект.
 
             // Если выбрано, что компьютер ходит первым, то вызываем метод хода компьютера.
             if (FirstMoveComputer.Checked == true)
