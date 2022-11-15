@@ -180,10 +180,7 @@ namespace task
 
             // Выберите уровень сложности !.
             if (LevelOfDifficulty_Easy.Checked == false && LevelOfDifficulty_Normal.Checked == false &&
-                LevelOfDifficulty_Hard.Checked == false && LevelOfDifficulty_4.Checked == false &&
-                LevelOfDifficulty_5.Checked == false && LevelOfDifficulty_6.Checked == false &&
-                LevelOfDifficulty_7.Checked == false && LevelOfDifficulty_8.Checked == false &&
-                LevelOfDifficulty_9.Checked == false && LevelOfDifficulty_10.Checked == false)
+                LevelOfDifficulty_Hard.Checked == false)
             {
                 MessageBox.Show("Выберите уровень сложности !", "Ошибка !", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -196,20 +193,6 @@ namespace task
                     _game.GameDifficulty = 2;
                 else if (LevelOfDifficulty_Hard.Checked == true)
                     _game.GameDifficulty = 3;
-                else if (LevelOfDifficulty_4.Checked == true)
-                    _game.GameDifficulty = 4;
-                else if (LevelOfDifficulty_5.Checked == true)
-                    _game.GameDifficulty = 5;
-                else if (LevelOfDifficulty_6.Checked == true)
-                    _game.GameDifficulty = 6;
-                else if (LevelOfDifficulty_7.Checked == true)
-                    _game.GameDifficulty = 7;
-                else if (LevelOfDifficulty_8.Checked == true)
-                    _game.GameDifficulty = 8;
-                else if (LevelOfDifficulty_9.Checked == true)
-                    _game.GameDifficulty = 9;
-                else if (LevelOfDifficulty_10.Checked == true)
-                    _game.GameDifficulty = 10;
             }
 
             // Если все поля для начала игры заполнены, то включаем игровое поле из кнопок.
@@ -478,24 +461,42 @@ namespace task
         {
             Random random = new Random();
 
-            if (GameDifficulty >= 1 && GameDifficulty <= 3) // Бросок от 1 до 3. // Easily
-                random.Next(1, 4);
-            else if (GameDifficulty >= 5 && GameDifficulty <=7) // Бросок от 5 до 7. // Medium
-                random.Next(5, 8);
-            else if (GameDifficulty >= 8 && GameDifficulty <= 11) // Бросок от 9 до 11. // Hard
-
-                return random.Next(41, 100);
+            if (GameDifficulty == 1) // Бросок от 1 до 5. // Easily
+                random.Next(1, 6);
+            if (GameDifficulty == 2) // Бросок от 4 до 8. // Medium
+                random.Next(4, 9);
+            if (GameDifficulty == 3) // Бросок от 7 до 10. // Hard
+                return random.Next(7, 11);
+            else
+                return 0;
         }
 
         // Логика хода компьютера. (выбор пользователя + )
         int LogicPcMove()
         {
-            if ((arr[0, 0] == ' ') && (arr[0, 1] == UserLetter) && (arr[0, 2] == UserLetter)) // 1 горизонтальная [_**]
+            if ((arr[0, 0] == ' ') && (arr[0, 1] == UserLetter) && (arr[0, 2] == UserLetter) ||
+                (arr[0, 0] == ' ') &&(arr[0, 1] == PcLetter) && (arr[0, 2] == PcLetter)) // 1 горизонтальная [_**]
             {
-                if (GameDiff() + GameDifficulty > 50)
-                    arr[0, 0] = PcLetter;
+                if (GameDiff() == 10)
+
+                    arr[0, 0] = PcLetter; // Компьютер 90% перекрывает выигрышный ход игрока или заканчивает свою линию и выигрывает.
+                else if (GameDiff() == 5) // Компьютер 50% перекрывает выигрышный ход игрока.
+                {
+                    Random random = new Random();
+                    int r = random.Next(1, 3);
+                    if (r==1) // Компьютер перекрывает ход игроку.
+                        arr[0, 0] = PcLetter;
+
+                }
+                arr[0, 0] = PcLetter;
+
+
+
+
+
+                if (GameDiff() + GameDifficulty > 10) // 8-10 + 
                 else
-                    PcRandMove(); // Ход компьютера на случайное поле в игре.
+                            PcRandMove(); // Ход компьютера на случайное поле в игре.
                 return 0;
             }
             else if ((arr[0, 0] == UserLetter) && (arr[0, 1] == ' ') && (arr[0, 2] == UserLetter)) // 1 горизонтальная [*_*]
