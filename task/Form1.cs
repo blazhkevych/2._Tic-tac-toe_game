@@ -457,198 +457,297 @@ namespace task
             arr[point.X, point.Y] = PcLetter;
         }
 
-        // Метод определяющий сложность игры. 
-        int GameDiff()
+        //// Метод определяющий сложность игры. 
+        //int GameDiff()
+        //{
+        //    Random random = new Random();
+
+        //    if (GameDifficulty == 1) // Бросок от 1 до 3. // Easily
+        //        random.Next(1, 4);
+        //    if (GameDifficulty == 2) // Бросок от 4 до 6. // Medium
+        //        random.Next(4, 7);
+        //    if (GameDifficulty == 3) // Бросок от 7 до 10. // Hard
+        //        return random.Next(7, 11);
+        //    else
+        //        return 0;
+        //}
+
+        void Move()
+        {
+
+        }
+
+        void LogicPcMove()
         {
             Random random = new Random();
+            int r = random.Next(0, 101);
 
-            if (GameDifficulty == 1) // Бросок от 1 до 5. // Easily
-                random.Next(1, 6);
-            if (GameDifficulty == 2) // Бросок от 4 до 8. // Medium
-                random.Next(4, 9);
-            if (GameDifficulty == 3) // Бросок от 7 до 10. // Hard
-                return random.Next(7, 11);
-            else
-                return 0;
-        }
-
-        // Низкий уровень логики принятия решения компьютером. Easy (цепляет нижнюю границу Medium сложности).
-        private void LowLevelComputer(int gameDiff_result)
-        {
-            PcRandMove(); // Ход компьютера на случайное поле в игре. 
-        }
-
-        // Средний уровень логики принятия решения компьютером. Medium (цепляет верхнюю границу Easy сложности и нижнюю границу Hard сложности).
-        private void MediumLevelComputer(int gameDiff_result)
-        {
-            Random random = new Random();
-            int r = random.Next(1, 10); // от 1 до 2 - легко, 3-8 средне, 9-10 - тяжело. 
-
-            if (r >= 1 && r <= 2)
-                LowLevelComputer(gameDiff_result);
-            else if (r >= 3 && r <= 8)
+            if ((arr[0, 0] == ' ') && (arr[0, 1] == UserLetter) && (arr[0, 2] == UserLetter)) // 1 горизонтальная [_**]
             {
-
-            }
-            
-        }
-
-        // Высокий уровень логики принятия решения компьютером. Hard (цепляет нижнюю границу Medium сложности).
-        private void HardLevelComputer(int gameDiff_result)
-        {
-
-        }
-
-        // Логика хода компьютера.
-        int LogicPcMove()
-        {
-            int rollResult = GameDiff();
-            if ((arr[0, 0] == ' ') && (arr[0, 1] == UserLetter) && (arr[0, 2] == UserLetter) ||
-                (arr[0, 0] == ' ') &&(arr[0, 1] == PcLetter) && (arr[0, 2] == PcLetter)) // 1 горизонтальная [_**]
-            {
-                if (rollResult >= 1 && rollResult <= 4)
+                if (GameDifficulty == 1)
+                    PcRandMove(); // Всегда в любую ходит.
+                else if (GameDifficulty == 2)
                 {
-                    if (rollResult >= 1 && rollResult <= 3)
-                        LowLevelComputer(rollResult);
-                    if (rollResult == 4)
-                        MediumLevelComputer(rollResult);
-
-
-                }
-                else if (rollResult >= 4 && rollResult <= 8)
-                {
-                    if (4)
-                }
-
-
-
-
-
-                if (GameDiff() == 10)
-
-                    arr[0, 0] = PcLetter; // Компьютер 90% перекрывает выигрышный ход игрока или заканчивает свою линию и выигрывает.
-                else if (GameDiff() == 5) // Компьютер 50% перекрывает выигрышный ход игрока.
-                {
-                    Random random = new Random();
-                    int r = random.Next(1, 3);
-                    if (r==1) // Компьютер перекрывает ход игроку.
+                    if (r < 50) // В меньше 50% ходит в любую.
+                        PcRandMove();
+                    else
                         arr[0, 0] = PcLetter;
-
                 }
-                arr[0, 0] = PcLetter;
-
-
-
-
-
-                if (GameDiff() + GameDifficulty > 10) // 8-10 + 
-                else
-                            PcRandMove(); // Ход компьютера на случайное поле в игре.
-                return 0;
+                else if (GameDifficulty == 3)
+                {
+                    if (r < 20) // В меньше 20% ходит в любую
+                        PcRandMove();
+                    else
+                        arr[0, 0] = PcLetter;
+                }
             }
-            else if ((arr[0, 0] == UserLetter) && (arr[0, 1] == ' ') && (arr[0, 2] == UserLetter)) // 1 горизонтальная [*_*]
+            else if ((arr[0, 0] == UserLetter) && (arr[0, 1] == ' ') && (arr[0, 2] == UserLetter) ||
+                     (arr[0, 0] == PcLetter) && (arr[0, 1] == ' ') && (arr[0, 2] == PcLetter)) // 1 горизонтальная [*_*]
             {
-                if (GameDiff() + GameDifficulty > 50)
-                    arr[0, 1] = PcLetter;
-                else
-                    PcRandMove();
-                return 0;
+                if (GameDifficulty == 1)
+                    PcRandMove(); // Всегда в любую ходит.
+                else if (GameDifficulty == 2)
+                {
+                    if (r < 50) // В меньше 50% ходит в любую.
+                        PcRandMove();
+                    else
+                        arr[0, 1] = PcLetter;
+                }
+                else if (GameDifficulty == 3)
+                {
+                    if (r < 20) // В меньше 20% ходит в любую
+                        PcRandMove();
+                    else
+                        arr[0, 1] = PcLetter;
+                }
             }
             else if ((arr[0, 0] == UserLetter) && (arr[0, 1] == UserLetter) && (arr[0, 2] == ' ')) // 1 горизонтальная [**_]
             {
-                if (GameDiff() + GameDifficulty > 50)
-                    arr[0, 2] = PcLetter;
-                else
-                    PcRandMove();
-                return 0;
+                if (GameDifficulty == 1)
+                    PcRandMove(); // Всегда в любую ходит.
+                else if (GameDifficulty == 2)
+                {
+                    if (r < 50) // В меньше 50% ходит в любую.
+                        PcRandMove();
+                    else
+                        arr[0, 2] = PcLetter;
+                }
+                else if (GameDifficulty == 3)
+                {
+                    if (r < 20) // В меньше 20% ходит в любую
+                        PcRandMove();
+                    else
+                        arr[0, 2] = PcLetter;
+                }
             }
             else if ((arr[1, 0] == ' ') && (arr[1, 1] == UserLetter) && (arr[1, 2] == UserLetter)) // 2 горизонтальная [_**]
             {
-                if (GameDiff() + GameDifficulty > 50)
-                    arr[1, 0] = PcLetter;
-                else
-                    PcRandMove();
-                return 0;
+                if (GameDifficulty == 1)
+                    PcRandMove(); // Всегда в любую ходит.
+                else if (GameDifficulty == 2)
+                {
+                    if (r < 50) // В меньше 50% ходит в любую.
+                        PcRandMove();
+                    else
+                        arr[1, 0] = PcLetter;
+                }
+                else if (GameDifficulty == 3)
+                {
+                    if (r < 20) // В меньше 20% ходит в любую
+                        PcRandMove();
+                    else
+                        arr[1, 0] = PcLetter;
+                }
             }
             else if ((arr[1, 0] == UserLetter) && (arr[1, 1] == ' ') && (arr[1, 2] == UserLetter)) // 2 горизонтальная [*_*]
             {
-                if (GameDiff() + GameDifficulty > 50)
-                    arr[1, 1] = PcLetter;
-                else
-                    PcRandMove();
-                return 0;
+                if (GameDifficulty == 1)
+                    PcRandMove(); // Всегда в любую ходит.
+                else if (GameDifficulty == 2)
+                {
+                    if (r < 50) // В меньше 50% ходит в любую.
+                        PcRandMove();
+                    else
+                        arr[1, 1] = PcLetter;
+                }
+                else if (GameDifficulty == 3)
+                {
+                    if (r < 20) // В меньше 20% ходит в любую
+                        PcRandMove();
+                    else
+                        arr[1, 1] = PcLetter;
+                }
             }
             else if ((arr[1, 0] == UserLetter) && (arr[1, 1] == UserLetter) && (arr[1, 2] == ' ')) // 2 горизонтальная [**_]
             {
-                if (GameDiff() + GameDifficulty > 50)
-                    arr[1, 2] = PcLetter;
-                else
-                    PcRandMove();
-                return 0;
+                if (GameDifficulty == 1)
+                    PcRandMove(); // Всегда в любую ходит.
+                else if (GameDifficulty == 2)
+                {
+                    if (r < 50) // В меньше 50% ходит в любую.
+                        PcRandMove();
+                    else
+                        arr[1, 2] = PcLetter;
+                }
+                else if (GameDifficulty == 3)
+                {
+                    if (r < 20) // В меньше 20% ходит в любую
+                        PcRandMove();
+                    else
+                        arr[1, 2] = PcLetter;
+                }
             }
             else if ((arr[2, 0] == ' ') && (arr[2, 1] == UserLetter) && (arr[2, 2] == UserLetter)) // 3 горизонтальная [_**]
             {
-                if (GameDiff() + GameDifficulty > 50)
-                    arr[2, 0] = PcLetter;
-                else
-                    PcRandMove();
-                return 0;
+                if (GameDifficulty == 1)
+                    PcRandMove(); // Всегда в любую ходит.
+                else if (GameDifficulty == 2)
+                {
+                    if (r < 50) // В меньше 50% ходит в любую.
+                        PcRandMove();
+                    else
+                        arr[2, 0] = PcLetter;
+                }
+                else if (GameDifficulty == 3)
+                {
+                    if (r < 20) // В меньше 20% ходит в любую
+                        PcRandMove();
+                    else
+                        arr[2, 0] = PcLetter;
+                }
             }
             else if ((arr[2, 0] == UserLetter) && (arr[2, 1] == ' ') && (arr[2, 2] == UserLetter)) // 3 горизонтальная [*_*]
             {
-                if (GameDiff() + GameDifficulty > 50)
-                    arr[2, 1] = PcLetter;
-                else
-                    PcRandMove();
-                return 0;
+                if (GameDifficulty == 1)
+                    PcRandMove(); // Всегда в любую ходит.
+                else if (GameDifficulty == 2)
+                {
+                    if (r < 50) // В меньше 50% ходит в любую.
+                        PcRandMove();
+                    else
+                        arr[2, 1] = PcLetter;
+                }
+                else if (GameDifficulty == 3)
+                {
+                    if (r < 20) // В меньше 20% ходит в любую
+                        PcRandMove();
+                    else
+                        arr[2, 1] = PcLetter;
+                }
             }
             else if ((arr[2, 0] == UserLetter) && (arr[2, 1] == UserLetter) && (arr[2, 2] == ' ')) // 3 горизонтальная [**_]
             {
-                if (GameDiff() + GameDifficulty > 50)
-                    arr[2, 2] = PcLetter;
-                else
-                    PcRandMove();
-                return 0;
+                if (GameDifficulty == 1)
+                    PcRandMove(); // Всегда в любую ходит.
+                else if (GameDifficulty == 2)
+                {
+                    if (r < 50) // В меньше 50% ходит в любую.
+                        PcRandMove();
+                    else
+                        arr[2, 2] = PcLetter;
+                }
+                else if (GameDifficulty == 3)
+                {
+                    if (r < 20) // В меньше 20% ходит в любую
+                        PcRandMove();
+                    else
+                        arr[2, 2] = PcLetter;
+                }
             }
             else if ((arr[0, 0] == ' ') && (arr[1, 0] == UserLetter) && (arr[2, 0] == UserLetter)) // 1 вертикальная [_**]
             {
-                if (GameDiff() + GameDifficulty > 50)
-                    arr[0, 0] = PcLetter;
-                else
-                    PcRandMove();
-                return 0;
+                if (GameDifficulty == 1)
+                    PcRandMove(); // Всегда в любую ходит.
+                else if (GameDifficulty == 2)
+                {
+                    if (r < 50) // В меньше 50% ходит в любую.
+                        PcRandMove();
+                    else
+                        arr[0, 0] = PcLetter;
+                }
+                else if (GameDifficulty == 3)
+                {
+                    if (r < 20) // В меньше 20% ходит в любую
+                        PcRandMove();
+                    else
+                        arr[0, 0] = PcLetter;
+                }
             }
             else if ((arr[0, 0] == UserLetter) && (arr[1, 0] == ' ') && (arr[2, 0] == UserLetter)) // 1 вертикальная [*_*]
             {
-                if (GameDiff() + GameDifficulty > 50)
-                    arr[1, 0] = PcLetter;
-                else
-                    PcRandMove();
-                return 0;
+                if (GameDifficulty == 1)
+                    PcRandMove(); // Всегда в любую ходит.
+                else if (GameDifficulty == 2)
+                {
+                    if (r < 50) // В меньше 50% ходит в любую.
+                        PcRandMove();
+                    else
+                        arr[1, 0] = PcLetter;
+                }
+                else if (GameDifficulty == 3)
+                {
+                    if (r < 20) // В меньше 20% ходит в любую
+                        PcRandMove();
+                    else
+                        arr[1, 0] = PcLetter;
+                }
             }
             else if ((arr[0, 0] == UserLetter) && (arr[1, 0] == UserLetter) && (arr[2, 0] == ' ')) // 1 вертикальная [**_]
             {
-                if (GameDiff() + GameDifficulty > 50)
-                    arr[2, 0] = PcLetter;
-                else
-                    PcRandMove();
-                return 0;
+                if (GameDifficulty == 1)
+                    PcRandMove(); // Всегда в любую ходит.
+                else if (GameDifficulty == 2)
+                {
+                    if (r < 50) // В меньше 50% ходит в любую.
+                        PcRandMove();
+                    else
+                        arr[2, 0] = PcLetter;
+                }
+                else if (GameDifficulty == 3)
+                {
+                    if (r < 20) // В меньше 20% ходит в любую
+                        PcRandMove();
+                    else
+                        arr[2, 0] = PcLetter;
+                }
             }
             else if ((arr[0, 1] == ' ') && (arr[1, 1] == UserLetter) && (arr[2, 1] == UserLetter)) // 2 вертикальная[_**]
             {
-                if (GameDiff() + GameDifficulty > 50)
-                    arr[0, 1] = PcLetter;
-                else
-                    PcRandMove();
-                return 0;
+                if (GameDifficulty == 1)
+                    PcRandMove(); // Всегда в любую ходит.
+                else if (GameDifficulty == 2)
+                {
+                    if (r < 50) // В меньше 50% ходит в любую.
+                        PcRandMove();
+                    else
+                        arr[0, 1] = PcLetter;
+                }
+                else if (GameDifficulty == 3)
+                {
+                    if (r < 20) // В меньше 20% ходит в любую
+                        PcRandMove();
+                    else
+                        arr[0, 1] = PcLetter;
+                }
             }
             else if ((arr[0, 1] == UserLetter) && (arr[1, 1] == ' ') && (arr[2, 1] == UserLetter)) // 2 вертикальная[*_*]
             {
-                if (GameDiff() + GameDifficulty > 50)
-                    arr[1, 1] = PcLetter;
-                else
-                    PcRandMove();
-                return 0;
+                if (GameDifficulty == 1)
+                    PcRandMove(); // Всегда в любую ходит.
+                else if (GameDifficulty == 2)
+                {
+                    if (r < 50) // В меньше 50% ходит в любую.
+                        PcRandMove();
+                    else
+                        arr[1, 1] = PcLetter;
+                }
+                else if (GameDifficulty == 3)
+                {
+                    if (r < 20) // В меньше 20% ходит в любую
+                        PcRandMove();
+                    else
+                        arr[1, 1] = PcLetter;
+                }
             }
             else if ((arr[0, 1] == UserLetter) && (arr[1, 1] == UserLetter) && (arr[2, 1] == ' ')) // 2 вертикальная[**_]
             {
@@ -656,7 +755,6 @@ namespace task
                     arr[2, 1] = PcLetter;
                 else
                     PcRandMove();
-                return 0;
             }
             else if ((arr[0, 2] == ' ') && (arr[1, 2] == UserLetter) && (arr[2, 2] == UserLetter)) // 3 вертикальная [_**] 
             {
@@ -664,7 +762,6 @@ namespace task
                     arr[0, 2] = PcLetter;
                 else
                     PcRandMove();
-                return 0;
             }
             else if ((arr[0, 2] == UserLetter) && (arr[1, 2] == ' ') && (arr[2, 2] == UserLetter)) // 3 вертикальная [*_*] 
             {
@@ -672,7 +769,6 @@ namespace task
                     arr[1, 2] = PcLetter;
                 else
                     PcRandMove();
-                return 0;
             }
             else if ((arr[0, 2] == UserLetter) && (arr[1, 2] == UserLetter) && (arr[2, 2] == ' ')) // 3 вертикальная [**_] 
             {
@@ -680,7 +776,6 @@ namespace task
                     arr[2, 2] = PcLetter;
                 else
                     PcRandMove();
-                return 0;
             }
             else if ((arr[0, 0] == ' ') && (arr[1, 1] == UserLetter) && (arr[2, 2] == UserLetter)) // главная диагональ [_**]
             {
@@ -688,7 +783,6 @@ namespace task
                     arr[0, 0] = PcLetter;
                 else
                     PcRandMove();
-                return 0;
             }
             else if ((arr[0, 0] == UserLetter) && (arr[1, 1] == ' ') && (arr[2, 2] == UserLetter)) // главная диагональ [*_*]
             {
@@ -696,7 +790,6 @@ namespace task
                     arr[1, 1] = PcLetter;
                 else
                     PcRandMove();
-                return 0;
             }
             else if ((arr[0, 0] == UserLetter) && (arr[1, 1] == UserLetter) && (arr[2, 2] == ' ')) // главная диагональ [**_]
             {
@@ -704,7 +797,6 @@ namespace task
                     arr[2, 2] = PcLetter;
                 else
                     PcRandMove();
-                return 0;
             }
             else if ((arr[2, 0] == ' ') && (arr[1, 1] == UserLetter) && (arr[0, 2] == UserLetter)) // вторая диагональ [_**]
             {
@@ -712,7 +804,6 @@ namespace task
                     arr[2, 0] = PcLetter;
                 else
                     PcRandMove();
-                return 0;
             }
             else if ((arr[2, 0] == UserLetter) && (arr[1, 1] == ' ') && (arr[0, 2] == UserLetter)) // вторая диагональ [*_*]
             {
@@ -720,7 +811,6 @@ namespace task
                     arr[1, 1] = PcLetter;
                 else
                     PcRandMove();
-                return 0;
             }
             else if ((arr[2, 0] == UserLetter) && (arr[1, 1] == UserLetter) && (arr[0, 2] == ' ')) // вторая диагональ [**_]
             {
@@ -728,13 +818,9 @@ namespace task
                     arr[0, 2] = PcLetter;
                 else
                     PcRandMove();
-                return 0;
             }
             else
-            {
                 PcRandMove();
-                return 0;
-            }
         }
 
         // Ход компьютера.
