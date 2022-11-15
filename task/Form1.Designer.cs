@@ -261,7 +261,6 @@
             this.LevelOfDifficulty_Normal.TabIndex = 1;
             this.LevelOfDifficulty_Normal.Text = "Normal";
             this.LevelOfDifficulty_Normal.UseVisualStyleBackColor = true;
-            this.LevelOfDifficulty_Normal.CheckedChanged += new System.EventHandler(this.LevelOfDifficulty_2_CheckedChanged);
             // 
             // LevelOfDifficulty_Easy
             // 

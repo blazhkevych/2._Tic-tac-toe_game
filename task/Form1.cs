@@ -22,6 +22,7 @@ namespace task
         /// * предусмотреть кнопку «Начать новую игру».
         /// </summary>
 
+        // Ссылка на метод с логикой по игре.
         private Tic_tac_toe_game _game = null;
 
         public Form1()
@@ -62,7 +63,6 @@ namespace task
             }
 
             _game.OneStep();
-
             ShowComputerMove();
         }
 
@@ -145,13 +145,14 @@ namespace task
         {
             // Проверяем заполнены ли все поля для игры.
             // "Кто будет ходить первым ?".
-            if (FirstMoveComputer.Checked == false && FirstMovePlayer.Checked == false)
+            if (FirstMoveComputer.Checked == false && FirstMovePlayer.Checked == false ||
+                FirstMoveComputer.Checked == true && FirstMovePlayer.Checked == true)
             {
                 MessageBox.Show("Выберите кто будет ходить первым !", "Ошибка !", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 return;
             }
-            else // 
+            else
             {
                 if (FirstMoveComputer.Checked == true)
                     _game.WhoMove = 0; // Компьютер ходит первым.
@@ -160,7 +161,8 @@ namespace task
             }
 
             // Выберите чем будете играть !.
-            if (PlayCrosses.Checked == false && PlayZeroes.Checked == false)
+            if (PlayCrosses.Checked == false && PlayZeroes.Checked == false ||
+                PlayCrosses.Checked == true && PlayZeroes.Checked == true)
             {
                 MessageBox.Show("Выберите чем будете играть !", "Ошибка !", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -181,7 +183,11 @@ namespace task
 
             // Выберите уровень сложности !.
             if (LevelOfDifficulty_Easy.Checked == false && LevelOfDifficulty_Normal.Checked == false &&
-                LevelOfDifficulty_Hard.Checked == false)
+                LevelOfDifficulty_Hard.Checked == false ||
+                LevelOfDifficulty_Easy.Checked == true && LevelOfDifficulty_Normal.Checked == true ||
+                LevelOfDifficulty_Easy.Checked == true && LevelOfDifficulty_Hard.Checked == true ||
+                LevelOfDifficulty_Normal.Checked == true && LevelOfDifficulty_Hard.Checked == true ||
+                LevelOfDifficulty_Normal.Checked == true && LevelOfDifficulty_Easy.Checked == true)
             {
                 MessageBox.Show("Выберите уровень сложности !", "Ошибка !", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -207,30 +213,15 @@ namespace task
             button8.Enabled = true;
             button9.Enabled = true;
 
-            // После того как игра началась, блокируем кнопку "Начать новую игру" и прочие лишние елементы.
-            // По идее можно просто групбоксы заблокировать.
-
-
+            // Блокировка лишнего интерфейса.
             StartNewGame_button10.Enabled = false;
             FirstMoveComputer.Enabled = false;
             FirstMovePlayer.Enabled = false;
             PlayCrosses.Enabled = false;
             PlayZeroes.Enabled = false;
-            //LevelOfDifficulty_1.Enabled = false;
-            //LevelOfDifficulty_2.Enabled = false;
-            //LevelOfDifficulty_3.Enabled = false;
-            //LevelOfDifficulty_4.Enabled = false;
-            //LevelOfDifficulty_5.Enabled = false;
-            //LevelOfDifficulty_6.Enabled = false;
-            //LevelOfDifficulty_7.Enabled = false;
-            //LevelOfDifficulty_8.Enabled = false;
-            //LevelOfDifficulty_9.Enabled = false;
-            //LevelOfDifficulty_10.Enabled = false;
-
-            // todo:сделать 2 уровня сложности
-            // заменить радиобаттоны на чекбоксы
-            // заблокировать лишнее
-            // почистить проект.
+            LevelOfDifficulty_Easy.Enabled = false;
+            LevelOfDifficulty_Normal.Enabled = false;
+            LevelOfDifficulty_Hard.Enabled = false;
 
             // Если выбрано, что компьютер ходит первым, то вызываем метод хода компьютера.
             if (FirstMoveComputer.Checked == true)
@@ -238,11 +229,6 @@ namespace task
                 _game.PcMove();
                 ShowComputerMove();
             }
-        }
-
-        private void LevelOfDifficulty_2_CheckedChanged(object sender, EventArgs e)
-        {
-
         }
     }
 
@@ -294,10 +280,6 @@ namespace task
             set { _winCheck = value; }
         }
 
-        // Может ли пользователь ходить ?.
-        //bool _userMoveCheckResult;
-        //public bool UserMoveCheckResult { get { return _userMoveCheckResult; } set { _userMoveCheckResult = value; } }
-
         // Координаты хода пользователя на массиве.
         private Point _playerPointToMove;
         public Point PlayerPointToMove { get { return _playerPointToMove; } set { _playerPointToMove = value; } }
@@ -312,13 +294,8 @@ namespace task
             _whoMove = -1;
             _totalMovesInGame = 9;
             _winCheck = -1;
-            //_userMoveCheckResult = false;
             _playerPointToMove = new Point(-1, -1);
         }
-
-        /// <summary>
-        /// Интеграция проекта с с++.
-        /// </summary>
 
         // Метод преобразования координат массива в имя кнопоки. Для выставления игрового знака компьютера.
         public string ConvertArrCoordinatesToButtonName(int x, int y)
@@ -457,26 +434,7 @@ namespace task
             arr[point.X, point.Y] = PcLetter;
         }
 
-        //// Метод определяющий сложность игры. 
-        //int GameDiff()
-        //{
-        //    Random random = new Random();
-
-        //    if (GameDifficulty == 1) // Бросок от 1 до 3. // Easily
-        //        random.Next(1, 4);
-        //    if (GameDifficulty == 2) // Бросок от 4 до 6. // Medium
-        //        random.Next(4, 7);
-        //    if (GameDifficulty == 3) // Бросок от 7 до 10. // Hard
-        //        return random.Next(7, 11);
-        //    else
-        //        return 0;
-        //}
-
-        void Move()
-        {
-
-        }
-
+        // Логика ходов компьютера.
         void LogicPcMove()
         {
             Random random = new Random();
@@ -751,73 +709,193 @@ namespace task
             }
             else if ((arr[0, 1] == UserLetter) && (arr[1, 1] == UserLetter) && (arr[2, 1] == ' ')) // 2 вертикальная[**_]
             {
-                if (GameDiff() + GameDifficulty > 50)
-                    arr[2, 1] = PcLetter;
-                else
-                    PcRandMove();
+                if (GameDifficulty == 1)
+                    PcRandMove(); // Всегда в любую ходит.
+                else if (GameDifficulty == 2)
+                {
+                    if (r < 50) // В меньше 50% ходит в любую.
+                        PcRandMove();
+                    else
+                        arr[2, 1] = PcLetter;
+                }
+                else if (GameDifficulty == 3)
+                {
+                    if (r < 20) // В меньше 20% ходит в любую
+                        PcRandMove();
+                    else
+                        arr[2, 1] = PcLetter;
+                }
             }
             else if ((arr[0, 2] == ' ') && (arr[1, 2] == UserLetter) && (arr[2, 2] == UserLetter)) // 3 вертикальная [_**] 
             {
-                if (GameDiff() + GameDifficulty > 50)
-                    arr[0, 2] = PcLetter;
-                else
-                    PcRandMove();
+                if (GameDifficulty == 1)
+                    PcRandMove(); // Всегда в любую ходит.
+                else if (GameDifficulty == 2)
+                {
+                    if (r < 50) // В меньше 50% ходит в любую.
+                        PcRandMove();
+                    else
+                        arr[0, 2] = PcLetter;
+                }
+                else if (GameDifficulty == 3)
+                {
+                    if (r < 20) // В меньше 20% ходит в любую
+                        PcRandMove();
+                    else
+                        arr[0, 2] = PcLetter;
+                }
             }
             else if ((arr[0, 2] == UserLetter) && (arr[1, 2] == ' ') && (arr[2, 2] == UserLetter)) // 3 вертикальная [*_*] 
             {
-                if (GameDiff() + GameDifficulty > 50)
-                    arr[1, 2] = PcLetter;
-                else
-                    PcRandMove();
+                if (GameDifficulty == 1)
+                    PcRandMove(); // Всегда в любую ходит.
+                else if (GameDifficulty == 2)
+                {
+                    if (r < 50) // В меньше 50% ходит в любую.
+                        PcRandMove();
+                    else
+                        arr[1, 2] = PcLetter;
+                }
+                else if (GameDifficulty == 3)
+                {
+                    if (r < 20) // В меньше 20% ходит в любую
+                        PcRandMove();
+                    else
+                        arr[1, 2] = PcLetter;
+                }
             }
             else if ((arr[0, 2] == UserLetter) && (arr[1, 2] == UserLetter) && (arr[2, 2] == ' ')) // 3 вертикальная [**_] 
             {
-                if (GameDiff() + GameDifficulty > 50)
-                    arr[2, 2] = PcLetter;
-                else
-                    PcRandMove();
+                if (GameDifficulty == 1)
+                    PcRandMove(); // Всегда в любую ходит.
+                else if (GameDifficulty == 2)
+                {
+                    if (r < 50) // В меньше 50% ходит в любую.
+                        PcRandMove();
+                    else
+                        arr[2, 2] = PcLetter;
+                }
+                else if (GameDifficulty == 3)
+                {
+                    if (r < 20) // В меньше 20% ходит в любую
+                        PcRandMove();
+                    else
+                        arr[2, 2] = PcLetter;
+                }
             }
             else if ((arr[0, 0] == ' ') && (arr[1, 1] == UserLetter) && (arr[2, 2] == UserLetter)) // главная диагональ [_**]
             {
-                if (GameDiff() + GameDifficulty > 50)
-                    arr[0, 0] = PcLetter;
-                else
-                    PcRandMove();
+                if (GameDifficulty == 1)
+                    PcRandMove(); // Всегда в любую ходит.
+                else if (GameDifficulty == 2)
+                {
+                    if (r < 50) // В меньше 50% ходит в любую.
+                        PcRandMove();
+                    else
+                        arr[0, 0] = PcLetter;
+                }
+                else if (GameDifficulty == 3)
+                {
+                    if (r < 20) // В меньше 20% ходит в любую
+                        PcRandMove();
+                    else
+                        arr[0, 0] = PcLetter;
+                }
             }
             else if ((arr[0, 0] == UserLetter) && (arr[1, 1] == ' ') && (arr[2, 2] == UserLetter)) // главная диагональ [*_*]
             {
-                if (GameDiff() + GameDifficulty > 50)
-                    arr[1, 1] = PcLetter;
-                else
-                    PcRandMove();
+                if (GameDifficulty == 1)
+                    PcRandMove(); // Всегда в любую ходит.
+                else if (GameDifficulty == 2)
+                {
+                    if (r < 50) // В меньше 50% ходит в любую.
+                        PcRandMove();
+                    else
+                        arr[1, 1] = PcLetter;
+                }
+                else if (GameDifficulty == 3)
+                {
+                    if (r < 20) // В меньше 20% ходит в любую
+                        PcRandMove();
+                    else
+                        arr[1, 1] = PcLetter;
+                }
             }
             else if ((arr[0, 0] == UserLetter) && (arr[1, 1] == UserLetter) && (arr[2, 2] == ' ')) // главная диагональ [**_]
             {
-                if (GameDiff() + GameDifficulty > 50)
-                    arr[2, 2] = PcLetter;
-                else
-                    PcRandMove();
+                if (GameDifficulty == 1)
+                    PcRandMove(); // Всегда в любую ходит.
+                else if (GameDifficulty == 2)
+                {
+                    if (r < 50) // В меньше 50% ходит в любую.
+                        PcRandMove();
+                    else
+                        arr[2, 2] = PcLetter;
+                }
+                else if (GameDifficulty == 3)
+                {
+                    if (r < 20) // В меньше 20% ходит в любую
+                        PcRandMove();
+                    else
+                        arr[2, 2] = PcLetter;
+                }
             }
             else if ((arr[2, 0] == ' ') && (arr[1, 1] == UserLetter) && (arr[0, 2] == UserLetter)) // вторая диагональ [_**]
             {
-                if (GameDiff() + GameDifficulty > 50)
-                    arr[2, 0] = PcLetter;
-                else
-                    PcRandMove();
+                if (GameDifficulty == 1)
+                    PcRandMove(); // Всегда в любую ходит.
+                else if (GameDifficulty == 2)
+                {
+                    if (r < 50) // В меньше 50% ходит в любую.
+                        PcRandMove();
+                    else
+                        arr[2, 0] = PcLetter;
+                }
+                else if (GameDifficulty == 3)
+                {
+                    if (r < 20) // В меньше 20% ходит в любую
+                        PcRandMove();
+                    else
+                        arr[2, 0] = PcLetter;
+                }
             }
             else if ((arr[2, 0] == UserLetter) && (arr[1, 1] == ' ') && (arr[0, 2] == UserLetter)) // вторая диагональ [*_*]
             {
-                if (GameDiff() + GameDifficulty > 50)
-                    arr[1, 1] = PcLetter;
-                else
-                    PcRandMove();
+                if (GameDifficulty == 1)
+                    PcRandMove(); // Всегда в любую ходит.
+                else if (GameDifficulty == 2)
+                {
+                    if (r < 50) // В меньше 50% ходит в любую.
+                        PcRandMove();
+                    else
+                        arr[1, 1] = PcLetter;
+                }
+                else if (GameDifficulty == 3)
+                {
+                    if (r < 20) // В меньше 20% ходит в любую
+                        PcRandMove();
+                    else
+                        arr[1, 1] = PcLetter;
+                }
             }
             else if ((arr[2, 0] == UserLetter) && (arr[1, 1] == UserLetter) && (arr[0, 2] == ' ')) // вторая диагональ [**_]
             {
-                if (GameDiff() + GameDifficulty > 50)
-                    arr[0, 2] = PcLetter;
-                else
-                    PcRandMove();
+                if (GameDifficulty == 1)
+                    PcRandMove(); // Всегда в любую ходит.
+                else if (GameDifficulty == 2)
+                {
+                    if (r < 50) // В меньше 50% ходит в любую.
+                        PcRandMove();
+                    else
+                        arr[0, 2] = PcLetter;
+                }
+                else if (GameDifficulty == 3)
+                {
+                    if (r < 20) // В меньше 20% ходит в любую
+                        PcRandMove();
+                    else
+                        arr[0, 2] = PcLetter;
+                }
             }
             else
                 PcRandMove();
@@ -829,18 +907,6 @@ namespace task
             LogicPcMove();
             TotalMovesInGame--;
             WhoMove = 1; // Передача хода игроку.
-            //if (WinCheck == 0) // Победа компьютера.
-            //{
-            //    MessageBox.Show("Компьютер победил.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    AskPlayMore();
-            //}
-            //else if (WinCheck == 2) // Ничья.
-            //{
-            //    Draw();
-            //    AskPlayMore();
-            //}
-            //else if (WinCheck == 3) // Продолжаем играть.
-            //    return;
         }
 
         // Сообщение об ничьей.
@@ -849,6 +915,7 @@ namespace task
             MessageBox.Show("Ничья.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        // Один шаг, после нажатия пользователя на кнопку на игровом поле.
         public void OneStep()
         {
             if (WhoMove == 1) // Пользователь.
@@ -878,23 +945,6 @@ namespace task
                 PcMove();
         }
 
-        // Метод сбрасывает все параметры на новую игру.
-        private void ReselAllForNewGame() // форму обнулить нужно отдельно.
-        {
-            //Form.ShowDialog();
-            //Application.Run(new Form1());
-            //for (int i = 0, j = 0; i < 3; i++)
-            //    for (int k = 0; k < 3; k++)
-            //        arr[i, k] = ' ';
-            //GameDifficulty = 0;
-            //UserLetter = '3';
-            //PcLetter = '3';
-            //WhoMove = -1;
-            //TotalMovesInGame = 9;
-            //WinCheck = -1;
-            //PlayerPointToMove = new Point(-1, -1);
-        }
-
         // Сыграем еще ?.
         public void AskPlayMore()
         {
@@ -903,7 +953,6 @@ namespace task
                 Application.Exit();
             else if (result == DialogResult.Yes)
                 Application.Restart();
-            //ReselAllForNewGame();
         }
     }
 }
