@@ -1,4 +1,4 @@
-using System.Diagnostics;
+п»їusing System.Diagnostics;
 using task.Properties;
 
 namespace task;
@@ -6,27 +6,27 @@ namespace task;
 public partial class Form1 : Form
 {
     /// <summary>
-    ///     Написать игру «Крестики-нолики», учитывая следующие требования:
-    ///     * игровое поле размером 3х3 должно состоять из кнопок;
-    ///     * при нажатии на кнопку, на ней должна отобразиться картинка (крестик или
-    ///     нолик);
-    ///     * необходимо предотвращать попытку поставить крестик или нолик на занятую
-    ///     клетку;
-    ///     * предоставить пользователю право выбора первого хода, используя флажок;
-    ///     * предусмотреть возможность выбора уровня сложности, используя
-    ///     переключатели;
-    ///     * предусмотреть кнопку «Начать новую игру».
+    ///     РќР°РїРёСЃР°С‚СЊ РёРіСЂСѓ В«РљСЂРµСЃС‚РёРєРё-РЅРѕР»РёРєРёВ», СѓС‡РёС‚С‹РІР°СЏ СЃР»РµРґСѓСЋС‰РёРµ С‚СЂРµР±РѕРІР°РЅРёСЏ:
+    ///     * РёРіСЂРѕРІРѕРµ РїРѕР»Рµ СЂР°Р·РјРµСЂРѕРј 3С…3 РґРѕР»Р¶РЅРѕ СЃРѕСЃС‚РѕСЏС‚СЊ РёР· РєРЅРѕРїРѕРє;
+    ///     * РїСЂРё РЅР°Р¶Р°С‚РёРё РЅР° РєРЅРѕРїРєСѓ, РЅР° РЅРµР№ РґРѕР»Р¶РЅР° РѕС‚РѕР±СЂР°Р·РёС‚СЊСЃСЏ РєР°СЂС‚РёРЅРєР° (РєСЂРµСЃС‚РёРє РёР»Рё
+    ///     РЅРѕР»РёРє);
+    ///     * РЅРµРѕР±С…РѕРґРёРјРѕ РїСЂРµРґРѕС‚РІСЂР°С‰Р°С‚СЊ РїРѕРїС‹С‚РєСѓ РїРѕСЃС‚Р°РІРёС‚СЊ РєСЂРµСЃС‚РёРє РёР»Рё РЅРѕР»РёРє РЅР° Р·Р°РЅСЏС‚СѓСЋ
+    ///     РєР»РµС‚РєСѓ;
+    ///     * РїСЂРµРґРѕСЃС‚Р°РІРёС‚СЊ РїРѕР»СЊР·РѕРІР°С‚РµР»СЋ РїСЂР°РІРѕ РІС‹Р±РѕСЂР° РїРµСЂРІРѕРіРѕ С…РѕРґР°, РёСЃРїРѕР»СЊР·СѓСЏ С„Р»Р°Р¶РѕРє;
+    ///     * РїСЂРµРґСѓСЃРјРѕС‚СЂРµС‚СЊ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РІС‹Р±РѕСЂР° СѓСЂРѕРІРЅСЏ СЃР»РѕР¶РЅРѕСЃС‚Рё, РёСЃРїРѕР»СЊР·СѓСЏ
+    ///     РїРµСЂРµРєР»СЋС‡Р°С‚РµР»Рё;
+    ///     * РїСЂРµРґСѓСЃРјРѕС‚СЂРµС‚СЊ РєРЅРѕРїРєСѓ В«РќР°С‡Р°С‚СЊ РЅРѕРІСѓСЋ РёРіСЂСѓВ».
     /// </summary>
 
-    // Ссылка на метод с логикой по игре.
+    // РЎСЃС‹Р»РєР° РЅР° РјРµС‚РѕРґ СЃ Р»РѕРіРёРєРѕР№ РїРѕ РёРіСЂРµ.
     private readonly Tic_tac_toe_game _game;
 
     public Form1()
     {
         InitializeComponent();
 
-        // Перед игрой отключаем поле с кнопками.
-        // Будет включено только после нажатия кнопки "Начать игру".
+        // РџРµСЂРµРґ РёРіСЂРѕР№ РѕС‚РєР»СЋС‡Р°РµРј РїРѕР»Рµ СЃ РєРЅРѕРїРєР°РјРё.
+        // Р‘СѓРґРµС‚ РІРєР»СЋС‡РµРЅРѕ С‚РѕР»СЊРєРѕ РїРѕСЃР»Рµ РЅР°Р¶Р°С‚РёСЏ РєРЅРѕРїРєРё "РќР°С‡Р°С‚СЊ РёРіСЂСѓ".
         button1.Enabled = false;
         button2.Enabled = false;
         button3.Enabled = false;
@@ -39,21 +39,21 @@ public partial class Form1 : Form
         _game = new Tic_tac_toe_game();
     }
 
-    // Обработчик нажатий кнопок на игровом поле.
+    // РћР±СЂР°Р±РѕС‚С‡РёРє РЅР°Р¶Р°С‚РёР№ РєРЅРѕРїРѕРє РЅР° РёРіСЂРѕРІРѕРј РїРѕР»Рµ.
     private void gameFieldsButtons_Click(object sender, EventArgs e)
     {
-        // когда выставлять метку игрока в ячейку ?
-        // Отправляем кнопку на конвертацию в координаты массива.
+        // РєРѕРіРґР° РІС‹СЃС‚Р°РІР»СЏС‚СЊ РјРµС‚РєСѓ РёРіСЂРѕРєР° РІ СЏС‡РµР№РєСѓ ?
+        // РћС‚РїСЂР°РІР»СЏРµРј РєРЅРѕРїРєСѓ РЅР° РєРѕРЅРІРµСЂС‚Р°С†РёСЋ РІ РєРѕРѕСЂРґРёРЅР°С‚С‹ РјР°СЃСЃРёРІР°.
         _game.PlayerPointToMove = _game.ConvertButtonToCoordinates((Button)sender);
 
         if (_game.UserMoveCheck())
         {
-            // Если пользователь ходит крестиками, установить на кнопку картинку крестика.
+            // Р•СЃР»Рё РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ С…РѕРґРёС‚ РєСЂРµСЃС‚РёРєР°РјРё, СѓСЃС‚Р°РЅРѕРІРёС‚СЊ РЅР° РєРЅРѕРїРєСѓ РєР°СЂС‚РёРЅРєСѓ РєСЂРµСЃС‚РёРєР°.
             if (_game.UserLetter == 'X')
-                // Установить на кнопку из ресурсов крестик.
+                // РЈСЃС‚Р°РЅРѕРІРёС‚СЊ РЅР° РєРЅРѕРїРєСѓ РёР· СЂРµСЃСѓСЂСЃРѕРІ РєСЂРµСЃС‚РёРє.
                 ((Button)sender).Image = Resources.cross;
             else
-                // Установить на кнопку из ресурсов нолик.
+                // РЈСЃС‚Р°РЅРѕРІРёС‚СЊ РЅР° РєРЅРѕРїРєСѓ РёР· СЂРµСЃСѓСЂСЃРѕРІ РЅРѕР»РёРє.
                 ((Button)sender).Image = Resources._null;
         }
 
@@ -61,56 +61,56 @@ public partial class Form1 : Form
         ShowComputerMove();
     }
 
-    // Отрисовать ход компьютера.
+    // РћС‚СЂРёСЃРѕРІР°С‚СЊ С…РѕРґ РєРѕРјРїСЊСЋС‚РµСЂР°.
     private void ShowComputerMove()
     {
         for (var i = 0; i < 3; i++)
         for (var j = 0; j < 3; j++)
             if (_game[i, j] == _game.PcLetter)
-                // Перебираем все кнопки на форме.
+                // РџРµСЂРµР±РёСЂР°РµРј РІСЃРµ РєРЅРѕРїРєРё РЅР° С„РѕСЂРјРµ.
                 foreach (Control c in Controls)
-                    // Если нашли кнопку, то проверяем её координаты.
+                    // Р•СЃР»Рё РЅР°С€Р»Рё РєРЅРѕРїРєСѓ, С‚Рѕ РїСЂРѕРІРµСЂСЏРµРј РµС‘ РєРѕРѕСЂРґРёРЅР°С‚С‹.
                     if (c is Button)
-                        // Если координаты кнопки совпадают с координатами массива, то устанавливаем на неё картинку.
+                        // Р•СЃР»Рё РєРѕРѕСЂРґРёРЅР°С‚С‹ РєРЅРѕРїРєРё СЃРѕРІРїР°РґР°СЋС‚ СЃ РєРѕРѕСЂРґРёРЅР°С‚Р°РјРё РјР°СЃСЃРёРІР°, С‚Рѕ СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј РЅР° РЅРµС‘ РєР°СЂС‚РёРЅРєСѓ.
                         if (_game.ConvertArrCoordinatesToButtonName(i, j) == ((Button)c).Name &&
                             ((Button)c).Image == null)
                         {
                             if (_game.PcLetter == 'X')
                             {
-                                // Установить на кнопку из ресурсов крестик.
+                                // РЈСЃС‚Р°РЅРѕРІРёС‚СЊ РЅР° РєРЅРѕРїРєСѓ РёР· СЂРµСЃСѓСЂСЃРѕРІ РєСЂРµСЃС‚РёРє.
                                 ((Button)c).Image = Resources.cross;
-                                if (_game.WinCheck == 0) // Победа компьютера.
+                                if (_game.WinCheck == 0) // РџРѕР±РµРґР° РєРѕРјРїСЊСЋС‚РµСЂР°.
                                 {
-                                    MessageBox.Show("Компьютер победил.", "Игра «Крестики-нолики».",
+                                    MessageBox.Show("РљРѕРјРїСЊСЋС‚РµСЂ РїРѕР±РµРґРёР».", "РРіСЂР° В«РљСЂРµСЃС‚РёРєРё-РЅРѕР»РёРєРёВ».",
                                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     _game.AskPlayMore();
                                 }
-                                else if (_game.WinCheck == 2) // Ничья.
+                                else if (_game.WinCheck == 2) // РќРёС‡СЊСЏ.
                                 {
                                     _game.Draw();
                                     _game.AskPlayMore();
                                 }
-                                else if (_game.WinCheck == 3) // Продолжаем играть.
+                                else if (_game.WinCheck == 3) // РџСЂРѕРґРѕР»Р¶Р°РµРј РёРіСЂР°С‚СЊ.
                                 {
                                     return;
                                 }
                             }
                             else
                             {
-                                // Установить на кнопку из ресурсов нолик.
+                                // РЈСЃС‚Р°РЅРѕРІРёС‚СЊ РЅР° РєРЅРѕРїРєСѓ РёР· СЂРµСЃСѓСЂСЃРѕРІ РЅРѕР»РёРє.
                                 ((Button)c).Image = Resources._null;
-                                if (_game.WinCheck == 0) // Победа компьютера.
+                                if (_game.WinCheck == 0) // РџРѕР±РµРґР° РєРѕРјРїСЊСЋС‚РµСЂР°.
                                 {
-                                    MessageBox.Show("Компьютер победил.", "Игра «Крестики-нолики».",
+                                    MessageBox.Show("РљРѕРјРїСЊСЋС‚РµСЂ РїРѕР±РµРґРёР».", "РРіСЂР° В«РљСЂРµСЃС‚РёРєРё-РЅРѕР»РёРєРёВ».",
                                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     _game.AskPlayMore();
                                 }
-                                else if (_game.WinCheck == 2) // Ничья.
+                                else if (_game.WinCheck == 2) // РќРёС‡СЊСЏ.
                                 {
                                     _game.Draw();
                                     _game.AskPlayMore();
                                 }
-                                else if (_game.WinCheck == 3) // Продолжаем играть.
+                                else if (_game.WinCheck == 3) // РџСЂРѕРґРѕР»Р¶Р°РµРј РёРіСЂР°С‚СЊ.
                                 {
                                     return;
                                 }
@@ -118,10 +118,10 @@ public partial class Form1 : Form
                         }
     }
 
-    // Обработчик нажатия на ссылку "Правила игры в «Крестики-нолики»."
+    // РћР±СЂР°Р±РѕС‚С‡РёРє РЅР°Р¶Р°С‚РёСЏ РЅР° СЃСЃС‹Р»РєСѓ "РџСЂР°РІРёР»Р° РёРіСЂС‹ РІ В«РљСЂРµСЃС‚РёРєРё-РЅРѕР»РёРєРёВ»."
     private void RulesOfTheGame_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
-        // Запуск браузера с заданным адресом.
+        // Р—Р°РїСѓСЃРє Р±СЂР°СѓР·РµСЂР° СЃ Р·Р°РґР°РЅРЅС‹Рј Р°РґСЂРµСЃРѕРј.
         var procInfo = new ProcessStartInfo(@"chrome.exe");
         procInfo.UseShellExecute = true;
         procInfo.Arguments =
@@ -129,44 +129,44 @@ public partial class Form1 : Form
         Process.Start(procInfo);
     }
 
-    // Обработчик нажатия на кнопку "Начать новую игру".
+    // РћР±СЂР°Р±РѕС‚С‡РёРє РЅР°Р¶Р°С‚РёСЏ РЅР° РєРЅРѕРїРєСѓ "РќР°С‡Р°С‚СЊ РЅРѕРІСѓСЋ РёРіСЂСѓ".
     private void StartNewGame_button10_Click(object sender, EventArgs e)
     {
-        // Проверяем заполнены ли все поля для игры.
-        // "Кто будет ходить первым ?".
+        // РџСЂРѕРІРµСЂСЏРµРј Р·Р°РїРѕР»РЅРµРЅС‹ Р»Рё РІСЃРµ РїРѕР»СЏ РґР»СЏ РёРіСЂС‹.
+        // "РљС‚Рѕ Р±СѓРґРµС‚ С…РѕРґРёС‚СЊ РїРµСЂРІС‹Рј ?".
         if ((FirstMoveComputer.Checked == false && FirstMovePlayer.Checked == false) ||
             (FirstMoveComputer.Checked && FirstMovePlayer.Checked))
         {
-            MessageBox.Show("Выберите кто будет ходить первым !", "Ошибка !", MessageBoxButtons.OK,
+            MessageBox.Show("Р’С‹Р±РµСЂРёС‚Рµ РєС‚Рѕ Р±СѓРґРµС‚ С…РѕРґРёС‚СЊ РїРµСЂРІС‹Рј !", "РћС€РёР±РєР° !", MessageBoxButtons.OK,
                 MessageBoxIcon.Error);
             return;
         }
 
         if (FirstMoveComputer.Checked)
-            _game.WhoMove = 0; // Компьютер ходит первым.
+            _game.WhoMove = 0; // РљРѕРјРїСЊСЋС‚РµСЂ С…РѕРґРёС‚ РїРµСЂРІС‹Рј.
         else
-            _game.WhoMove = 1; // Игрок ходит первым.
+            _game.WhoMove = 1; // РРіСЂРѕРє С…РѕРґРёС‚ РїРµСЂРІС‹Рј.
 
-        // Выберите чем будете играть !.
+        // Р’С‹Р±РµСЂРёС‚Рµ С‡РµРј Р±СѓРґРµС‚Рµ РёРіСЂР°С‚СЊ !.
         if ((PlayCrosses.Checked == false && PlayZeroes.Checked == false) ||
             (PlayCrosses.Checked && PlayZeroes.Checked))
         {
-            MessageBox.Show("Выберите чем будете играть !", "Ошибка !", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("Р’С‹Р±РµСЂРёС‚Рµ С‡РµРј Р±СѓРґРµС‚Рµ РёРіСЂР°С‚СЊ !", "РћС€РёР±РєР° !", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;
-        } // Выставление символов игры для игрока и компьютера.
+        } // Р’С‹СЃС‚Р°РІР»РµРЅРёРµ СЃРёРјРІРѕР»РѕРІ РёРіСЂС‹ РґР»СЏ РёРіСЂРѕРєР° Рё РєРѕРјРїСЊСЋС‚РµСЂР°.
 
         if (PlayCrosses.Checked)
         {
-            _game.UserLetter = 'X'; // Игрок использует крестики.
-            _game.PcLetter = '0'; // Компьютер использует нолики.
+            _game.UserLetter = 'X'; // РРіСЂРѕРє РёСЃРїРѕР»СЊР·СѓРµС‚ РєСЂРµСЃС‚РёРєРё.
+            _game.PcLetter = '0'; // РљРѕРјРїСЊСЋС‚РµСЂ РёСЃРїРѕР»СЊР·СѓРµС‚ РЅРѕР»РёРєРё.
         }
         else
         {
-            _game.UserLetter = '0'; // Игрок использует нолики.
-            _game.PcLetter = 'X'; // Компьютер использует крестики.
+            _game.UserLetter = '0'; // РРіСЂРѕРє РёСЃРїРѕР»СЊР·СѓРµС‚ РЅРѕР»РёРєРё.
+            _game.PcLetter = 'X'; // РљРѕРјРїСЊСЋС‚РµСЂ РёСЃРїРѕР»СЊР·СѓРµС‚ РєСЂРµСЃС‚РёРєРё.
         }
 
-        // Выберите уровень сложности !.
+        // Р’С‹Р±РµСЂРёС‚Рµ СѓСЂРѕРІРµРЅСЊ СЃР»РѕР¶РЅРѕСЃС‚Рё !.
         if ((LevelOfDifficulty_Easy.Checked == false && LevelOfDifficulty_Normal.Checked == false &&
              LevelOfDifficulty_Hard.Checked == false) ||
             (LevelOfDifficulty_Easy.Checked && LevelOfDifficulty_Normal.Checked) ||
@@ -174,11 +174,11 @@ public partial class Form1 : Form
             (LevelOfDifficulty_Normal.Checked && LevelOfDifficulty_Hard.Checked) ||
             (LevelOfDifficulty_Normal.Checked && LevelOfDifficulty_Easy.Checked))
         {
-            MessageBox.Show("Выберите уровень сложности !", "Ошибка !", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("Р’С‹Р±РµСЂРёС‚Рµ СѓСЂРѕРІРµРЅСЊ СЃР»РѕР¶РЅРѕСЃС‚Рё !", "РћС€РёР±РєР° !", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;
         }
 
-        // Выставление уровня сложности.
+        // Р’С‹СЃС‚Р°РІР»РµРЅРёРµ СѓСЂРѕРІРЅСЏ СЃР»РѕР¶РЅРѕСЃС‚Рё.
         if (LevelOfDifficulty_Easy.Checked)
             _game.GameDifficulty = 1;
         else if (LevelOfDifficulty_Normal.Checked)
@@ -186,7 +186,7 @@ public partial class Form1 : Form
         else if (LevelOfDifficulty_Hard.Checked)
             _game.GameDifficulty = 3;
 
-        // Если все поля для начала игры заполнены, то включаем игровое поле из кнопок.
+        // Р•СЃР»Рё РІСЃРµ РїРѕР»СЏ РґР»СЏ РЅР°С‡Р°Р»Р° РёРіСЂС‹ Р·Р°РїРѕР»РЅРµРЅС‹, С‚Рѕ РІРєР»СЋС‡Р°РµРј РёРіСЂРѕРІРѕРµ РїРѕР»Рµ РёР· РєРЅРѕРїРѕРє.
         button1.Enabled = true;
         button2.Enabled = true;
         button3.Enabled = true;
@@ -197,7 +197,7 @@ public partial class Form1 : Form
         button8.Enabled = true;
         button9.Enabled = true;
 
-        // Блокировка лишнего интерфейса.
+        // Р‘Р»РѕРєРёСЂРѕРІРєР° Р»РёС€РЅРµРіРѕ РёРЅС‚РµСЂС„РµР№СЃР°.
         StartNewGame_button10.Enabled = false;
         FirstMoveComputer.Enabled = false;
         FirstMovePlayer.Enabled = false;
@@ -207,7 +207,7 @@ public partial class Form1 : Form
         LevelOfDifficulty_Normal.Enabled = false;
         LevelOfDifficulty_Hard.Enabled = false;
 
-        // Если выбрано, что компьютер ходит первым, то вызываем метод хода компьютера.
+        // Р•СЃР»Рё РІС‹Р±СЂР°РЅРѕ, С‡С‚Рѕ РєРѕРјРїСЊСЋС‚РµСЂ С…РѕРґРёС‚ РїРµСЂРІС‹Рј, С‚Рѕ РІС‹Р·С‹РІР°РµРј РјРµС‚РѕРґ С…РѕРґР° РєРѕРјРїСЊСЋС‚РµСЂР°.
         if (FirstMoveComputer.Checked)
         {
             _game.PcMove();
@@ -216,16 +216,16 @@ public partial class Form1 : Form
     }
 }
 
-// Класс реализующий логику игры с компьютером.
+// РљР»Р°СЃСЃ СЂРµР°Р»РёР·СѓСЋС‰РёР№ Р»РѕРіРёРєСѓ РёРіСЂС‹ СЃ РєРѕРјРїСЊСЋС‚РµСЂРѕРј.
 public class Tic_tac_toe_game
 {
-    // Проверка на победимтеля.
+    // РџСЂРѕРІРµСЂРєР° РЅР° РїРѕР±РµРґРёРјС‚РµР»СЏ.
     private int _winCheck;
 
-    // Массив игрового поля.
+    // РњР°СЃСЃРёРІ РёРіСЂРѕРІРѕРіРѕ РїРѕР»СЏ.
     private readonly char[,] arr;
 
-    // Конструктор.
+    // РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ.
     public Tic_tac_toe_game()
     {
         arr = new[,] { { ' ', ' ', ' ' }, { ' ', ' ', ' ' }, { ' ', ' ', ' ' } };
@@ -244,19 +244,19 @@ public class Tic_tac_toe_game
         set => arr[i, j] = value;
     }
 
-    // Уровень сложности выбранный игроком на форме.
+    // РЈСЂРѕРІРµРЅСЊ СЃР»РѕР¶РЅРѕСЃС‚Рё РІС‹Р±СЂР°РЅРЅС‹Р№ РёРіСЂРѕРєРѕРј РЅР° С„РѕСЂРјРµ.
     public int GameDifficulty { get; set; }
 
-    // Символ для игры игрока.
+    // РЎРёРјРІРѕР» РґР»СЏ РёРіСЂС‹ РёРіСЂРѕРєР°.
     public char UserLetter { get; set; }
 
-    // Символ для игры компьютера.
+    // РЎРёРјРІРѕР» РґР»СЏ РёРіСЂС‹ РєРѕРјРїСЊСЋС‚РµСЂР°.
     public char PcLetter { get; set; }
 
-    // Кто будет ходить ?
+    // РљС‚Рѕ Р±СѓРґРµС‚ С…РѕРґРёС‚СЊ ?
     public int WhoMove { get; set; }
 
-    // Общее количество ходов в игре.
+    // РћР±С‰РµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ С…РѕРґРѕРІ РІ РёРіСЂРµ.
     public int TotalMovesInGame { get; set; }
 
     public int WinCheck
@@ -269,10 +269,10 @@ public class Tic_tac_toe_game
         set => _winCheck = value;
     }
 
-    // Координаты хода пользователя на массиве.
+    // РљРѕРѕСЂРґРёРЅР°С‚С‹ С…РѕРґР° РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РЅР° РјР°СЃСЃРёРІРµ.
     public Point PlayerPointToMove { get; set; }
 
-    // Метод преобразования координат массива в имя кнопоки. Для выставления игрового знака компьютера.
+    // РњРµС‚РѕРґ РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёСЏ РєРѕРѕСЂРґРёРЅР°С‚ РјР°СЃСЃРёРІР° РІ РёРјСЏ РєРЅРѕРїРѕРєРё. Р”Р»СЏ РІС‹СЃС‚Р°РІР»РµРЅРёСЏ РёРіСЂРѕРІРѕРіРѕ Р·РЅР°РєР° РєРѕРјРїСЊСЋС‚РµСЂР°.
     public string ConvertArrCoordinatesToButtonName(int x, int y)
     {
         if (x == 0 && y == 0)
@@ -294,7 +294,7 @@ public class Tic_tac_toe_game
         return "button9";
     }
 
-    // Метод преобразования нажатых кнопок в координаты массива.
+    // РњРµС‚РѕРґ РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёСЏ РЅР°Р¶Р°С‚С‹С… РєРЅРѕРїРѕРє РІ РєРѕРѕСЂРґРёРЅР°С‚С‹ РјР°СЃСЃРёРІР°.
     public Point ConvertButtonToCoordinates(Button button)
     {
         var coordinates = new Point();
@@ -348,47 +348,47 @@ public class Tic_tac_toe_game
         return coordinates;
     }
 
-    // Метод проверки свободной ячейки в матрице под ход игрока.
+    // РњРµС‚РѕРґ РїСЂРѕРІРµСЂРєРё СЃРІРѕР±РѕРґРЅРѕР№ СЏС‡РµР№РєРё РІ РјР°С‚СЂРёС†Рµ РїРѕРґ С…РѕРґ РёРіСЂРѕРєР°.
     public bool UserMoveCheck()
     {
         if (arr[PlayerPointToMove.X, PlayerPointToMove.Y] == ' ')
-            return true; // Ход возможен.
-        return false; // Ячейка занята, ходить сюда нельзя.
+            return true; // РҐРѕРґ РІРѕР·РјРѕР¶РµРЅ.
+        return false; // РЇС‡РµР№РєР° Р·Р°РЅСЏС‚Р°, С…РѕРґРёС‚СЊ СЃСЋРґР° РЅРµР»СЊР·СЏ.
     }
 
-    // Метод обрабатки хода игрока.
+    // РњРµС‚РѕРґ РѕР±СЂР°Р±Р°С‚РєРё С…РѕРґР° РёРіСЂРѕРєР°.
     private void UserMove()
     {
         arr[PlayerPointToMove.X, PlayerPointToMove.Y] = UserLetter;
     }
 
-    // Метод проверки победы.
+    // РњРµС‚РѕРґ РїСЂРѕРІРµСЂРєРё РїРѕР±РµРґС‹.
     private int WinCheckMethod()
     {
-        if ((arr[0, 0] == UserLetter && arr[0, 1] == UserLetter && arr[0, 2] == UserLetter) || // 1 горизонтальная
-            (arr[1, 0] == UserLetter && arr[1, 1] == UserLetter && arr[1, 2] == UserLetter) || // 2 горизонтальная
-            (arr[2, 0] == UserLetter && arr[2, 1] == UserLetter && arr[2, 2] == UserLetter) || // 3 горизонтальная
-            (arr[0, 0] == UserLetter && arr[1, 0] == UserLetter && arr[2, 0] == UserLetter) || // 1 вертикальная
-            (arr[0, 1] == UserLetter && arr[1, 1] == UserLetter && arr[2, 1] == UserLetter) || // 2 вертикальная 
-            (arr[0, 2] == UserLetter && arr[1, 2] == UserLetter && arr[2, 2] == UserLetter) || // 3 вертикальная 
-            (arr[0, 0] == UserLetter && arr[1, 1] == UserLetter && arr[2, 2] == UserLetter) || // главная диагональ
-            (arr[2, 0] == UserLetter && arr[1, 1] == UserLetter && arr[0, 2] == UserLetter)) // второстепенная диагональ
-            return 1; // Возвращает при победе игрока.
-        if ((arr[0, 0] == PcLetter && arr[0, 1] == PcLetter && arr[0, 2] == PcLetter) || // 1 горизонтальная
-            (arr[1, 0] == PcLetter && arr[1, 1] == PcLetter && arr[1, 2] == PcLetter) || // 2 горизонтальная
-            (arr[2, 0] == PcLetter && arr[2, 1] == PcLetter && arr[2, 2] == PcLetter) || // 3 горизонтальная
-            (arr[0, 0] == PcLetter && arr[1, 0] == PcLetter && arr[2, 0] == PcLetter) || // 1 вертикальная
-            (arr[0, 1] == PcLetter && arr[1, 1] == PcLetter && arr[2, 1] == PcLetter) || // 2 вертикальная 
-            (arr[0, 2] == PcLetter && arr[1, 2] == PcLetter && arr[2, 2] == PcLetter) || // 3 вертикальная 
-            (arr[0, 0] == PcLetter && arr[1, 1] == PcLetter && arr[2, 2] == PcLetter) || // главная диагональ
-            (arr[2, 0] == PcLetter && arr[1, 1] == PcLetter && arr[0, 2] == PcLetter)) // второстепенная диагональ
-            return 0; // Возвращает при победе компьютера.
+        if ((arr[0, 0] == UserLetter && arr[0, 1] == UserLetter && arr[0, 2] == UserLetter) || // 1 РіРѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅР°СЏ
+            (arr[1, 0] == UserLetter && arr[1, 1] == UserLetter && arr[1, 2] == UserLetter) || // 2 РіРѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅР°СЏ
+            (arr[2, 0] == UserLetter && arr[2, 1] == UserLetter && arr[2, 2] == UserLetter) || // 3 РіРѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅР°СЏ
+            (arr[0, 0] == UserLetter && arr[1, 0] == UserLetter && arr[2, 0] == UserLetter) || // 1 РІРµСЂС‚РёРєР°Р»СЊРЅР°СЏ
+            (arr[0, 1] == UserLetter && arr[1, 1] == UserLetter && arr[2, 1] == UserLetter) || // 2 РІРµСЂС‚РёРєР°Р»СЊРЅР°СЏ 
+            (arr[0, 2] == UserLetter && arr[1, 2] == UserLetter && arr[2, 2] == UserLetter) || // 3 РІРµСЂС‚РёРєР°Р»СЊРЅР°СЏ 
+            (arr[0, 0] == UserLetter && arr[1, 1] == UserLetter && arr[2, 2] == UserLetter) || // РіР»Р°РІРЅР°СЏ РґРёР°РіРѕРЅР°Р»СЊ
+            (arr[2, 0] == UserLetter && arr[1, 1] == UserLetter && arr[0, 2] == UserLetter)) // РІС‚РѕСЂРѕСЃС‚РµРїРµРЅРЅР°СЏ РґРёР°РіРѕРЅР°Р»СЊ
+            return 1; // Р’РѕР·РІСЂР°С‰Р°РµС‚ РїСЂРё РїРѕР±РµРґРµ РёРіСЂРѕРєР°.
+        if ((arr[0, 0] == PcLetter && arr[0, 1] == PcLetter && arr[0, 2] == PcLetter) || // 1 РіРѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅР°СЏ
+            (arr[1, 0] == PcLetter && arr[1, 1] == PcLetter && arr[1, 2] == PcLetter) || // 2 РіРѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅР°СЏ
+            (arr[2, 0] == PcLetter && arr[2, 1] == PcLetter && arr[2, 2] == PcLetter) || // 3 РіРѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅР°СЏ
+            (arr[0, 0] == PcLetter && arr[1, 0] == PcLetter && arr[2, 0] == PcLetter) || // 1 РІРµСЂС‚РёРєР°Р»СЊРЅР°СЏ
+            (arr[0, 1] == PcLetter && arr[1, 1] == PcLetter && arr[2, 1] == PcLetter) || // 2 РІРµСЂС‚РёРєР°Р»СЊРЅР°СЏ 
+            (arr[0, 2] == PcLetter && arr[1, 2] == PcLetter && arr[2, 2] == PcLetter) || // 3 РІРµСЂС‚РёРєР°Р»СЊРЅР°СЏ 
+            (arr[0, 0] == PcLetter && arr[1, 1] == PcLetter && arr[2, 2] == PcLetter) || // РіР»Р°РІРЅР°СЏ РґРёР°РіРѕРЅР°Р»СЊ
+            (arr[2, 0] == PcLetter && arr[1, 1] == PcLetter && arr[0, 2] == PcLetter)) // РІС‚РѕСЂРѕСЃС‚РµРїРµРЅРЅР°СЏ РґРёР°РіРѕРЅР°Р»СЊ
+            return 0; // Р’РѕР·РІСЂР°С‰Р°РµС‚ РїСЂРё РїРѕР±РµРґРµ РєРѕРјРїСЊСЋС‚РµСЂР°.
         if (TotalMovesInGame == 0)
-            return 2; // Возвращает при ничьей.
+            return 2; // Р’РѕР·РІСЂР°С‰Р°РµС‚ РїСЂРё РЅРёС‡СЊРµР№.
         return 3;
     }
 
-    // Метод выдает случайные координаты для хода компьютера в свободную ячейку. 
+    // РњРµС‚РѕРґ РІС‹РґР°РµС‚ СЃР»СѓС‡Р°Р№РЅС‹Рµ РєРѕРѕСЂРґРёРЅР°С‚С‹ РґР»СЏ С…РѕРґР° РєРѕРјРїСЊСЋС‚РµСЂР° РІ СЃРІРѕР±РѕРґРЅСѓСЋ СЏС‡РµР№РєСѓ. 
     private void PcRandMove()
     {
         var random = new Random();
@@ -396,519 +396,519 @@ public class Tic_tac_toe_game
 
         do
         {
-            point.X = random.Next(0, 3); // Для броска от 0 до 2.
-            point.Y = random.Next(0, 3); // Для броска от 0 до 2.
+            point.X = random.Next(0, 3); // Р”Р»СЏ Р±СЂРѕСЃРєР° РѕС‚ 0 РґРѕ 2.
+            point.Y = random.Next(0, 3); // Р”Р»СЏ Р±СЂРѕСЃРєР° РѕС‚ 0 РґРѕ 2.
         } while (arr[point.X, point.Y] != ' ');
 
         arr[point.X, point.Y] = PcLetter;
     }
 
-    // Логика ходов компьютера.
+    // Р›РѕРіРёРєР° С…РѕРґРѕРІ РєРѕРјРїСЊСЋС‚РµСЂР°.
     private void LogicPcMove()
     {
         var random = new Random();
         var r = random.Next(0, 101);
 
-        if (arr[0, 0] == ' ' && arr[0, 1] == UserLetter && arr[0, 2] == UserLetter) // 1 горизонтальная [_**]
+        if (arr[0, 0] == ' ' && arr[0, 1] == UserLetter && arr[0, 2] == UserLetter) // 1 РіРѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅР°СЏ [_**]
         {
             if (GameDifficulty == 1)
             {
-                PcRandMove(); // Всегда в любую ходит.
+                PcRandMove(); // Р’СЃРµРіРґР° РІ Р»СЋР±СѓСЋ С…РѕРґРёС‚.
             }
             else if (GameDifficulty == 2)
             {
-                if (r < 50) // В меньше 50% ходит в любую.
+                if (r < 50) // Р’ РјРµРЅСЊС€Рµ 50% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ.
                     PcRandMove();
                 else
                     arr[0, 0] = PcLetter;
             }
             else if (GameDifficulty == 3)
             {
-                if (r < 20) // В меньше 20% ходит в любую
+                if (r < 20) // Р’ РјРµРЅСЊС€Рµ 20% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ
                     PcRandMove();
                 else
                     arr[0, 0] = PcLetter;
             }
         }
         else if ((arr[0, 0] == UserLetter && arr[0, 1] == ' ' && arr[0, 2] == UserLetter) ||
-                 (arr[0, 0] == PcLetter && arr[0, 1] == ' ' && arr[0, 2] == PcLetter)) // 1 горизонтальная [*_*]
+                 (arr[0, 0] == PcLetter && arr[0, 1] == ' ' && arr[0, 2] == PcLetter)) // 1 РіРѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅР°СЏ [*_*]
         {
             if (GameDifficulty == 1)
             {
-                PcRandMove(); // Всегда в любую ходит.
+                PcRandMove(); // Р’СЃРµРіРґР° РІ Р»СЋР±СѓСЋ С…РѕРґРёС‚.
             }
             else if (GameDifficulty == 2)
             {
-                if (r < 50) // В меньше 50% ходит в любую.
+                if (r < 50) // Р’ РјРµРЅСЊС€Рµ 50% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ.
                     PcRandMove();
                 else
                     arr[0, 1] = PcLetter;
             }
             else if (GameDifficulty == 3)
             {
-                if (r < 20) // В меньше 20% ходит в любую
+                if (r < 20) // Р’ РјРµРЅСЊС€Рµ 20% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ
                     PcRandMove();
                 else
                     arr[0, 1] = PcLetter;
             }
         }
-        else if (arr[0, 0] == UserLetter && arr[0, 1] == UserLetter && arr[0, 2] == ' ') // 1 горизонтальная [**_]
+        else if (arr[0, 0] == UserLetter && arr[0, 1] == UserLetter && arr[0, 2] == ' ') // 1 РіРѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅР°СЏ [**_]
         {
             if (GameDifficulty == 1)
             {
-                PcRandMove(); // Всегда в любую ходит.
+                PcRandMove(); // Р’СЃРµРіРґР° РІ Р»СЋР±СѓСЋ С…РѕРґРёС‚.
             }
             else if (GameDifficulty == 2)
             {
-                if (r < 50) // В меньше 50% ходит в любую.
+                if (r < 50) // Р’ РјРµРЅСЊС€Рµ 50% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ.
                     PcRandMove();
                 else
                     arr[0, 2] = PcLetter;
             }
             else if (GameDifficulty == 3)
             {
-                if (r < 20) // В меньше 20% ходит в любую
+                if (r < 20) // Р’ РјРµРЅСЊС€Рµ 20% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ
                     PcRandMove();
                 else
                     arr[0, 2] = PcLetter;
             }
         }
-        else if (arr[1, 0] == ' ' && arr[1, 1] == UserLetter && arr[1, 2] == UserLetter) // 2 горизонтальная [_**]
+        else if (arr[1, 0] == ' ' && arr[1, 1] == UserLetter && arr[1, 2] == UserLetter) // 2 РіРѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅР°СЏ [_**]
         {
             if (GameDifficulty == 1)
             {
-                PcRandMove(); // Всегда в любую ходит.
+                PcRandMove(); // Р’СЃРµРіРґР° РІ Р»СЋР±СѓСЋ С…РѕРґРёС‚.
             }
             else if (GameDifficulty == 2)
             {
-                if (r < 50) // В меньше 50% ходит в любую.
+                if (r < 50) // Р’ РјРµРЅСЊС€Рµ 50% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ.
                     PcRandMove();
                 else
                     arr[1, 0] = PcLetter;
             }
             else if (GameDifficulty == 3)
             {
-                if (r < 20) // В меньше 20% ходит в любую
+                if (r < 20) // Р’ РјРµРЅСЊС€Рµ 20% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ
                     PcRandMove();
                 else
                     arr[1, 0] = PcLetter;
             }
         }
-        else if (arr[1, 0] == UserLetter && arr[1, 1] == ' ' && arr[1, 2] == UserLetter) // 2 горизонтальная [*_*]
+        else if (arr[1, 0] == UserLetter && arr[1, 1] == ' ' && arr[1, 2] == UserLetter) // 2 РіРѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅР°СЏ [*_*]
         {
             if (GameDifficulty == 1)
             {
-                PcRandMove(); // Всегда в любую ходит.
+                PcRandMove(); // Р’СЃРµРіРґР° РІ Р»СЋР±СѓСЋ С…РѕРґРёС‚.
             }
             else if (GameDifficulty == 2)
             {
-                if (r < 50) // В меньше 50% ходит в любую.
+                if (r < 50) // Р’ РјРµРЅСЊС€Рµ 50% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ.
                     PcRandMove();
                 else
                     arr[1, 1] = PcLetter;
             }
             else if (GameDifficulty == 3)
             {
-                if (r < 20) // В меньше 20% ходит в любую
+                if (r < 20) // Р’ РјРµРЅСЊС€Рµ 20% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ
                     PcRandMove();
                 else
                     arr[1, 1] = PcLetter;
             }
         }
-        else if (arr[1, 0] == UserLetter && arr[1, 1] == UserLetter && arr[1, 2] == ' ') // 2 горизонтальная [**_]
+        else if (arr[1, 0] == UserLetter && arr[1, 1] == UserLetter && arr[1, 2] == ' ') // 2 РіРѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅР°СЏ [**_]
         {
             if (GameDifficulty == 1)
             {
-                PcRandMove(); // Всегда в любую ходит.
+                PcRandMove(); // Р’СЃРµРіРґР° РІ Р»СЋР±СѓСЋ С…РѕРґРёС‚.
             }
             else if (GameDifficulty == 2)
             {
-                if (r < 50) // В меньше 50% ходит в любую.
+                if (r < 50) // Р’ РјРµРЅСЊС€Рµ 50% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ.
                     PcRandMove();
                 else
                     arr[1, 2] = PcLetter;
             }
             else if (GameDifficulty == 3)
             {
-                if (r < 20) // В меньше 20% ходит в любую
+                if (r < 20) // Р’ РјРµРЅСЊС€Рµ 20% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ
                     PcRandMove();
                 else
                     arr[1, 2] = PcLetter;
             }
         }
-        else if (arr[2, 0] == ' ' && arr[2, 1] == UserLetter && arr[2, 2] == UserLetter) // 3 горизонтальная [_**]
+        else if (arr[2, 0] == ' ' && arr[2, 1] == UserLetter && arr[2, 2] == UserLetter) // 3 РіРѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅР°СЏ [_**]
         {
             if (GameDifficulty == 1)
             {
-                PcRandMove(); // Всегда в любую ходит.
+                PcRandMove(); // Р’СЃРµРіРґР° РІ Р»СЋР±СѓСЋ С…РѕРґРёС‚.
             }
             else if (GameDifficulty == 2)
             {
-                if (r < 50) // В меньше 50% ходит в любую.
+                if (r < 50) // Р’ РјРµРЅСЊС€Рµ 50% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ.
                     PcRandMove();
                 else
                     arr[2, 0] = PcLetter;
             }
             else if (GameDifficulty == 3)
             {
-                if (r < 20) // В меньше 20% ходит в любую
+                if (r < 20) // Р’ РјРµРЅСЊС€Рµ 20% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ
                     PcRandMove();
                 else
                     arr[2, 0] = PcLetter;
             }
         }
-        else if (arr[2, 0] == UserLetter && arr[2, 1] == ' ' && arr[2, 2] == UserLetter) // 3 горизонтальная [*_*]
+        else if (arr[2, 0] == UserLetter && arr[2, 1] == ' ' && arr[2, 2] == UserLetter) // 3 РіРѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅР°СЏ [*_*]
         {
             if (GameDifficulty == 1)
             {
-                PcRandMove(); // Всегда в любую ходит.
+                PcRandMove(); // Р’СЃРµРіРґР° РІ Р»СЋР±СѓСЋ С…РѕРґРёС‚.
             }
             else if (GameDifficulty == 2)
             {
-                if (r < 50) // В меньше 50% ходит в любую.
+                if (r < 50) // Р’ РјРµРЅСЊС€Рµ 50% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ.
                     PcRandMove();
                 else
                     arr[2, 1] = PcLetter;
             }
             else if (GameDifficulty == 3)
             {
-                if (r < 20) // В меньше 20% ходит в любую
+                if (r < 20) // Р’ РјРµРЅСЊС€Рµ 20% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ
                     PcRandMove();
                 else
                     arr[2, 1] = PcLetter;
             }
         }
-        else if (arr[2, 0] == UserLetter && arr[2, 1] == UserLetter && arr[2, 2] == ' ') // 3 горизонтальная [**_]
+        else if (arr[2, 0] == UserLetter && arr[2, 1] == UserLetter && arr[2, 2] == ' ') // 3 РіРѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅР°СЏ [**_]
         {
             if (GameDifficulty == 1)
             {
-                PcRandMove(); // Всегда в любую ходит.
+                PcRandMove(); // Р’СЃРµРіРґР° РІ Р»СЋР±СѓСЋ С…РѕРґРёС‚.
             }
             else if (GameDifficulty == 2)
             {
-                if (r < 50) // В меньше 50% ходит в любую.
+                if (r < 50) // Р’ РјРµРЅСЊС€Рµ 50% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ.
                     PcRandMove();
                 else
                     arr[2, 2] = PcLetter;
             }
             else if (GameDifficulty == 3)
             {
-                if (r < 20) // В меньше 20% ходит в любую
+                if (r < 20) // Р’ РјРµРЅСЊС€Рµ 20% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ
                     PcRandMove();
                 else
                     arr[2, 2] = PcLetter;
             }
         }
-        else if (arr[0, 0] == ' ' && arr[1, 0] == UserLetter && arr[2, 0] == UserLetter) // 1 вертикальная [_**]
+        else if (arr[0, 0] == ' ' && arr[1, 0] == UserLetter && arr[2, 0] == UserLetter) // 1 РІРµСЂС‚РёРєР°Р»СЊРЅР°СЏ [_**]
         {
             if (GameDifficulty == 1)
             {
-                PcRandMove(); // Всегда в любую ходит.
+                PcRandMove(); // Р’СЃРµРіРґР° РІ Р»СЋР±СѓСЋ С…РѕРґРёС‚.
             }
             else if (GameDifficulty == 2)
             {
-                if (r < 50) // В меньше 50% ходит в любую.
+                if (r < 50) // Р’ РјРµРЅСЊС€Рµ 50% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ.
                     PcRandMove();
                 else
                     arr[0, 0] = PcLetter;
             }
             else if (GameDifficulty == 3)
             {
-                if (r < 20) // В меньше 20% ходит в любую
+                if (r < 20) // Р’ РјРµРЅСЊС€Рµ 20% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ
                     PcRandMove();
                 else
                     arr[0, 0] = PcLetter;
             }
         }
-        else if (arr[0, 0] == UserLetter && arr[1, 0] == ' ' && arr[2, 0] == UserLetter) // 1 вертикальная [*_*]
+        else if (arr[0, 0] == UserLetter && arr[1, 0] == ' ' && arr[2, 0] == UserLetter) // 1 РІРµСЂС‚РёРєР°Р»СЊРЅР°СЏ [*_*]
         {
             if (GameDifficulty == 1)
             {
-                PcRandMove(); // Всегда в любую ходит.
+                PcRandMove(); // Р’СЃРµРіРґР° РІ Р»СЋР±СѓСЋ С…РѕРґРёС‚.
             }
             else if (GameDifficulty == 2)
             {
-                if (r < 50) // В меньше 50% ходит в любую.
+                if (r < 50) // Р’ РјРµРЅСЊС€Рµ 50% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ.
                     PcRandMove();
                 else
                     arr[1, 0] = PcLetter;
             }
             else if (GameDifficulty == 3)
             {
-                if (r < 20) // В меньше 20% ходит в любую
+                if (r < 20) // Р’ РјРµРЅСЊС€Рµ 20% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ
                     PcRandMove();
                 else
                     arr[1, 0] = PcLetter;
             }
         }
-        else if (arr[0, 0] == UserLetter && arr[1, 0] == UserLetter && arr[2, 0] == ' ') // 1 вертикальная [**_]
+        else if (arr[0, 0] == UserLetter && arr[1, 0] == UserLetter && arr[2, 0] == ' ') // 1 РІРµСЂС‚РёРєР°Р»СЊРЅР°СЏ [**_]
         {
             if (GameDifficulty == 1)
             {
-                PcRandMove(); // Всегда в любую ходит.
+                PcRandMove(); // Р’СЃРµРіРґР° РІ Р»СЋР±СѓСЋ С…РѕРґРёС‚.
             }
             else if (GameDifficulty == 2)
             {
-                if (r < 50) // В меньше 50% ходит в любую.
+                if (r < 50) // Р’ РјРµРЅСЊС€Рµ 50% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ.
                     PcRandMove();
                 else
                     arr[2, 0] = PcLetter;
             }
             else if (GameDifficulty == 3)
             {
-                if (r < 20) // В меньше 20% ходит в любую
+                if (r < 20) // Р’ РјРµРЅСЊС€Рµ 20% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ
                     PcRandMove();
                 else
                     arr[2, 0] = PcLetter;
             }
         }
-        else if (arr[0, 1] == ' ' && arr[1, 1] == UserLetter && arr[2, 1] == UserLetter) // 2 вертикальная[_**]
+        else if (arr[0, 1] == ' ' && arr[1, 1] == UserLetter && arr[2, 1] == UserLetter) // 2 РІРµСЂС‚РёРєР°Р»СЊРЅР°СЏ[_**]
         {
             if (GameDifficulty == 1)
             {
-                PcRandMove(); // Всегда в любую ходит.
+                PcRandMove(); // Р’СЃРµРіРґР° РІ Р»СЋР±СѓСЋ С…РѕРґРёС‚.
             }
             else if (GameDifficulty == 2)
             {
-                if (r < 50) // В меньше 50% ходит в любую.
+                if (r < 50) // Р’ РјРµРЅСЊС€Рµ 50% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ.
                     PcRandMove();
                 else
                     arr[0, 1] = PcLetter;
             }
             else if (GameDifficulty == 3)
             {
-                if (r < 20) // В меньше 20% ходит в любую
+                if (r < 20) // Р’ РјРµРЅСЊС€Рµ 20% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ
                     PcRandMove();
                 else
                     arr[0, 1] = PcLetter;
             }
         }
-        else if (arr[0, 1] == UserLetter && arr[1, 1] == ' ' && arr[2, 1] == UserLetter) // 2 вертикальная[*_*]
+        else if (arr[0, 1] == UserLetter && arr[1, 1] == ' ' && arr[2, 1] == UserLetter) // 2 РІРµСЂС‚РёРєР°Р»СЊРЅР°СЏ[*_*]
         {
             if (GameDifficulty == 1)
             {
-                PcRandMove(); // Всегда в любую ходит.
+                PcRandMove(); // Р’СЃРµРіРґР° РІ Р»СЋР±СѓСЋ С…РѕРґРёС‚.
             }
             else if (GameDifficulty == 2)
             {
-                if (r < 50) // В меньше 50% ходит в любую.
+                if (r < 50) // Р’ РјРµРЅСЊС€Рµ 50% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ.
                     PcRandMove();
                 else
                     arr[1, 1] = PcLetter;
             }
             else if (GameDifficulty == 3)
             {
-                if (r < 20) // В меньше 20% ходит в любую
+                if (r < 20) // Р’ РјРµРЅСЊС€Рµ 20% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ
                     PcRandMove();
                 else
                     arr[1, 1] = PcLetter;
             }
         }
-        else if (arr[0, 1] == UserLetter && arr[1, 1] == UserLetter && arr[2, 1] == ' ') // 2 вертикальная[**_]
+        else if (arr[0, 1] == UserLetter && arr[1, 1] == UserLetter && arr[2, 1] == ' ') // 2 РІРµСЂС‚РёРєР°Р»СЊРЅР°СЏ[**_]
         {
             if (GameDifficulty == 1)
             {
-                PcRandMove(); // Всегда в любую ходит.
+                PcRandMove(); // Р’СЃРµРіРґР° РІ Р»СЋР±СѓСЋ С…РѕРґРёС‚.
             }
             else if (GameDifficulty == 2)
             {
-                if (r < 50) // В меньше 50% ходит в любую.
+                if (r < 50) // Р’ РјРµРЅСЊС€Рµ 50% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ.
                     PcRandMove();
                 else
                     arr[2, 1] = PcLetter;
             }
             else if (GameDifficulty == 3)
             {
-                if (r < 20) // В меньше 20% ходит в любую
+                if (r < 20) // Р’ РјРµРЅСЊС€Рµ 20% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ
                     PcRandMove();
                 else
                     arr[2, 1] = PcLetter;
             }
         }
-        else if (arr[0, 2] == ' ' && arr[1, 2] == UserLetter && arr[2, 2] == UserLetter) // 3 вертикальная [_**] 
+        else if (arr[0, 2] == ' ' && arr[1, 2] == UserLetter && arr[2, 2] == UserLetter) // 3 РІРµСЂС‚РёРєР°Р»СЊРЅР°СЏ [_**] 
         {
             if (GameDifficulty == 1)
             {
-                PcRandMove(); // Всегда в любую ходит.
+                PcRandMove(); // Р’СЃРµРіРґР° РІ Р»СЋР±СѓСЋ С…РѕРґРёС‚.
             }
             else if (GameDifficulty == 2)
             {
-                if (r < 50) // В меньше 50% ходит в любую.
+                if (r < 50) // Р’ РјРµРЅСЊС€Рµ 50% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ.
                     PcRandMove();
                 else
                     arr[0, 2] = PcLetter;
             }
             else if (GameDifficulty == 3)
             {
-                if (r < 20) // В меньше 20% ходит в любую
+                if (r < 20) // Р’ РјРµРЅСЊС€Рµ 20% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ
                     PcRandMove();
                 else
                     arr[0, 2] = PcLetter;
             }
         }
-        else if (arr[0, 2] == UserLetter && arr[1, 2] == ' ' && arr[2, 2] == UserLetter) // 3 вертикальная [*_*] 
+        else if (arr[0, 2] == UserLetter && arr[1, 2] == ' ' && arr[2, 2] == UserLetter) // 3 РІРµСЂС‚РёРєР°Р»СЊРЅР°СЏ [*_*] 
         {
             if (GameDifficulty == 1)
             {
-                PcRandMove(); // Всегда в любую ходит.
+                PcRandMove(); // Р’СЃРµРіРґР° РІ Р»СЋР±СѓСЋ С…РѕРґРёС‚.
             }
             else if (GameDifficulty == 2)
             {
-                if (r < 50) // В меньше 50% ходит в любую.
+                if (r < 50) // Р’ РјРµРЅСЊС€Рµ 50% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ.
                     PcRandMove();
                 else
                     arr[1, 2] = PcLetter;
             }
             else if (GameDifficulty == 3)
             {
-                if (r < 20) // В меньше 20% ходит в любую
+                if (r < 20) // Р’ РјРµРЅСЊС€Рµ 20% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ
                     PcRandMove();
                 else
                     arr[1, 2] = PcLetter;
             }
         }
-        else if (arr[0, 2] == UserLetter && arr[1, 2] == UserLetter && arr[2, 2] == ' ') // 3 вертикальная [**_] 
+        else if (arr[0, 2] == UserLetter && arr[1, 2] == UserLetter && arr[2, 2] == ' ') // 3 РІРµСЂС‚РёРєР°Р»СЊРЅР°СЏ [**_] 
         {
             if (GameDifficulty == 1)
             {
-                PcRandMove(); // Всегда в любую ходит.
+                PcRandMove(); // Р’СЃРµРіРґР° РІ Р»СЋР±СѓСЋ С…РѕРґРёС‚.
             }
             else if (GameDifficulty == 2)
             {
-                if (r < 50) // В меньше 50% ходит в любую.
+                if (r < 50) // Р’ РјРµРЅСЊС€Рµ 50% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ.
                     PcRandMove();
                 else
                     arr[2, 2] = PcLetter;
             }
             else if (GameDifficulty == 3)
             {
-                if (r < 20) // В меньше 20% ходит в любую
+                if (r < 20) // Р’ РјРµРЅСЊС€Рµ 20% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ
                     PcRandMove();
                 else
                     arr[2, 2] = PcLetter;
             }
         }
-        else if (arr[0, 0] == ' ' && arr[1, 1] == UserLetter && arr[2, 2] == UserLetter) // главная диагональ [_**]
+        else if (arr[0, 0] == ' ' && arr[1, 1] == UserLetter && arr[2, 2] == UserLetter) // РіР»Р°РІРЅР°СЏ РґРёР°РіРѕРЅР°Р»СЊ [_**]
         {
             if (GameDifficulty == 1)
             {
-                PcRandMove(); // Всегда в любую ходит.
+                PcRandMove(); // Р’СЃРµРіРґР° РІ Р»СЋР±СѓСЋ С…РѕРґРёС‚.
             }
             else if (GameDifficulty == 2)
             {
-                if (r < 50) // В меньше 50% ходит в любую.
+                if (r < 50) // Р’ РјРµРЅСЊС€Рµ 50% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ.
                     PcRandMove();
                 else
                     arr[0, 0] = PcLetter;
             }
             else if (GameDifficulty == 3)
             {
-                if (r < 20) // В меньше 20% ходит в любую
+                if (r < 20) // Р’ РјРµРЅСЊС€Рµ 20% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ
                     PcRandMove();
                 else
                     arr[0, 0] = PcLetter;
             }
         }
-        else if (arr[0, 0] == UserLetter && arr[1, 1] == ' ' && arr[2, 2] == UserLetter) // главная диагональ [*_*]
+        else if (arr[0, 0] == UserLetter && arr[1, 1] == ' ' && arr[2, 2] == UserLetter) // РіР»Р°РІРЅР°СЏ РґРёР°РіРѕРЅР°Р»СЊ [*_*]
         {
             if (GameDifficulty == 1)
             {
-                PcRandMove(); // Всегда в любую ходит.
+                PcRandMove(); // Р’СЃРµРіРґР° РІ Р»СЋР±СѓСЋ С…РѕРґРёС‚.
             }
             else if (GameDifficulty == 2)
             {
-                if (r < 50) // В меньше 50% ходит в любую.
+                if (r < 50) // Р’ РјРµРЅСЊС€Рµ 50% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ.
                     PcRandMove();
                 else
                     arr[1, 1] = PcLetter;
             }
             else if (GameDifficulty == 3)
             {
-                if (r < 20) // В меньше 20% ходит в любую
+                if (r < 20) // Р’ РјРµРЅСЊС€Рµ 20% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ
                     PcRandMove();
                 else
                     arr[1, 1] = PcLetter;
             }
         }
-        else if (arr[0, 0] == UserLetter && arr[1, 1] == UserLetter && arr[2, 2] == ' ') // главная диагональ [**_]
+        else if (arr[0, 0] == UserLetter && arr[1, 1] == UserLetter && arr[2, 2] == ' ') // РіР»Р°РІРЅР°СЏ РґРёР°РіРѕРЅР°Р»СЊ [**_]
         {
             if (GameDifficulty == 1)
             {
-                PcRandMove(); // Всегда в любую ходит.
+                PcRandMove(); // Р’СЃРµРіРґР° РІ Р»СЋР±СѓСЋ С…РѕРґРёС‚.
             }
             else if (GameDifficulty == 2)
             {
-                if (r < 50) // В меньше 50% ходит в любую.
+                if (r < 50) // Р’ РјРµРЅСЊС€Рµ 50% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ.
                     PcRandMove();
                 else
                     arr[2, 2] = PcLetter;
             }
             else if (GameDifficulty == 3)
             {
-                if (r < 20) // В меньше 20% ходит в любую
+                if (r < 20) // Р’ РјРµРЅСЊС€Рµ 20% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ
                     PcRandMove();
                 else
                     arr[2, 2] = PcLetter;
             }
         }
-        else if (arr[2, 0] == ' ' && arr[1, 1] == UserLetter && arr[0, 2] == UserLetter) // вторая диагональ [_**]
+        else if (arr[2, 0] == ' ' && arr[1, 1] == UserLetter && arr[0, 2] == UserLetter) // РІС‚РѕСЂР°СЏ РґРёР°РіРѕРЅР°Р»СЊ [_**]
         {
             if (GameDifficulty == 1)
             {
-                PcRandMove(); // Всегда в любую ходит.
+                PcRandMove(); // Р’СЃРµРіРґР° РІ Р»СЋР±СѓСЋ С…РѕРґРёС‚.
             }
             else if (GameDifficulty == 2)
             {
-                if (r < 50) // В меньше 50% ходит в любую.
+                if (r < 50) // Р’ РјРµРЅСЊС€Рµ 50% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ.
                     PcRandMove();
                 else
                     arr[2, 0] = PcLetter;
             }
             else if (GameDifficulty == 3)
             {
-                if (r < 20) // В меньше 20% ходит в любую
+                if (r < 20) // Р’ РјРµРЅСЊС€Рµ 20% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ
                     PcRandMove();
                 else
                     arr[2, 0] = PcLetter;
             }
         }
-        else if (arr[2, 0] == UserLetter && arr[1, 1] == ' ' && arr[0, 2] == UserLetter) // вторая диагональ [*_*]
+        else if (arr[2, 0] == UserLetter && arr[1, 1] == ' ' && arr[0, 2] == UserLetter) // РІС‚РѕСЂР°СЏ РґРёР°РіРѕРЅР°Р»СЊ [*_*]
         {
             if (GameDifficulty == 1)
             {
-                PcRandMove(); // Всегда в любую ходит.
+                PcRandMove(); // Р’СЃРµРіРґР° РІ Р»СЋР±СѓСЋ С…РѕРґРёС‚.
             }
             else if (GameDifficulty == 2)
             {
-                if (r < 50) // В меньше 50% ходит в любую.
+                if (r < 50) // Р’ РјРµРЅСЊС€Рµ 50% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ.
                     PcRandMove();
                 else
                     arr[1, 1] = PcLetter;
             }
             else if (GameDifficulty == 3)
             {
-                if (r < 20) // В меньше 20% ходит в любую
+                if (r < 20) // Р’ РјРµРЅСЊС€Рµ 20% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ
                     PcRandMove();
                 else
                     arr[1, 1] = PcLetter;
             }
         }
-        else if (arr[2, 0] == UserLetter && arr[1, 1] == UserLetter && arr[0, 2] == ' ') // вторая диагональ [**_]
+        else if (arr[2, 0] == UserLetter && arr[1, 1] == UserLetter && arr[0, 2] == ' ') // РІС‚РѕСЂР°СЏ РґРёР°РіРѕРЅР°Р»СЊ [**_]
         {
             if (GameDifficulty == 1)
             {
-                PcRandMove(); // Всегда в любую ходит.
+                PcRandMove(); // Р’СЃРµРіРґР° РІ Р»СЋР±СѓСЋ С…РѕРґРёС‚.
             }
             else if (GameDifficulty == 2)
             {
-                if (r < 50) // В меньше 50% ходит в любую.
+                if (r < 50) // Р’ РјРµРЅСЊС€Рµ 50% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ.
                     PcRandMove();
                 else
                     arr[0, 2] = PcLetter;
             }
             else if (GameDifficulty == 3)
             {
-                if (r < 20) // В меньше 20% ходит в любую
+                if (r < 20) // Р’ РјРµРЅСЊС€Рµ 20% С…РѕРґРёС‚ РІ Р»СЋР±СѓСЋ
                     PcRandMove();
                 else
                     arr[0, 2] = PcLetter;
@@ -920,60 +920,60 @@ public class Tic_tac_toe_game
         }
     }
 
-    // Ход компьютера.
+    // РҐРѕРґ РєРѕРјРїСЊСЋС‚РµСЂР°.
     public void PcMove()
     {
         LogicPcMove();
         TotalMovesInGame--;
-        WhoMove = 1; // Передача хода игроку.
+        WhoMove = 1; // РџРµСЂРµРґР°С‡Р° С…РѕРґР° РёРіСЂРѕРєСѓ.
     }
 
-    // Сообщение об ничьей.
+    // РЎРѕРѕР±С‰РµРЅРёРµ РѕР± РЅРёС‡СЊРµР№.
     public void Draw()
     {
-        MessageBox.Show("Ничья.", "Игра «Крестики-нолики».", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        MessageBox.Show("РќРёС‡СЊСЏ.", "РРіСЂР° В«РљСЂРµСЃС‚РёРєРё-РЅРѕР»РёРєРёВ».", MessageBoxButtons.OK, MessageBoxIcon.Information);
     }
 
-    // Один шаг, после нажатия пользователя на кнопку на игровом поле.
+    // РћРґРёРЅ С€Р°Рі, РїРѕСЃР»Рµ РЅР°Р¶Р°С‚РёСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РЅР° РєРЅРѕРїРєСѓ РЅР° РёРіСЂРѕРІРѕРј РїРѕР»Рµ.
     public void OneStep()
     {
-        if (WhoMove == 1) // Пользователь.
+        if (WhoMove == 1) // РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ.
         {
             if (UserMoveCheck())
             {
                 UserMove();
                 TotalMovesInGame--;
-                if (WinCheck == 1) // Победа игрока.
+                if (WinCheck == 1) // РџРѕР±РµРґР° РёРіСЂРѕРєР°.
                 {
-                    MessageBox.Show("Игрок победил.", "Игра «Крестики-нолики».", MessageBoxButtons.OK,
+                    MessageBox.Show("РРіСЂРѕРє РїРѕР±РµРґРёР».", "РРіСЂР° В«РљСЂРµСЃС‚РёРєРё-РЅРѕР»РёРєРёВ».", MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
                     AskPlayMore();
                 }
-                else if (WinCheck == 2) // Ничья.
+                else if (WinCheck == 2) // РќРёС‡СЊСЏ.
                 {
                     Draw();
                     AskPlayMore();
                 }
-                else if (WinCheck == 3) // Продолжаем играть.
+                else if (WinCheck == 3) // РџСЂРѕРґРѕР»Р¶Р°РµРј РёРіСЂР°С‚СЊ.
                 {
                     PcMove();
                 }
             }
             else
             {
-                MessageBox.Show("Выберите другую ячейку.", "Игра «Крестики-нолики».", MessageBoxButtons.OK,
+                MessageBox.Show("Р’С‹Р±РµСЂРёС‚Рµ РґСЂСѓРіСѓСЋ СЏС‡РµР№РєСѓ.", "РРіСЂР° В«РљСЂРµСЃС‚РёРєРё-РЅРѕР»РёРєРёВ».", MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
             }
         }
 
-        if (WhoMove == 0) // Компьютер.
+        if (WhoMove == 0) // РљРѕРјРїСЊСЋС‚РµСЂ.
             PcMove();
     }
 
-    // Сыграем еще ?.
+    // РЎС‹РіСЂР°РµРј РµС‰Рµ ?.
     public void AskPlayMore()
     {
-        var result = MessageBox.Show("Сыграем еще ?", "Игра «Крестики-нолики».", MessageBoxButtons.YesNo,
+        var result = MessageBox.Show("РЎС‹РіСЂР°РµРј РµС‰Рµ ?", "РРіСЂР° В«РљСЂРµСЃС‚РёРєРё-РЅРѕР»РёРєРёВ».", MessageBoxButtons.YesNo,
             MessageBoxIcon.Question);
         if (result == DialogResult.No)
             Application.Exit();
