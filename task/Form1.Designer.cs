@@ -46,16 +46,9 @@
             this.PlayZeroes = new System.Windows.Forms.CheckBox();
             this.PlayCrosses = new System.Windows.Forms.CheckBox();
             this.DifficultyLevel = new System.Windows.Forms.GroupBox();
-            this.LevelOfDifficulty_10 = new System.Windows.Forms.CheckBox();
-            this.LevelOfDifficulty_9 = new System.Windows.Forms.CheckBox();
-            this.LevelOfDifficulty_8 = new System.Windows.Forms.CheckBox();
-            this.LevelOfDifficulty_7 = new System.Windows.Forms.CheckBox();
-            this.LevelOfDifficulty_6 = new System.Windows.Forms.CheckBox();
-            this.LevelOfDifficulty_5 = new System.Windows.Forms.CheckBox();
-            this.LevelOfDifficulty_4 = new System.Windows.Forms.CheckBox();
-            this.LevelOfDifficulty_3 = new System.Windows.Forms.CheckBox();
-            this.LevelOfDifficulty_2 = new System.Windows.Forms.CheckBox();
-            this.LevelOfDifficulty_1 = new System.Windows.Forms.CheckBox();
+            this.LevelOfDifficulty_Hard = new System.Windows.Forms.CheckBox();
+            this.LevelOfDifficulty_Normal = new System.Windows.Forms.CheckBox();
+            this.LevelOfDifficulty_Easy = new System.Windows.Forms.CheckBox();
             this.WhoWillGoFirst.SuspendLayout();
             this.CrossesOrZeroes.SuspendLayout();
             this.DifficultyLevel.SuspendLayout();
@@ -239,122 +232,46 @@
             // 
             // DifficultyLevel
             // 
-            this.DifficultyLevel.Controls.Add(this.LevelOfDifficulty_10);
-            this.DifficultyLevel.Controls.Add(this.LevelOfDifficulty_9);
-            this.DifficultyLevel.Controls.Add(this.LevelOfDifficulty_8);
-            this.DifficultyLevel.Controls.Add(this.LevelOfDifficulty_7);
-            this.DifficultyLevel.Controls.Add(this.LevelOfDifficulty_6);
-            this.DifficultyLevel.Controls.Add(this.LevelOfDifficulty_5);
-            this.DifficultyLevel.Controls.Add(this.LevelOfDifficulty_4);
-            this.DifficultyLevel.Controls.Add(this.LevelOfDifficulty_3);
-            this.DifficultyLevel.Controls.Add(this.LevelOfDifficulty_2);
-            this.DifficultyLevel.Controls.Add(this.LevelOfDifficulty_1);
+            this.DifficultyLevel.Controls.Add(this.LevelOfDifficulty_Hard);
+            this.DifficultyLevel.Controls.Add(this.LevelOfDifficulty_Normal);
+            this.DifficultyLevel.Controls.Add(this.LevelOfDifficulty_Easy);
             this.DifficultyLevel.Location = new System.Drawing.Point(12, 481);
             this.DifficultyLevel.Name = "DifficultyLevel";
-            this.DifficultyLevel.Size = new System.Drawing.Size(298, 75);
+            this.DifficultyLevel.Size = new System.Drawing.Size(298, 105);
             this.DifficultyLevel.TabIndex = 15;
             this.DifficultyLevel.TabStop = false;
             this.DifficultyLevel.Text = "Выберите уровень сложности.";
             // 
-            // LevelOfDifficulty_10
+            // LevelOfDifficulty_Hard
             // 
-            this.LevelOfDifficulty_10.AutoSize = true;
-            this.LevelOfDifficulty_10.Location = new System.Drawing.Point(154, 47);
-            this.LevelOfDifficulty_10.Name = "LevelOfDifficulty_10";
-            this.LevelOfDifficulty_10.Size = new System.Drawing.Size(38, 19);
-            this.LevelOfDifficulty_10.TabIndex = 9;
-            this.LevelOfDifficulty_10.Text = "10";
-            this.LevelOfDifficulty_10.UseVisualStyleBackColor = true;
+            this.LevelOfDifficulty_Hard.AutoSize = true;
+            this.LevelOfDifficulty_Hard.Location = new System.Drawing.Point(6, 72);
+            this.LevelOfDifficulty_Hard.Name = "LevelOfDifficulty_Hard";
+            this.LevelOfDifficulty_Hard.Size = new System.Drawing.Size(52, 19);
+            this.LevelOfDifficulty_Hard.TabIndex = 2;
+            this.LevelOfDifficulty_Hard.Text = "Hard";
+            this.LevelOfDifficulty_Hard.UseVisualStyleBackColor = true;
             // 
-            // LevelOfDifficulty_9
+            // LevelOfDifficulty_Normal
             // 
-            this.LevelOfDifficulty_9.AutoSize = true;
-            this.LevelOfDifficulty_9.Location = new System.Drawing.Point(117, 47);
-            this.LevelOfDifficulty_9.Name = "LevelOfDifficulty_9";
-            this.LevelOfDifficulty_9.Size = new System.Drawing.Size(32, 19);
-            this.LevelOfDifficulty_9.TabIndex = 8;
-            this.LevelOfDifficulty_9.Text = "9";
-            this.LevelOfDifficulty_9.UseVisualStyleBackColor = true;
+            this.LevelOfDifficulty_Normal.AutoSize = true;
+            this.LevelOfDifficulty_Normal.Location = new System.Drawing.Point(6, 47);
+            this.LevelOfDifficulty_Normal.Name = "LevelOfDifficulty_Normal";
+            this.LevelOfDifficulty_Normal.Size = new System.Drawing.Size(66, 19);
+            this.LevelOfDifficulty_Normal.TabIndex = 1;
+            this.LevelOfDifficulty_Normal.Text = "Normal";
+            this.LevelOfDifficulty_Normal.UseVisualStyleBackColor = true;
+            this.LevelOfDifficulty_Normal.CheckedChanged += new System.EventHandler(this.LevelOfDifficulty_2_CheckedChanged);
             // 
-            // LevelOfDifficulty_8
+            // LevelOfDifficulty_Easy
             // 
-            this.LevelOfDifficulty_8.AutoSize = true;
-            this.LevelOfDifficulty_8.Location = new System.Drawing.Point(80, 47);
-            this.LevelOfDifficulty_8.Name = "LevelOfDifficulty_8";
-            this.LevelOfDifficulty_8.Size = new System.Drawing.Size(32, 19);
-            this.LevelOfDifficulty_8.TabIndex = 7;
-            this.LevelOfDifficulty_8.Text = "8";
-            this.LevelOfDifficulty_8.UseVisualStyleBackColor = true;
-            // 
-            // LevelOfDifficulty_7
-            // 
-            this.LevelOfDifficulty_7.AutoSize = true;
-            this.LevelOfDifficulty_7.Location = new System.Drawing.Point(43, 47);
-            this.LevelOfDifficulty_7.Name = "LevelOfDifficulty_7";
-            this.LevelOfDifficulty_7.Size = new System.Drawing.Size(32, 19);
-            this.LevelOfDifficulty_7.TabIndex = 6;
-            this.LevelOfDifficulty_7.Text = "7";
-            this.LevelOfDifficulty_7.UseVisualStyleBackColor = true;
-            // 
-            // LevelOfDifficulty_6
-            // 
-            this.LevelOfDifficulty_6.AutoSize = true;
-            this.LevelOfDifficulty_6.Location = new System.Drawing.Point(6, 47);
-            this.LevelOfDifficulty_6.Name = "LevelOfDifficulty_6";
-            this.LevelOfDifficulty_6.Size = new System.Drawing.Size(32, 19);
-            this.LevelOfDifficulty_6.TabIndex = 5;
-            this.LevelOfDifficulty_6.Text = "6";
-            this.LevelOfDifficulty_6.UseVisualStyleBackColor = true;
-            // 
-            // LevelOfDifficulty_5
-            // 
-            this.LevelOfDifficulty_5.AutoSize = true;
-            this.LevelOfDifficulty_5.Location = new System.Drawing.Point(154, 22);
-            this.LevelOfDifficulty_5.Name = "LevelOfDifficulty_5";
-            this.LevelOfDifficulty_5.Size = new System.Drawing.Size(32, 19);
-            this.LevelOfDifficulty_5.TabIndex = 4;
-            this.LevelOfDifficulty_5.Text = "5";
-            this.LevelOfDifficulty_5.UseVisualStyleBackColor = true;
-            // 
-            // LevelOfDifficulty_4
-            // 
-            this.LevelOfDifficulty_4.AutoSize = true;
-            this.LevelOfDifficulty_4.Location = new System.Drawing.Point(117, 22);
-            this.LevelOfDifficulty_4.Name = "LevelOfDifficulty_4";
-            this.LevelOfDifficulty_4.Size = new System.Drawing.Size(32, 19);
-            this.LevelOfDifficulty_4.TabIndex = 3;
-            this.LevelOfDifficulty_4.Text = "4";
-            this.LevelOfDifficulty_4.UseVisualStyleBackColor = true;
-            // 
-            // LevelOfDifficulty_3
-            // 
-            this.LevelOfDifficulty_3.AutoSize = true;
-            this.LevelOfDifficulty_3.Location = new System.Drawing.Point(80, 22);
-            this.LevelOfDifficulty_3.Name = "LevelOfDifficulty_3";
-            this.LevelOfDifficulty_3.Size = new System.Drawing.Size(32, 19);
-            this.LevelOfDifficulty_3.TabIndex = 2;
-            this.LevelOfDifficulty_3.Text = "3";
-            this.LevelOfDifficulty_3.UseVisualStyleBackColor = true;
-            // 
-            // LevelOfDifficulty_2
-            // 
-            this.LevelOfDifficulty_2.AutoSize = true;
-            this.LevelOfDifficulty_2.Location = new System.Drawing.Point(43, 22);
-            this.LevelOfDifficulty_2.Name = "LevelOfDifficulty_2";
-            this.LevelOfDifficulty_2.Size = new System.Drawing.Size(32, 19);
-            this.LevelOfDifficulty_2.TabIndex = 1;
-            this.LevelOfDifficulty_2.Text = "2";
-            this.LevelOfDifficulty_2.UseVisualStyleBackColor = true;
-            // 
-            // LevelOfDifficulty_1
-            // 
-            this.LevelOfDifficulty_1.AutoSize = true;
-            this.LevelOfDifficulty_1.Location = new System.Drawing.Point(6, 22);
-            this.LevelOfDifficulty_1.Name = "LevelOfDifficulty_1";
-            this.LevelOfDifficulty_1.Size = new System.Drawing.Size(32, 19);
-            this.LevelOfDifficulty_1.TabIndex = 0;
-            this.LevelOfDifficulty_1.Text = "1";
-            this.LevelOfDifficulty_1.UseVisualStyleBackColor = true;
+            this.LevelOfDifficulty_Easy.AutoSize = true;
+            this.LevelOfDifficulty_Easy.Location = new System.Drawing.Point(6, 22);
+            this.LevelOfDifficulty_Easy.Name = "LevelOfDifficulty_Easy";
+            this.LevelOfDifficulty_Easy.Size = new System.Drawing.Size(49, 19);
+            this.LevelOfDifficulty_Easy.TabIndex = 0;
+            this.LevelOfDifficulty_Easy.Text = "Easy";
+            this.LevelOfDifficulty_Easy.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -411,15 +328,8 @@
         private CheckBox PlayZeroes;
         private CheckBox PlayCrosses;
         private GroupBox DifficultyLevel;
-        private CheckBox LevelOfDifficulty_3;
-        private CheckBox LevelOfDifficulty_2;
-        private CheckBox LevelOfDifficulty_1;
-        private CheckBox LevelOfDifficulty_4;
-        private CheckBox LevelOfDifficulty_10;
-        private CheckBox LevelOfDifficulty_9;
-        private CheckBox LevelOfDifficulty_8;
-        private CheckBox LevelOfDifficulty_7;
-        private CheckBox LevelOfDifficulty_6;
-        private CheckBox LevelOfDifficulty_5;
+        private CheckBox LevelOfDifficulty_Hard;
+        private CheckBox LevelOfDifficulty_Normal;
+        private CheckBox LevelOfDifficulty_Easy;
     }
 }

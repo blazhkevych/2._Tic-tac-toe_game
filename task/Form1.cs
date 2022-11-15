@@ -179,8 +179,8 @@ namespace task
             }
 
             // Выберите уровень сложности !.
-            if (LevelOfDifficulty_1.Checked == false && LevelOfDifficulty_2.Checked == false &&
-                LevelOfDifficulty_3.Checked == false && LevelOfDifficulty_4.Checked == false &&
+            if (LevelOfDifficulty_Easy.Checked == false && LevelOfDifficulty_Normal.Checked == false &&
+                LevelOfDifficulty_Hard.Checked == false && LevelOfDifficulty_4.Checked == false &&
                 LevelOfDifficulty_5.Checked == false && LevelOfDifficulty_6.Checked == false &&
                 LevelOfDifficulty_7.Checked == false && LevelOfDifficulty_8.Checked == false &&
                 LevelOfDifficulty_9.Checked == false && LevelOfDifficulty_10.Checked == false)
@@ -190,11 +190,11 @@ namespace task
             }
             else // Выставление уровня сложности.
             {
-                if (LevelOfDifficulty_1.Checked == true)
+                if (LevelOfDifficulty_Easy.Checked == true)
                     _game.GameDifficulty = 1;
-                else if (LevelOfDifficulty_2.Checked == true)
+                else if (LevelOfDifficulty_Normal.Checked == true)
                     _game.GameDifficulty = 2;
-                else if (LevelOfDifficulty_3.Checked == true)
+                else if (LevelOfDifficulty_Hard.Checked == true)
                     _game.GameDifficulty = 3;
                 else if (LevelOfDifficulty_4.Checked == true)
                     _game.GameDifficulty = 4;
@@ -255,6 +255,11 @@ namespace task
                 ShowComputerMove();
             }
         }
+
+        private void LevelOfDifficulty_2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
     // Класс реализующий логику игры с компьютером.
@@ -269,7 +274,7 @@ namespace task
             set { arr[i, j] = value; }
         }
 
-        // Уровень сложности.
+        // Уровень сложности выбранный игроком на форме.
         int _gameDifficulty;
         public int GameDifficulty
         {
@@ -454,7 +459,7 @@ namespace task
                 return 3;
         }
 
-        // Метод делает рандомный ход компьютера в свободную ячейку. Игра "Крестики-нолики".
+        // Метод выдает случайные координаты для хода компьютера в свободную ячейку. 
         void PcRandMove()
         {
             Random random = new Random();
@@ -468,12 +473,18 @@ namespace task
             arr[point.X, point.Y] = PcLetter;
         }
 
-        // Метод определяющая сложность игры. Игра "Крестики-нолики".
+        // Метод определяющий сложность игры. 
         int GameDiff()
         {
             Random random = new Random();
-            Point point = new Point();
-            return random.Next(41, 100);
+
+            if (GameDifficulty >= 1 && GameDifficulty <= 3) // Бросок от 1 до 3. // Easily
+                random.Next(1, 4);
+            else if (GameDifficulty >= 5 && GameDifficulty <=7) // Бросок от 5 до 7. // Medium
+                random.Next(5, 8);
+            else if (GameDifficulty >= 8 && GameDifficulty <= 11) // Бросок от 9 до 11. // Hard
+
+                return random.Next(41, 100);
         }
 
         // Логика хода компьютера. (выбор пользователя + )
@@ -484,7 +495,7 @@ namespace task
                 if (GameDiff() + GameDifficulty > 50)
                     arr[0, 0] = PcLetter;
                 else
-                    PcRandMove();
+                    PcRandMove(); // Ход компьютера на случайное поле в игре.
                 return 0;
             }
             else if ((arr[0, 0] == UserLetter) && (arr[0, 1] == ' ') && (arr[0, 2] == UserLetter)) // 1 горизонтальная [*_*]
