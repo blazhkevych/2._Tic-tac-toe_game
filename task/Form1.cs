@@ -481,6 +481,21 @@ namespace task
         // Средний уровень логики принятия решения компьютером. Medium (цепляет верхнюю границу Easy сложности и нижнюю границу Hard сложности).
         private void MediumLevelComputer(int gameDiff_result)
         {
+            Random random = new Random();
+            int r = random.Next(1, 10); // от 1 до 2 - легко, 3-8 средне, 9-10 - тяжело. 
+
+            if (r >= 1 && r <= 2)
+                LowLevelComputer(gameDiff_result);
+            else if (r >= 3 && r <= 8)
+            {
+
+            }
+            
+        }
+
+        // Высокий уровень логики принятия решения компьютером. Hard (цепляет нижнюю границу Medium сложности).
+        private void HardLevelComputer(int gameDiff_result)
+        {
 
         }
 
@@ -495,7 +510,7 @@ namespace task
                 {
                     if (rollResult >= 1 && rollResult <= 3)
                         LowLevelComputer(rollResult);
-                    if (rollResult >= 4)
+                    if (rollResult == 4)
                         MediumLevelComputer(rollResult);
 
 
