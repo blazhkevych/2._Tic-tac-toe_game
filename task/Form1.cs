@@ -465,7 +465,7 @@ namespace task
                 point.X = random.Next(0, 3); // Для броска от 0 до 2.
                 point.Y = random.Next(0, 3); // Для броска от 0 до 2.
             } while (arr[point.X, point.Y] != ' ');
-            arr[point.X, point.Y] = _pcLetter;
+            arr[point.X, point.Y] = PcLetter;
         }
 
         // Метод определяющая сложность игры. Игра "Крестики-нолики".
@@ -476,197 +476,197 @@ namespace task
             return random.Next(41, 100);
         }
 
-        // Логика хода компьютера.
+        // Логика хода компьютера. (выбор пользователя + )
         int LogicPcMove()
         {
-            if ((arr[0, 0] == ' ') && (arr[0, 1] == _userLetter) && (arr[0, 2] == _userLetter)) // 1 горизонтальная [_**]
+            if ((arr[0, 0] == ' ') && (arr[0, 1] == UserLetter) && (arr[0, 2] == UserLetter)) // 1 горизонтальная [_**]
             {
-                if (GameDiff() + _gameDifficulty > 50)
-                    arr[0, 0] = _pcLetter;
+                if (GameDiff() + GameDifficulty > 50)
+                    arr[0, 0] = PcLetter;
                 else
                     PcRandMove();
                 return 0;
             }
-            else if ((arr[0, 0] == _userLetter) && (arr[0, 1] == ' ') && (arr[0, 2] == _userLetter)) // 1 горизонтальная [*_*]
+            else if ((arr[0, 0] == UserLetter) && (arr[0, 1] == ' ') && (arr[0, 2] == UserLetter)) // 1 горизонтальная [*_*]
             {
-                if (GameDiff() + _gameDifficulty > 50)
-                    arr[0, 1] = _pcLetter;
+                if (GameDiff() + GameDifficulty > 50)
+                    arr[0, 1] = PcLetter;
                 else
                     PcRandMove();
                 return 0;
             }
-            else if ((arr[0, 0] == _userLetter) && (arr[0, 1] == _userLetter) && (arr[0, 2] == ' ')) // 1 горизонтальная [**_]
+            else if ((arr[0, 0] == UserLetter) && (arr[0, 1] == UserLetter) && (arr[0, 2] == ' ')) // 1 горизонтальная [**_]
             {
-                if (GameDiff() + _gameDifficulty > 50)
-                    arr[0, 2] = _pcLetter;
+                if (GameDiff() + GameDifficulty > 50)
+                    arr[0, 2] = PcLetter;
                 else
                     PcRandMove();
                 return 0;
             }
-            else if ((arr[1, 0] == ' ') && (arr[1, 1] == _userLetter) && (arr[1, 2] == _userLetter)) // 2 горизонтальная [_**]
+            else if ((arr[1, 0] == ' ') && (arr[1, 1] == UserLetter) && (arr[1, 2] == UserLetter)) // 2 горизонтальная [_**]
             {
-                if (GameDiff() + _gameDifficulty > 50)
-                    arr[1, 0] = _pcLetter;
+                if (GameDiff() + GameDifficulty > 50)
+                    arr[1, 0] = PcLetter;
                 else
                     PcRandMove();
                 return 0;
             }
-            else if ((arr[1, 0] == _userLetter) && (arr[1, 1] == ' ') && (arr[1, 2] == _userLetter)) // 2 горизонтальная [*_*]
+            else if ((arr[1, 0] == UserLetter) && (arr[1, 1] == ' ') && (arr[1, 2] == UserLetter)) // 2 горизонтальная [*_*]
             {
-                if (GameDiff() + _gameDifficulty > 50)
-                    arr[1, 1] = _pcLetter;
+                if (GameDiff() + GameDifficulty > 50)
+                    arr[1, 1] = PcLetter;
                 else
                     PcRandMove();
                 return 0;
             }
-            else if ((arr[1, 0] == _userLetter) && (arr[1, 1] == _userLetter) && (arr[1, 2] == ' ')) // 2 горизонтальная [**_]
+            else if ((arr[1, 0] == UserLetter) && (arr[1, 1] == UserLetter) && (arr[1, 2] == ' ')) // 2 горизонтальная [**_]
             {
-                if (GameDiff() + _gameDifficulty > 50)
-                    arr[1, 2] = _pcLetter;
+                if (GameDiff() + GameDifficulty > 50)
+                    arr[1, 2] = PcLetter;
                 else
                     PcRandMove();
                 return 0;
             }
-            else if ((arr[2, 0] == ' ') && (arr[2, 1] == _userLetter) && (arr[2, 2] == _userLetter)) // 3 горизонтальная [_**]
+            else if ((arr[2, 0] == ' ') && (arr[2, 1] == UserLetter) && (arr[2, 2] == UserLetter)) // 3 горизонтальная [_**]
             {
-                if (GameDiff() + _gameDifficulty > 50)
-                    arr[2, 0] = _pcLetter;
+                if (GameDiff() + GameDifficulty > 50)
+                    arr[2, 0] = PcLetter;
                 else
                     PcRandMove();
                 return 0;
             }
-            else if ((arr[2, 0] == _userLetter) && (arr[2, 1] == ' ') && (arr[2, 2] == _userLetter)) // 3 горизонтальная [*_*]
+            else if ((arr[2, 0] == UserLetter) && (arr[2, 1] == ' ') && (arr[2, 2] == UserLetter)) // 3 горизонтальная [*_*]
             {
-                if (GameDiff() + _gameDifficulty > 50)
-                    arr[2, 1] = _pcLetter;
+                if (GameDiff() + GameDifficulty > 50)
+                    arr[2, 1] = PcLetter;
                 else
                     PcRandMove();
                 return 0;
             }
-            else if ((arr[2, 0] == _userLetter) && (arr[2, 1] == _userLetter) && (arr[2, 2] == ' ')) // 3 горизонтальная [**_]
+            else if ((arr[2, 0] == UserLetter) && (arr[2, 1] == UserLetter) && (arr[2, 2] == ' ')) // 3 горизонтальная [**_]
             {
-                if (GameDiff() + _gameDifficulty > 50)
-                    arr[2, 2] = _pcLetter;
+                if (GameDiff() + GameDifficulty > 50)
+                    arr[2, 2] = PcLetter;
                 else
                     PcRandMove();
                 return 0;
             }
-            else if ((arr[0, 0] == ' ') && (arr[1, 0] == _userLetter) && (arr[2, 0] == _userLetter)) // 1 вертикальная [_**]
+            else if ((arr[0, 0] == ' ') && (arr[1, 0] == UserLetter) && (arr[2, 0] == UserLetter)) // 1 вертикальная [_**]
             {
-                if (GameDiff() + _gameDifficulty > 50)
-                    arr[0, 0] = _pcLetter;
+                if (GameDiff() + GameDifficulty > 50)
+                    arr[0, 0] = PcLetter;
                 else
                     PcRandMove();
                 return 0;
             }
-            else if ((arr[0, 0] == _userLetter) && (arr[1, 0] == ' ') && (arr[2, 0] == _userLetter)) // 1 вертикальная [*_*]
+            else if ((arr[0, 0] == UserLetter) && (arr[1, 0] == ' ') && (arr[2, 0] == UserLetter)) // 1 вертикальная [*_*]
             {
-                if (GameDiff() + _gameDifficulty > 50)
-                    arr[1, 0] = _pcLetter;
+                if (GameDiff() + GameDifficulty > 50)
+                    arr[1, 0] = PcLetter;
                 else
                     PcRandMove();
                 return 0;
             }
-            else if ((arr[0, 0] == _userLetter) && (arr[1, 0] == _userLetter) && (arr[2, 0] == ' ')) // 1 вертикальная [**_]
+            else if ((arr[0, 0] == UserLetter) && (arr[1, 0] == UserLetter) && (arr[2, 0] == ' ')) // 1 вертикальная [**_]
             {
-                if (GameDiff() + _gameDifficulty > 50)
-                    arr[2, 0] = _pcLetter;
+                if (GameDiff() + GameDifficulty > 50)
+                    arr[2, 0] = PcLetter;
                 else
                     PcRandMove();
                 return 0;
             }
-            else if ((arr[0, 1] == ' ') && (arr[1, 1] == _userLetter) && (arr[2, 1] == _userLetter)) // 2 вертикальная[_**]
+            else if ((arr[0, 1] == ' ') && (arr[1, 1] == UserLetter) && (arr[2, 1] == UserLetter)) // 2 вертикальная[_**]
             {
-                if (GameDiff() + _gameDifficulty > 50)
-                    arr[0, 1] = _pcLetter;
+                if (GameDiff() + GameDifficulty > 50)
+                    arr[0, 1] = PcLetter;
                 else
                     PcRandMove();
                 return 0;
             }
-            else if ((arr[0, 1] == _userLetter) && (arr[1, 1] == ' ') && (arr[2, 1] == _userLetter)) // 2 вертикальная[*_*]
+            else if ((arr[0, 1] == UserLetter) && (arr[1, 1] == ' ') && (arr[2, 1] == UserLetter)) // 2 вертикальная[*_*]
             {
-                if (GameDiff() + _gameDifficulty > 50)
-                    arr[1, 1] = _pcLetter;
+                if (GameDiff() + GameDifficulty > 50)
+                    arr[1, 1] = PcLetter;
                 else
                     PcRandMove();
                 return 0;
             }
-            else if ((arr[0, 1] == _userLetter) && (arr[1, 1] == _userLetter) && (arr[2, 1] == ' ')) // 2 вертикальная[**_]
+            else if ((arr[0, 1] == UserLetter) && (arr[1, 1] == UserLetter) && (arr[2, 1] == ' ')) // 2 вертикальная[**_]
             {
-                if (GameDiff() + _gameDifficulty > 50)
-                    arr[2, 1] = _pcLetter;
+                if (GameDiff() + GameDifficulty > 50)
+                    arr[2, 1] = PcLetter;
                 else
                     PcRandMove();
                 return 0;
             }
-            else if ((arr[0, 2] == ' ') && (arr[1, 2] == _userLetter) && (arr[2, 2] == _userLetter)) // 3 вертикальная [_**] 
+            else if ((arr[0, 2] == ' ') && (arr[1, 2] == UserLetter) && (arr[2, 2] == UserLetter)) // 3 вертикальная [_**] 
             {
-                if (GameDiff() + _gameDifficulty > 50)
-                    arr[0, 2] = _pcLetter;
+                if (GameDiff() + GameDifficulty > 50)
+                    arr[0, 2] = PcLetter;
                 else
                     PcRandMove();
                 return 0;
             }
-            else if ((arr[0, 2] == _userLetter) && (arr[1, 2] == ' ') && (arr[2, 2] == _userLetter)) // 3 вертикальная [*_*] 
+            else if ((arr[0, 2] == UserLetter) && (arr[1, 2] == ' ') && (arr[2, 2] == UserLetter)) // 3 вертикальная [*_*] 
             {
-                if (GameDiff() + _gameDifficulty > 50)
-                    arr[1, 2] = _pcLetter;
+                if (GameDiff() + GameDifficulty > 50)
+                    arr[1, 2] = PcLetter;
                 else
                     PcRandMove();
                 return 0;
             }
-            else if ((arr[0, 2] == _userLetter) && (arr[1, 2] == _userLetter) && (arr[2, 2] == ' ')) // 3 вертикальная [**_] 
+            else if ((arr[0, 2] == UserLetter) && (arr[1, 2] == UserLetter) && (arr[2, 2] == ' ')) // 3 вертикальная [**_] 
             {
-                if (GameDiff() + _gameDifficulty > 50)
-                    arr[2, 2] = _pcLetter;
+                if (GameDiff() + GameDifficulty > 50)
+                    arr[2, 2] = PcLetter;
                 else
                     PcRandMove();
                 return 0;
             }
-            else if ((arr[0, 0] == ' ') && (arr[1, 1] == _userLetter) && (arr[2, 2] == _userLetter)) // главная диагональ [_**]
+            else if ((arr[0, 0] == ' ') && (arr[1, 1] == UserLetter) && (arr[2, 2] == UserLetter)) // главная диагональ [_**]
             {
-                if (GameDiff() + _gameDifficulty > 50)
-                    arr[0, 0] = _pcLetter;
+                if (GameDiff() + GameDifficulty > 50)
+                    arr[0, 0] = PcLetter;
                 else
                     PcRandMove();
                 return 0;
             }
-            else if ((arr[0, 0] == _userLetter) && (arr[1, 1] == ' ') && (arr[2, 2] == _userLetter)) // главная диагональ [*_*]
+            else if ((arr[0, 0] == UserLetter) && (arr[1, 1] == ' ') && (arr[2, 2] == UserLetter)) // главная диагональ [*_*]
             {
-                if (GameDiff() + _gameDifficulty > 50)
-                    arr[1, 1] = _pcLetter;
+                if (GameDiff() + GameDifficulty > 50)
+                    arr[1, 1] = PcLetter;
                 else
                     PcRandMove();
                 return 0;
             }
-            else if ((arr[0, 0] == _userLetter) && (arr[1, 1] == _userLetter) && (arr[2, 2] == ' ')) // главная диагональ [**_]
+            else if ((arr[0, 0] == UserLetter) && (arr[1, 1] == UserLetter) && (arr[2, 2] == ' ')) // главная диагональ [**_]
             {
-                if (GameDiff() + _gameDifficulty > 50)
-                    arr[2, 2] = _pcLetter;
+                if (GameDiff() + GameDifficulty > 50)
+                    arr[2, 2] = PcLetter;
                 else
                     PcRandMove();
                 return 0;
             }
-            else if ((arr[2, 0] == ' ') && (arr[1, 1] == _userLetter) && (arr[0, 2] == _userLetter)) // вторая диагональ [_**]
+            else if ((arr[2, 0] == ' ') && (arr[1, 1] == UserLetter) && (arr[0, 2] == UserLetter)) // вторая диагональ [_**]
             {
-                if (GameDiff() + _gameDifficulty > 50)
-                    arr[2, 0] = _pcLetter;
+                if (GameDiff() + GameDifficulty > 50)
+                    arr[2, 0] = PcLetter;
                 else
                     PcRandMove();
                 return 0;
             }
-            else if ((arr[2, 0] == _userLetter) && (arr[1, 1] == ' ') && (arr[0, 2] == _userLetter)) // вторая диагональ [*_*]
+            else if ((arr[2, 0] == UserLetter) && (arr[1, 1] == ' ') && (arr[0, 2] == UserLetter)) // вторая диагональ [*_*]
             {
-                if (GameDiff() + _gameDifficulty > 50)
-                    arr[1, 1] = _pcLetter;
+                if (GameDiff() + GameDifficulty > 50)
+                    arr[1, 1] = PcLetter;
                 else
                     PcRandMove();
                 return 0;
             }
-            else if ((arr[2, 0] == _userLetter) && (arr[1, 1] == _userLetter) && (arr[0, 2] == ' ')) // вторая диагональ [**_]
+            else if ((arr[2, 0] == UserLetter) && (arr[1, 1] == UserLetter) && (arr[0, 2] == ' ')) // вторая диагональ [**_]
             {
-                if (GameDiff() + _gameDifficulty > 50)
-                    arr[0, 2] = _pcLetter;
+                if (GameDiff() + GameDifficulty > 50)
+                    arr[0, 2] = PcLetter;
                 else
                     PcRandMove();
                 return 0;
