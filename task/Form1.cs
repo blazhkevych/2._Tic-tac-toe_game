@@ -475,20 +475,32 @@ namespace task
         // Низкий уровень логики принятия решения компьютером. Easy (цепляет нижнюю границу Medium сложности).
         private void LowLevelComputer(int gameDiff_result)
         {
-            PcRandMove(); // Ход компьютера на случайное поле в игре.
+            PcRandMove(); // Ход компьютера на случайное поле в игре. 
         }
 
+        // Средний уровень логики принятия решения компьютером. Medium (цепляет верхнюю границу Easy сложности и нижнюю границу Hard сложности).
+        private void MediumLevelComputer(int gameDiff_result)
+        {
+
+        }
 
         // Логика хода компьютера.
         int LogicPcMove()
         {
-            int gameDiff_result = GameDiff();
+            int rollResult = GameDiff();
             if ((arr[0, 0] == ' ') && (arr[0, 1] == UserLetter) && (arr[0, 2] == UserLetter) ||
                 (arr[0, 0] == ' ') &&(arr[0, 1] == PcLetter) && (arr[0, 2] == PcLetter)) // 1 горизонтальная [_**]
             {
-                if (gameDiff_result >= 1 && gameDiff_result <= 4) 
-                    LowLevelComputer(gameDiff_result);
-                else if (gameDiff_result >= 4 && gameDiff_result <= 8) // Medium (цепляет верхнюю границу Easy сложности и нижнюю границу Hard сложности).
+                if (rollResult >= 1 && rollResult <= 4)
+                {
+                    if (rollResult >= 1 && rollResult <= 3)
+                        LowLevelComputer(rollResult);
+                    if (rollResult >= 4)
+                        MediumLevelComputer(rollResult);
+
+
+                }
+                else if (rollResult >= 4 && rollResult <= 8)
                 {
                     if (4)
                 }
