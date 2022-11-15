@@ -1,3 +1,4 @@
+using Microsoft.VisualBasic.Devices;
 using System.Diagnostics;
 using System.Drawing;
 using task;
@@ -471,12 +472,31 @@ namespace task
                 return 0;
         }
 
-        // Логика хода компьютера. (выбор пользователя + )
+        // Низкий уровень логики принятия решения компьютером. Easy (цепляет нижнюю границу Medium сложности).
+        private void LowLevelComputer(int gameDiff_result)
+        {
+            PcRandMove(); // Ход компьютера на случайное поле в игре.
+        }
+
+
+        // Логика хода компьютера.
         int LogicPcMove()
         {
+            int gameDiff_result = GameDiff();
             if ((arr[0, 0] == ' ') && (arr[0, 1] == UserLetter) && (arr[0, 2] == UserLetter) ||
                 (arr[0, 0] == ' ') &&(arr[0, 1] == PcLetter) && (arr[0, 2] == PcLetter)) // 1 горизонтальная [_**]
             {
+                if (gameDiff_result >= 1 && gameDiff_result <= 4) 
+                    LowLevelComputer(gameDiff_result);
+                else if (gameDiff_result >= 4 && gameDiff_result <= 8) // Medium (цепляет верхнюю границу Easy сложности и нижнюю границу Hard сложности).
+                {
+                    if (4)
+                }
+
+
+
+
+
                 if (GameDiff() == 10)
 
                     arr[0, 0] = PcLetter; // Компьютер 90% перекрывает выигрышный ход игрока или заканчивает свою линию и выигрывает.
